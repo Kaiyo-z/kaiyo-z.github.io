@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiyo's Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 設置大圖背景，讓它滿版 */
+        .hero {
+            background-image: url('your-image.jpg'); /* 替換成你上傳的圖片名稱 */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* 導航欄樣式 */
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* 內容區域的樣式 */
+        section {
+            padding: 40px;
+            margin-top: 80px; /* 讓內容區域避開固定的導航欄 */
+        }
+
+        h2 {
+            color: #444;
+        }
+
+        .work-category {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .category-item {
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .category-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top navigation bar -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Hero section with full-screen background image -->
+<div class="hero">
+    <div>
+        <h1>Kaiyo's Art Portfolio</h1>
+        <p>Unique and heartwarming pet portraits and creative works.</p>
+        <a href="#work" class="cta-button">See My Work</a>
+    </div>
+</div>
+
+<!-- About section -->
+<section id="about">
+    <h2>About</h2>
+    <p>I'm Kaiyo, a passionate artist specializing in pet portraits, enamel objects, and metal art design.</p>
+    <p>My work focuses on creating pieces that capture the essence and personality of each subject. I am always inspired by the natural world and strive to create art that is both meaningful and beautiful.</p>
+</section>
+
+<!-- Work section -->
+<section id="work">
+    <h2>Work</h2>
+    <div class="work-category">
+        <div class="category-item">
+            <h3>Clissoné</h3>
+            <p>A unique form of enameling, using intricate techniques to create stunning, colorful pieces.</p>
+            <a href="#">View Works</a>
+        </div>
+        <div class="category-item">
+            <h3>Enamel Objects</h3>
+            <p>Exploring the versatility of enamel in creating artistic and functional objects.</p>
+            <a href="#">View Works</a>
+        </div>
+        <div class="category-item">
+            <h3>Metal Art Design</h3>
+            <p>Creating beautiful and durable metal art pieces, each designed to last for generations.</p>
+            <a href="#">View Works</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact section -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>If you'd like to inquire about my work, commissions, or collaborations, feel free to reach out!</p>
+    <p>Email: <a href="mailto:kaiyo@example.com">kaiyo@example.com</a></p>
+</section>
+
+<footer>
+    &copy; 2025 Kaiyo
+</footer>
+
+</body>
+</html>
