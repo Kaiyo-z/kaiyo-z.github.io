@@ -9,47 +9,47 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth; /* 設置平滑滾動效果 */
         }
 
-        /* 設置大圖背景，讓它滿版 */
+        /* 滿版大圖 */
         .hero {
-            background-image: url('1.png'); /* 替換成你上傳的圖片名稱 */
+            background-image: url('your-image.jpg'); /* 替換為你的大圖 */
             background-size: cover;
             background-position: center;
-            height: 100vh;
-            color: white;
+            height: 100vh; /* 滿版大圖 */
             display: flex;
             justify-content: center;
             align-items: center;
+            color: white;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3em;
+            font-size: 4em;
             margin: 0;
         }
 
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.5em;
             margin-top: 10px;
         }
 
-        /* 導航欄樣式 */
+        /* 頂部導航欄 */
         nav {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            right: 20px;
             z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
             text-decoration: none;
+            margin: 10px;
             font-size: 1.2em;
         }
 
@@ -57,97 +57,145 @@
             text-decoration: underline;
         }
 
-        /* 內容區域的樣式 */
+        /* 下拉選單 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* 內容區域 */
         section {
-            padding: 40px;
-            margin-top: 80px; /* 讓內容區域避開固定的導航欄 */
+            padding: 50px;
         }
 
-        h2 {
-            color: #444;
-        }
-
-        .work-category {
+        /* 作品分類展示 */
+        .works-category {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
-            margin-top: 20px;
         }
 
         .category-item {
-            width: 30%;
+            width: 45%;
+            margin: 20px 0;
             text-align: center;
             padding: 20px;
             border: 1px solid #ddd;
-            border-radius: 5px;
             background-color: #f9f9f9;
         }
 
-        .category-item:hover {
-            background-color: #f0f0f0;
+        .category-item h3 {
+            font-size: 1.5em;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            font-size: 0.9em;
-            color: #888;
+            font-size: 1em;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-<!-- Top navigation bar -->
-<nav>
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#contact">Contact</a>
-</nav>
+<!-- 左上顯示名字和 ICON -->
+<div class="name">
+    <img src="your-icon.png" alt="Kaiyo Icon"> <!-- 這裡替換為你的 ICON -->
+    KAİYO
+</div>
 
-<!-- Hero section with full-screen background image -->
+<!-- 滿版大圖 -->
 <div class="hero">
     <div>
-        <h1>Kaiyo's Art Portfolio</h1>
-        <p>Unique and heartwarming pet portraits and creative works.</p>
-        <a href="#work" class="cta-button">See My Work</a>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Explore my work and get to know me better</p>
     </div>
 </div>
 
-<!-- About section -->
-<section id="about">
-    <h2>About</h2>
-    <p>I'm Kaiyo, a passionate artist specializing in pet portraits, enamel objects, and metal art design.</p>
-    <p>My work focuses on creating pieces that capture the essence and personality of each subject. I am always inspired by the natural world and strive to create art that is both meaningful and beautiful.</p>
-</section>
-
-<!-- Work section -->
-<section id="work">
-    <h2>Work</h2>
-    <div class="work-category">
-        <div class="category-item">
-            <h3>Clissoné</h3>
-            <p>A unique form of enameling, using intricate techniques to create stunning, colorful pieces.</p>
-            <a href="#">View Works</a>
-        </div>
-        <div class="category-item">
-            <h3>Enamel Objects</h3>
-            <p>Exploring the versatility of enamel in creating artistic and functional objects.</p>
-            <a href="#">View Works</a>
-        </div>
-        <div class="category-item">
-            <h3>Metal Art Design</h3>
-            <p>Creating beautiful and durable metal art pieces, each designed to last for generations.</p>
-            <a href="#">View Works</a>
+<!-- 右上角導航欄 -->
+<nav>
+    <a href="index.html">Home</a> <!-- Home頁面 -->
+    <a href="news.html">News</a> <!-- News頁面 -->
+    <a href="about.html">About</a> <!-- About頁面 -->
+    
+    <!-- 下拉選單 Works -->
+    <div class="dropdown">
+        <a href="#">Works</a>
+        <div class="dropdown-content">
+            <a href="illustration.html">Illustration</a>
+            <a href="pet-portraits.html">Pet Portraits</a>
+            <a href="product-design.html">Product Design</a>
+            <a href="clissone.html">Clissoné Objects & Accessories</a>
         </div>
     </div>
+
+    <a href="contact.html">Contact</a> <!-- Contact頁面 -->
+</nav>
+
+<!-- 自我介紹區域 -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>I'm Kaiyo, an artist specializing in unique art forms. Welcome to my portfolio where you can explore my work.</p>
 </section>
 
-<!-- Contact section -->
+<!-- 作品區域 -->
+<section id="illustration">
+    <h2>Illustration</h2>
+    <p>Here are some of my latest illustrations...</p>
+    <!-- 添加插畫作品 -->
+</section>
+
+<section id="pet-portraits">
+    <h2>Pet Portraits</h2>
+    <p>Personalized pet portraits capturing the essence of your furry friends.</p>
+    <!-- 添加寵物畫作品 -->
+</section>
+
+<section id="product-design">
+    <h2>Product Design</h2>
+    <p>Creative and functional product designs with artistic flair.</p>
+    <!-- 添加產品設計作品 -->
+</section>
+
+<section id="clissoné">
+    <h2>Clissoné Objects & Accessories</h2>
+    <p>Enamel objects and accessories with intricate and beautiful designs.</p>
+    <!-- 添加Clissoné作品 -->
+</section>
+
+<!-- 聯絡區域 -->
 <section id="contact">
     <h2>Contact</h2>
-    <p>If you'd like to inquire about my work, commissions, or collaborations, feel free to reach out!</p>
-    <p>Email: <a href="mailto:kaiyo@example.com">kaiyo@example.com</a></p>
+    <p>You can reach me through my Etsy, Instagram, or email.</p>
+    <p>Email: kaiyo@example.com</p>
 </section>
 
+<!-- 頁腳 -->
 <footer>
     &copy; 2025 Kaiyo
 </footer>
