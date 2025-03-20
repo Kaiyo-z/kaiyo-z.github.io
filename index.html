@@ -9,7 +9,23 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth; /* 設置平滑滾動效果 */
+            scroll-behavior: smooth;
+        }
+
+        /* 左上名字和ICON */
+        .name {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+        }
+
+        .name img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
         }
 
         /* 滿版大圖 */
@@ -17,12 +33,13 @@
             background-image: url('your-image.jpg'); /* 替換為你的大圖 */
             background-size: cover;
             background-position: center;
-            height: 100vh; /* 滿版大圖 */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
+            padding: 20px;
         }
 
         .hero h1 {
@@ -35,7 +52,7 @@
             margin-top: 10px;
         }
 
-        /* 頂部導航欄 */
+        /* 右上導航欄 */
         nav {
             position: fixed;
             top: 20px;
@@ -119,13 +136,60 @@
             background-color: #333;
             color: white;
         }
+
+        /* RWD 響應式設計 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+                margin: 5px 0;
+            }
+
+            nav {
+                top: 10px;
+                right: 10px;
+                padding: 5px;
+            }
+
+            nav a {
+                font-size: 0.9em;
+                margin: 5px;
+            }
+
+            .category-item {
+                width: 100%; /* 一欄一個 */
+                margin: 10px 0;
+            }
+
+            .name img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .name {
+                top: 10px;
+                left: 10px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            footer {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <!-- 左上顯示名字和 ICON -->
 <div class="name">
-    <img src="KAIYO.png" alt="Kaiyo Icon"> <!-- 這裡替換為你的 ICON -->
+    <img src="KAIYO.png" alt="Kaiyo Icon"> <!-- 替換為你的 ICON -->
     KAİYO
 </div>
 
@@ -139,9 +203,9 @@
 
 <!-- 右上角導航欄 -->
 <nav>
-    <a href="index.html">Home</a> <!-- Home頁面 -->
-    <a href="news.html">News</a> <!-- News頁面 -->
-    <a href="about.html">About</a> <!-- About頁面 -->
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="about.html">About</a>
     
     <!-- 下拉選單 Works -->
     <div class="dropdown">
@@ -154,16 +218,36 @@
         </div>
     </div>
 
-    <a href="#contact">Contact</a> <!-- "Contact"會跳轉到同頁的聯絡區域 -->
+    <a href="#contact">Contact</a>
 </nav>
 
+<!-- 內容區域 (你可以放作品) -->
+<section>
+    <h2>Works</h2>
+    <div class="works-category">
+        <div class="category-item">
+            <h3>Illustration</h3>
+            <p>Sample of my illustrations...</p>
+        </div>
+        <div class="category-item">
+            <h3>Pet Portraits</h3>
+            <p>Custom pet portraits...</p>
+        </div>
+        <div class="category-item">
+            <h3>Product Design</h3>
+            <p>My product designs...</p>
+        </div>
+        <div class="category-item">
+            <h3>Clissoné</h3>
+            <p>Clissoné works & accessories...</p>
+        </div>
+    </div>
+</section>
 
 <!-- 聯絡區域 -->
 <section id="contact">
     <h2>Contact</h2>
-    <!-- Instagram 連結 -->
     <p>Instagram: <a href="https://www.instagram.com/kaiyo.z" target="_blank">Follow me on Instagram</a></p>
-    <!-- Email 連結 -->
     <p>Email: <a href="mailto:kaiyozpuma@gmail.com">kaiyo@example.com</a></p>
 </section>
 
