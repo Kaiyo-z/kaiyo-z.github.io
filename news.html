@@ -1,74 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaiyo News</title>
+  <title>News - Kaiyo</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
       background-color: #fff;
       color: #333;
     }
 
-    /* 導覽列 */
-    header {
+    .name {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
 
-    header .logo {
-      font-size: 1.8em;
-      font-weight: bold;
-      letter-spacing: 2px;
+    .name img {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
     }
 
     nav a {
-      margin-left: 20px;
+      color: white;
       text-decoration: none;
-      color: #333;
-      font-size: 1em;
+      margin: 10px;
+      font-size: 1.2em;
     }
 
     nav a:hover {
-      color: hotpink;
+      text-decoration: underline;
     }
 
-    /* 主要內容 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    header {
+      background-color: #f9f9f9;
+      padding-top: 100px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+    }
+
     .container {
-      display: flex;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
     }
 
-    /* 左側內容 */
-    .main-content {
-      flex: 2;
-    }
-
     .news-post {
       margin-bottom: 40px;
-      display: flex;
-      flex-direction: column;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
     }
 
     .news-post img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
     }
 
     .news-post h2 {
-      font-size: 1.5em;
+      font-size: 1.8em;
       margin: 10px 0;
     }
 
@@ -82,74 +122,84 @@
       line-height: 1.6;
     }
 
-    /* 右側空白區 */
-    .sidebar {
-      flex: 1;
-      margin-left: 40px;
-    }
-
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9em;
-      color: #888;
-      border-top: 1px solid #ddd;
+      font-size: 1em;
+      background-color: #333;
+      color: white;
     }
 
-    /* 響應式 */
     @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
+      nav {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
       }
-      .sidebar {
-        margin-left: 0;
-        margin-top: 20px;
-      }
+
       nav a {
-        margin-left: 10px;
+        font-size: 0.9em;
+        margin: 5px;
+      }
+
+      .name img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .name {
+        top: 10px;
+        left: 10px;
+      }
+
+      header h1 {
+        font-size: 2em;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 導覽列 -->
-  <header>
-    <div class="logo">KAIYO</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#">Blog</a>
-      <a href="#">Work</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+<div class="name">
+  <img src="/KAIYO.png" alt="Kaiyo Icon">
+</div>
 
-  <!-- 主體 -->
-  <div class="container">
-    <div class="main-content">
-      <div class="news-post">
-        <img src="your-image.jpg" alt="Post Image">
-        <h2>My Solo Show Opens on August 29th, 2025</h2>
-        <div class="meta">by Kaiyo | March 22, 2025 | 3 Comments</div>
-        <p>
-          From my latest exhibition series "Journey with Memories", I’m excited to announce my solo show opening on August 29, 2025, at the Tokyo Art Space. The exhibit will include enamel pieces, pet portraits, and more...
-        </p>
-      </div>
-
-      <!-- 可以再加更多文章 -->
-    </div>
-
-    <!-- 右側空白 -->
-    <div class="sidebar">
-      <!-- 保持空白，也可以以後放分類或小工具 -->
+<nav>
+  <a href="/index.html">Home</a>
+  <a href="/news.html">News</a>
+  <a href="/about.html">About</a>
+  <div class="dropdown">
+    <a href="/works.html">Works</a>
+    <div class="dropdown-content">
+      <a href="/illustration.html">Illustration</a>
+      <a href="/pet-portraits.html">Pet Portraits</a>
+      <a href="/animation.html">Animation</a>
+      <a href="/product-design.html">Product Design</a>
+      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
     </div>
   </div>
+  <a href="/index.html#contact">Contact</a>
+</nav>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Kaiyo
-  </footer>
+<header>
+  <h1>News</h1>
+</header>
+
+<div class="container">
+  <div class="news-post">
+    <img src="/your-image.jpg" alt="Post Image">
+    <h2>My Solo Show Opens on August 29th, 2025</h2>
+    <div class="meta">by Kaiyo | March 22, 2025 | 3 Comments</div>
+    <p>
+      From my latest exhibition series "Journey with Memories", I’m excited to announce my solo show opening on August 29, 2025, at the Tokyo Art Space. The exhibit will include enamel pieces, pet portraits, and more...
+    </p>
+  </div>
+  <!-- 可以再加更多文章 -->
+</div>
+
+<footer>
+  &copy; 2025 Kaiyo
+</footer>
 
 </body>
 </html>
