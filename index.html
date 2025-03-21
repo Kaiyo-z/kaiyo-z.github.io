@@ -12,7 +12,6 @@
             scroll-behavior: smooth;
         }
 
-        /* 左上名字和ICON */
         .name {
             position: fixed;
             top: 20px;
@@ -28,9 +27,8 @@
             margin-right: 10px;
         }
 
-        /* 滿版大圖 */
         .hero {
-            background-image: url('1.png'); /* 替換為你的大圖 */
+            background-image: url('/1.png');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -52,7 +50,6 @@
             margin-top: 10px;
         }
 
-        /* 右上導航欄 */
         nav {
             position: fixed;
             top: 20px;
@@ -74,7 +71,6 @@
             text-decoration: underline;
         }
 
-        /* 下拉選單 */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -104,12 +100,10 @@
             color: black;
         }
 
-        /* 內容區域 */
         section {
             padding: 50px;
         }
 
-        /* 作品分類展示 */
         .works-category {
             display: flex;
             flex-wrap: wrap;
@@ -137,7 +131,6 @@
             color: white;
         }
 
-        /* RWD 響應式設計 */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2em;
@@ -160,7 +153,7 @@
             }
 
             .category-item {
-                width: 100%; /* 一欄一個 */
+                width: 100%;
                 margin: 10px 0;
             }
 
@@ -187,12 +180,10 @@
 </head>
 <body>
 
-<!-- 左上顯示名字和 ICON -->
 <div class="name">
-    <img src="KAIYO.png" alt="Kaiyo Icon"> <!-- 替換為你的 ICON -->
+    <img src="/KAIYO.png" alt="Kaiyo Icon">
 </div>
 
-<!-- 滿版大圖 -->
 <div class="hero">
     <div>
         <h1></h1>
@@ -200,29 +191,23 @@
     </div>
 </div>
 
-<!-- 右上角導航欄 -->
 <nav>
-    <a href="index.html">Home</a>
-    <a href="news.html">News</a>
-    <a href="about.html">About</a>
-    
-    
-    <!-- 下拉選單 Works -->
+    <a href="/index.html">Home</a>
+    <a href="/news.html">News</a>
+    <a href="/about.html">About</a>
     <div class="dropdown">
-        <a href="works.html">Works</a>
+        <a href="/works.html">Works</a>
         <div class="dropdown-content">
-            <a href="illustration.html">Illustration</a>
-            <a href="pet-portraits.html">Pet Portraits</a>
-             <a href="animation.html">Animation</a>
-            <a href="product-design.html">Product Design</a>
-            <a href="clissone.html">Clissoné Objects & Accessories</a>
+            <a href="/illustration.html">Illustration</a>
+            <a href="/pet-portraits.html">Pet Portraits</a>
+            <a href="/animation.html">Animation</a>
+            <a href="/product-design.html">Product Design</a>
+            <a href="/clissone.html">Clissoné Objects & Accessories</a>
         </div>
     </div>
-
-    <a href="#contact">Contact</a>
+    <a href="/index.html#contact">Contact</a>
 </nav>
 
-<!-- 內容區域 (你可以放作品) -->
 <section>
     <h2>Works</h2>
     <div class="works-category">
@@ -245,14 +230,12 @@
     </div>
 </section>
 
-<!-- 聯絡區域 -->
 <section id="contact">
     <h2>Contact</h2>
     <p>Instagram: <a href="https://www.instagram.com/kaiyo.z" target="_blank">Follow me on Instagram</a></p>
     <p>Email: <a href="mailto:kaiyozpuma@gmail.com">kaiyo@example.com</a></p>
 </section>
 
-<!-- 頁腳 -->
 <footer>
     &copy; 2025 Kaiyo
 </footer>
