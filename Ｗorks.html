@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,38 +12,76 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      background-color: #fff;
-      color: #333;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
-    header {
+    /* 左上名字和ICON */
+    .name {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
 
-    header .logo {
-      font-size: 1.8em;
-      font-weight: bold;
-      letter-spacing: 2px;
+    .name img {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    /* 右上導航欄 */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
     }
 
     nav a {
-      margin-left: 20px;
+      color: white;
       text-decoration: none;
-      color: #333;
-      font-size: 1em;
+      margin: 10px;
+      font-size: 1.2em;
     }
 
     nav a:hover {
-      color: hotpink;
+      text-decoration: underline;
+    }
+
+    /* 下拉選單 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+      color: black;
     }
 
     /* Swiper */
@@ -67,74 +105,107 @@
       object-fit: cover;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9em;
-      color: #888;
-      border-top: 1px solid #ddd;
+      font-size: 1em;
+      background-color: #333;
+      color: white;
     }
 
     @media (max-width: 768px) {
+      nav {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+      }
+
       nav a {
-        margin-left: 10px;
+        font-size: 0.9em;
+        margin: 5px;
+      }
+
+      .name img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .name {
+        top: 10px;
+        left: 10px;
+      }
+
+      footer {
+        font-size: 0.9em;
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">KAIYO</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="news.html">News</a>
-      <a href="about.html">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+<!-- 左上顯示名字和 ICON -->
+<div class="name">
+  <img src="KAIYO.png" alt="Kaiyo Icon">
+</div>
 
-  <!-- Swiper -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="your-image1.jpg" alt="Work 1"></div>
-      <div class="swiper-slide"><img src="your-image2.jpg" alt="Work 2"></div>
-      <div class="swiper-slide"><img src="your-image3.jpg" alt="Work 3"></div>
+<!-- 右上角導航欄 -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <div class="dropdown">
+    <a href="#">Works</a>
+    <div class="dropdown-content">
+      <a href="illustration.html">Illustration</a>
+      <a href="pet-portraits.html">Pet Portraits</a>
+      <a href="animation.html">Animation</a>
+      <a href="product-design.html">Product Design</a>
+      <a href="clissone.html">Clissoné Objects & Accessories</a>
     </div>
-    <!-- 如果要加左右箭頭 -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <!-- 分頁圓點 -->
-    <div class="swiper-pagination"></div>
   </div>
+  <a href="index.html#contact">Contact</a>
+</nav>
 
-  <footer>
-    &copy; 2025 Kaiyo
-  </footer>
+<!-- Swiper -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="your-image1.jpg" alt="Work 1"></div>
+    <div class="swiper-slide"><img src="your-image2.jpg" alt="Work 2"></div>
+    <div class="swiper-slide"><img src="your-image3.jpg" alt="Work 3"></div>
+  </div>
+  <!-- 如果要加左右箭頭 -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <!-- 分頁圓點 -->
+  <div class="swiper-pagination"></div>
+</div>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<footer>
+  &copy; 2025 Kaiyo
+</footer>
 
-  <!-- 初始化 Swiper -->
-  <script>
-    const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- 初始化 Swiper -->
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 
 </body>
 </html>
