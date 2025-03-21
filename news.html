@@ -1,116 +1,155 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Solo Show</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaiyo News</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
+      font-family: sans-serif;
+      background-color: #fff;
       color: #333;
     }
+
+    /* 導覽列 */
     header {
-      background: #fff;
-      padding: 20px;
-      border-bottom: 1px solid #ccc;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 20px 40px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    header h1 {
-      margin: 0;
-      font-family: 'Courier New', monospace;
-    }
-    nav a {
-      margin: 0 10px;
-      color: #000;
-      text-decoration: none;
+
+    header .logo {
+      font-size: 1.8em;
       font-weight: bold;
+      letter-spacing: 2px;
     }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 1em;
+    }
+
+    nav a:hover {
+      color: hotpink;
+    }
+
+    /* 主要內容 */
     .container {
       display: flex;
-      margin: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    .left {
-      width: 300px;
+
+    /* 左側內容 */
+    .main-content {
+      flex: 2;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 5px;
-    }
-    .grid img {
-      width: 100%;
-      height: auto;
-    }
-    .content {
-      margin-left: 30px;
-      max-width: 600px;
-    }
-    .content h2 {
-      margin-top: 0;
-    }
-    .social {
-      position: fixed;
-      right: 10px;
-      top: 150px;
+
+    .news-post {
+      margin-bottom: 40px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
     }
-    .social button {
-      background: #eee;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
+
+    .news-post img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .news-post h2 {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+
+    .news-post .meta {
+      color: #888;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    .news-post p {
+      line-height: 1.6;
+    }
+
+    /* 右側空白區 */
+    .sidebar {
+      flex: 1;
+      margin-left: 40px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #888;
+      border-top: 1px solid #ddd;
+    }
+
+    /* 響應式 */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+      nav a {
+        margin-left: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- 導覽列 -->
   <header>
-    <h1>ELSA MORA</h1>
+    <div class="logo">KAIYO</div>
     <nav>
-      <a href="#">BLOG/NEWS</a>
-      <a href="#">ABOUT</a>
-      <a href="#">WORK</a>
-      <a href="#">CONTACT</a>
+      <a href="index.html">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Work</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
 
+  <!-- 主體 -->
   <div class="container">
-    <div class="left">
-      <div class="grid">
-        <!-- Replace with your images -->
-        <img src="https://via.placeholder.com/70" alt="art1" />
-        <img src="https://via.placeholder.com/70" alt="art2" />
-        <img src="https://via.placeholder.com/70" alt="art3" />
-        <img src="https://via.placeholder.com/70" alt="art4" />
-        <img src="https://via.placeholder.com/70" alt="art5" />
-        <img src="https://via.placeholder.com/70" alt="art6" />
-        <img src="https://via.placeholder.com/70" alt="art7" />
-        <img src="https://via.placeholder.com/70" alt="art8" />
+    <div class="main-content">
+      <div class="news-post">
+        <img src="your-image.jpg" alt="Post Image">
+        <h2>My Solo Show Opens on August 29th, 2025</h2>
+        <div class="meta">by Kaiyo | March 22, 2025 | 3 Comments</div>
+        <p>
+          From my latest exhibition series "Journey with Memories", I’m excited to announce my solo show opening on August 29, 2025, at the Tokyo Art Space. The exhibit will include enamel pieces, pet portraits, and more...
+        </p>
       </div>
+
+      <!-- 可以再加更多文章 -->
     </div>
 
-    <div class="content">
-      <h2>My Solo Show Opens to the Public on August 29th, 2018</h2>
-      <p>by Elsa Mora | Aug 25, 2018 | 10 Comments</p>
-      <p>From the series "One Hundred And One Notions" I'm excited to announce that "Paper Weight", an exhibition of my latest work in paper, will open to the public on August 29, 2018, at the Jordan Schnitzer Museum of Art in Eugene, Oregon...</p>
+    <!-- 右側空白 -->
+    <div class="sidebar">
+      <!-- 保持空白，也可以以後放分類或小工具 -->
     </div>
   </div>
 
-  <div class="social">
-    <button>♥ 14</button>
-    <button>f 0</button>
-    <button>🐦 9</button>
-    <button>G+ 0</button>
-    <button>📌 7</button>
-  </div>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Kaiyo
+  </footer>
 
 </body>
 </html>
