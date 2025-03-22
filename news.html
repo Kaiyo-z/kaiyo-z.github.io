@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News - Kaiyo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     body {
       margin: 0;
@@ -12,6 +14,9 @@
       scroll-behavior: smooth;
       background-color: #fff;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .name {
@@ -76,8 +81,8 @@
     }
 
     .dropdown-content a:hover {
-      background-color: #ddd;
-      color: black;
+      background-color: #555;
+      color: white;
     }
 
     header {
@@ -98,6 +103,7 @@
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
+      flex: 1;
     }
 
     .news-card {
@@ -107,6 +113,11 @@
       text-align: center;
       text-decoration: none;
       color: #333;
+      transition: transform 0.3s;
+    }
+
+    .news-card:hover {
+      transform: scale(1.05);
     }
 
     .news-card img {
@@ -130,6 +141,24 @@
       font-size: 1em;
       background-color: #333;
       color: white;
+      width: 100%;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
     }
 
     @media (max-width: 768px) {
@@ -157,6 +186,10 @@
       header h1 {
         font-size: 2em;
       }
+
+      .news-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -179,7 +212,7 @@
       <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
     </div>
   </div>
-  <a href="/index.html#contact">Contact</a>
+  <a href="/contact.html">Contact</a>
 </nav>
 
 <header>
@@ -204,6 +237,11 @@
 
 <footer>
   &copy; 2025 Kaiyo
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+  </div>
 </footer>
 
 </body>
