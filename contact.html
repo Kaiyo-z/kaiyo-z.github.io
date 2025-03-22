@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Kaiyo</title>
+  <!-- 引入 Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fff;
+      background-image: url('/paper.jpg');
+      background-repeat: repeat;
+      background-size: contain;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .name {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+    }
+
+    .name img {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+      font-size: 1.2em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #555;
+      color: white;
+    }
+
+    header {
+      background-color: #f9f9f9;
+      padding-top: 100px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .contact-form button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .contact-form button:hover {
+      background-color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      background-color: #333;
+      color: white;
+      width: 100%;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+<div class="name">
+  <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
+</div>
+
+<nav>
+  <a href="/news.html">News</a>
+  <a href="/about.html">About</a>
+  <div class="dropdown">
+    <a href="/works.html">Works</a>
+    <div class="dropdown-content">
+      <a href="/illustration.html">Illustration</a>
+      <a href="/pet-portraits.html">Pet Portraits</a>
+      <a href="/animation.html">Animation</a>
+      <a href="/product-design.html">Product Design</a>
+      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+    </div>
+  </div>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<div class="content-wrapper">
+  <header>
+    <h1>Contact</h1>
+  </header>
+
+  <div class="contact-form">
+    <form action="https://formspree.io/f/{form_id}" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="_replyto" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Kaiyo
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+  </div>
+</footer>
+
+</body>
+</html>
