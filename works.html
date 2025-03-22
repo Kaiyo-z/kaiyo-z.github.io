@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品集 - Kaiyo</title>
+  <style>
+    /* 样式重置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      background-image: url('/paper.jpg');
+      background-repeat: repeat;
+      background-size: contain;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .content-wrapper {
+      flex: 1;
+    }
+    .name {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+    }
+    .name img {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+      font-size: 1.2em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #555;
+      color: white;
+    }
+    .carousel {
+      width: 80%;
+      margin: 100px auto;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      transition: opacity 0.5s ease;
+    }
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+    }
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      background-color: #333;
+      color: white;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social-icons a:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
+    @media (max-width: 768px) {
+      nav {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+      }
+      nav a {
+        font-size: 0.9em;
+        margin: 5px;
+      }
+      .name img {
+        width: 30px;
+        height: 30px;
+      }
+      .name {
+        top: 10px;
+        left: 10px;
+      }
+      .carousel {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
 
+<div class="name">
+  <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
+</div>
+
+<nav>
+  <a href="/news.html">News</a>
+  <a href="/about.html">About</a>
+  <div class="dropdown">
+    <a href="/works.html">Works</a>
+    <div class="dropdown-content">
+      <a href="/illustration.html">Illustration</a>
+      <a href="/pet-portraits.html">Pet Portraits</a>
+      <a href="/animation.html">Animation</a>
+      <a href="/product-design.html">Product Design</a>
+      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+    </div>
+  </div>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+<div class="content-wrapper">
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="/images/image1.jpg" alt="Image 1">
+      </div>
+      <div class="carousel-slide">
+        <img src="/images/image2.jpg" alt="Image 2">
+      </div>
+      <div class="carousel-slide">
+        <img src="/images/image3.jpg" alt="Image 3">
+      </div>
+      <div class="carousel-slide">
+        <img src="/images/image4.jpg" alt="Image 4">
+      </div>
+      <div class="carousel-slide">
+        <img src="/images/image5.jpg" alt="Image 5">
+      </div>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-button prev">‹</button>
+      <button class="carousel-button next">›</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Kaiyo
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://pudomade.etsy 
