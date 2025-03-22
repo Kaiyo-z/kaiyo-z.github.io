@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Kaiyo</title>
-  <!-- 加入免費的 Font Awesome CDN -->
+  <!-- 加入 Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -132,10 +132,13 @@
     .language-tabs {
       text-align: center;
       margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .language-tabs button {
-      margin: 0 10px;
+      margin: 5px;
       padding: 10px 20px;
       border: none;
       background-color: #333;
@@ -143,10 +146,11 @@
       cursor: pointer;
       border-radius: 5px;
       font-size: 1em;
+      width: 100px;
     }
 
     .language-tabs button.active {
-      background-color: #333;
+      background-color: #555;
     }
 
     .language-tabs button:hover {
@@ -168,6 +172,7 @@
       font-size: 1em;
       background-color: #333;
       color: white;
+      width: 100%;
     }
 
     .social-icons {
@@ -186,93 +191,6 @@
       opacity: 0.7;
       transform: scale(1.2);
     }
-
-    @media (max-width: 768px) {
-      nav {
-        top: 10px;
-        right: 10px;
-        padding: 5px;
-      }
-
-      nav a {
-        font-size: 0.9em;
-        margin: 5px;
-      }
-
-      .name img {
-        width: 30px;
-        height: 30px;
-      }
-
-      .name {
-        top: 10px;
-        left: 10px;
-      }
-
-      header h1 {
-        font-size: 2em;
-      }
-
-      .about-section {
-        flex-direction: column;
-      }
-
-      .about-image img {
-        width: 60%;
-        margin-bottom: 20px;
-      }
-    }
-    @media (max-width: 768px) {
-  .language-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .language-tabs button {
-    margin: 5px;
-    width: 100px;
-  }
-}
-    html, body {
-  height: 100%;
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* 保證填滿螢幕高度 */
-}
-
-.main-content {
-  flex: 1;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 1em;
-  background-color: #333;
-  color: white;
-  width: 100%;
-}
-
-.social-icons {
-  margin-top: 10px;
-}
-
-.social-icons a {
-  color: white;
-  margin: 0 10px;
-  font-size: 1.5em;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  opacity: 0.7;
-  transform: scale(1.2);
-}
-
   </style>
 </head>
 <body>
@@ -294,7 +212,7 @@ footer {
       <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
     </div>
   </div>
-  <a href="/index.html#contact">Contact</a>
+  <a href="/contact.html">Contact</a>
 </nav>
 
 <div class="content-wrapper">
@@ -341,7 +259,6 @@ footer {
           希望我的作品，能為觀看的人帶來一點溫柔，讓心情稍微變得輕鬆起來。
         </p>
       </div>
-
     </div>
   </div>
 </div>
@@ -360,38 +277,13 @@ footer {
     const contents = document.querySelectorAll('.language-content');
     const buttons = document.querySelectorAll('.tab-button');
 
-    contents.forEach(content => {
-      content.classList.remove('active');
-    });
-    buttons.forEach(button => {
-      button.classList.remove('active');
-    });
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
 
     document.getElementById(lang).classList.add('active');
     event.target.classList.add('active');
   }
-  <body>
-
-<div class="content-wrapper">
-
-  <div class="main-content">
-    <!-- 這邊是每個頁面的主要內容 -->
-  </div>
-
-  <footer>
-    &copy; 2025 Kaiyo
-    <div class="social-icons">
-      <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-      <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
-    </div>
-  </footer>
-
-</div>
-
-</body>
 </script>
 
 </body>
-  
 </html>
