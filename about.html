@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Kaiyo</title>
-  <!-- 加入 Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -165,6 +164,7 @@
       background-color: #333;
       color: white;
       width: 100%;
+      margin-top: auto;
     }
 
     .social-icons {
@@ -182,6 +182,37 @@
     .social-icons a:hover {
       opacity: 0.7;
       transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      .name img {
+        width: 40px;
+        height: 40px;
+      }
+
+      nav {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+      }
+
+      nav a {
+        font-size: 1em;
+        margin: 5px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-image img {
+        width: 60%;
+        margin-bottom: 20px;
+      }
     }
   </style>
 </head>
@@ -245,7 +276,6 @@
         以動物、自然，以及那些蘊含情感的回憶為主題，創作出能讓人感到溫暖的作品。
         希望我的作品，能為觀看的人帶來一點溫柔，讓心情稍微變得輕鬆起來。</p>
       </div>
-
     </div>
   </div>
 </div>
@@ -263,3 +293,14 @@
   function showLanguage(event, lang) {
     const contents = document.querySelectorAll('.language-content');
     const buttons = document.querySelectorAll('.tab-button');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(lang).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
