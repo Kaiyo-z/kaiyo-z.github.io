@@ -91,16 +91,57 @@
       margin: 20px 0;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
+    .about-section {
+      max-width: 1000px;
+      margin: 50px auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       padding: 0 20px;
     }
 
-    .container p {
-      line-height: 1.8;
-      margin-bottom: 20px;
+    .about-image {
+      flex: 1;
       text-align: center;
+    }
+
+    .about-image img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .about-content {
+      flex: 2;
+      padding: 20px;
+    }
+
+    .language-tabs {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .language-tabs button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .language-tabs button.active {
+      background-color: hotpink;
+    }
+
+    .language-content {
+      display: none;
+      line-height: 1.8;
+    }
+
+    .language-content.active {
+      display: block;
     }
 
     footer {
@@ -136,6 +177,15 @@
       header h1 {
         font-size: 2em;
       }
+
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-image img {
+        width: 60%;
+        margin-bottom: 20px;
+      }
     }
   </style>
 </head>
@@ -165,34 +215,38 @@
   <h1>About</h1>
 </header>
 
-<div class="container">
-  <div class="container">
-  <img src="/pumasad1.jpg" alt="Kaiyo" style="width: 200px; border-radius: 50%; display: block; margin: 0 auto 20px;">
-  <p>
-    台湾の台中出身です。大学ではジュエリーメタルデザインを専攻し、大学院ではデザイン造形を学びました。
-    イラストやものづくりが好きで、普段の生活の中で感じたことや気づいたことを大切にしながら、自分なりの形にすることを心がけています。
-    動物や自然、心に残る思い出や感情をテーマに、心がほっと温まるような作品を制作しています。
-    作品を通して、見てくださる方の心が少しでもふっと軽くなるような、温かさや癒しを届けられたら嬉しいです。
-  </p>
-  <p>
-    I’m from Taichung, Taiwan, and currently based in Japan.
-    I majored in Jewelry and Metal Design in university, and specialized in Design and Formative Arts in graduate school.
-    I enjoy illustration, as well as metal and enamel craft. I value the small feelings and discoveries I encounter in daily life, and try to turn them into my own creations.
-    With themes of animals, nature, and emotional memories, I create works that convey a sense of warmth.
-    Through my work, I hope to bring a bit of gentleness to those who see it and make their hearts feel a little lighter.
-  </p>
-  <p>
-    我來自台灣台中，目前在日本從事創作活動。
-    大學主修珠寶金屬設計，研究所時專攻設計造形。
-    平時喜歡插畫與金屬、琺瑯工藝創作，也很重視日常生活中的感受與小小的發現，並試著將這些轉化為自己的作品。
-    以動物、自然，以及那些蘊含情感的回憶為主題，創作出能讓人感到溫暖的作品。
-    希望我的作品，能為觀看的人帶來一點溫柔，讓心情稍微變得輕鬆起來。
-  </p>
-</div>
+<div class="about-section">
+  <div class="about-image">
+    <img src="/your-photo.jpg" alt="Kaiyo Photo">
+  </div>
+  <div class="about-content">
+    <div class="language-tabs">
+      <button class="tab-button active" onclick="showLanguage('jp')">日本語</button>
+      <button class="tab-button" onclick="showLanguage('en')">English</button>
+      <button class="tab-button" onclick="showLanguage('cn')">中文</button>
+    </div>
 
-<footer>
-  &copy; 2025 Kaiyo
-</footer>
+    <div id="jp" class="language-content active">
+      <p>
+        台湾の台中出身です。大学ではジュエリーメタルデザインを専攻し、大学院ではデザイン造形を学びました。
+        イラストやものづくりが好きで、普段の生活の中で感じたことや気づいたことを大切にしながら、自分なりの形にすることを心がけています。
+        動物や自然、心に残る思い出や感情をテーマに、心がほっと温まるような作品を制作しています。
+        作品を通して、見てくださる方の心が少しでもふっと軽くなるような、温かさや癒しを届けられたら嬉しいです。
+      </p>
+    </div>
 
-</body>
-</html>
+    <div id="en" class="language-content">
+      <p>
+        I’m from Taichung, Taiwan, and currently based in Japan.
+        I majored in Jewelry and Metal Design in university, and specialized in Design and Formative Arts in graduate school.
+        I enjoy illustration, as well as metal and enamel craft. I value the small feelings and discoveries I encounter in daily life, and try to turn them into my own creations.
+        With themes of animals, nature, and emotional memories, I create works that convey a sense of warmth.
+        Through my work, I hope to bring a bit of gentleness to those who see it and make their hearts feel a little lighter.
+      </p>
+    </div>
+
+    <div id="cn" class="language-content">
+      <p>
+        我來自台灣台中，目前在日本從事創作活動。
+        大學主修珠寶金屬設計，研究所時專攻設計造形。
+        平時喜歡插畫與金屬、琶瑠
