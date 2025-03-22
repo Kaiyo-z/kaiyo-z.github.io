@@ -1,243 +1,256 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaiyo's Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaiyo's Portfolio</title>
+  <!-- 加入 Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .name {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-        }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        .name img {
-            width: 80px;
-            height: 80px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
+    .content-wrapper {
+      flex: 1;
+    }
 
-        .hero {
-            background-image: url('/1.png');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    .name {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+    }
 
-        .hero h1 {
-            font-size: 4em;
-            margin: 0;
-        }
+    .name img {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
 
-        .hero p {
-            font-size: 1.5em;
-            margin-top: 10px;
-        }
+    .hero {
+      background-image: url('/1.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
 
-        nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-        }
+    .hero h1 {
+      font-size: 4em;
+      margin: 0;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 10px;
-            font-size: 1.2em;
-        }
+    .hero p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+    }
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+      font-size: 1.2em;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-            z-index: 1;
-        }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-        .dropdown-content a {
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-            display: block;
-        }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+    }
 
-        .dropdown-content a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-        section {
-            padding: 50px;
-        }
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
 
-        .works-category {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
+    .dropdown-content a:hover {
+      background-color: #ddd;
+      color: black;
+    }
 
-        .category-item {
-            width: 45%;
-            margin: 20px 0;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-        }
+    section {
+      padding: 50px;
+    }
 
-        .category-item h3 {
-            font-size: 1.5em;
-        }
+    .works-category {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 1em;
-            background-color: #333;
-            color: white;
-        }
+    .category-item {
+      width: 45%;
+      margin: 20px 0;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2em;
-            }
+    .category-item h3 {
+      font-size: 1.5em;
+    }
 
-            .hero p {
-                font-size: 1em;
-                margin: 5px 0;
-            }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      background-color: #333;
+      color: white;
+    }
 
-            nav {
-                top: 10px;
-                right: 10px;
-                padding: 5px;
-            }
+    .social-icons {
+      margin-top: 10px;
+    }
 
-            nav a {
-                font-size: 0.9em;
-                margin: 5px;
-            }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-            .category-item {
-                width: 100%;
-                margin: 10px 0;
-            }
+    .social-icons a:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
 
-            .name img {
-                width: 30px;
-                height: 30px;
-            }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
 
-            .name {
-                top: 10px;
-                left: 10px;
-            }
+      .hero p {
+        font-size: 1em;
+        margin: 5px 0;
+      }
 
-            section {
-                padding: 20px;
-            }
+      nav {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+      }
 
-            footer {
-                font-size: 0.9em;
-                padding: 10px;
-            }
-        }
-    </style>
+      nav a {
+        font-size: 0.9em;
+        margin: 5px;
+      }
+
+      .category-item {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .name img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .name {
+        top: 10px;
+        left: 10px;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      footer {
+        font-size: 0.9em;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-<div class="name">
+<div class="content-wrapper">
+  <div class="name">
     <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
-</div>
+  </div>
 
-<div class="hero">
+  <div class="hero">
     <div>
-        <h1></h1>
-        <p></p>
+      <h1></h1>
+      <p></p>
     </div>
-</div>
+  </div>
 
-<nav>
+  <nav>
     <a href="/news.html">News</a>
     <a href="/about.html">About</a>
     <div class="dropdown">
-        <a href="/works.html">Works</a>
-        <div class="dropdown-content">
-            <a href="/illustration.html">Illustration</a>
-            <a href="/pet-portraits.html">Pet Portraits</a>
-            <a href="/animation.html">Animation</a>
-            <a href="/product-design.html">Product Design</a>
-            <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
-        </div>
+      <a href="/works.html">Works</a>
+      <div class="dropdown-content">
+        <a href="/illustration.html">Illustration</a>
+        <a href="/pet-portraits.html">Pet Portraits</a>
+        <a href="/animation.html">Animation</a>
+        <a href="/product-design.html">Product Design</a>
+        <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+      </div>
     </div>
     <a href="/index.html#contact">Contact</a>
-</nav>
+  </nav>
 
-<section>
-    <h2>Works</h2>
-    <div class="works-category">
-        <div class="category-item">
-            <h3>Illustration</h3>
-            <p>Sample of my illustrations...</p>
-        </div>
-        <div class="category-item">
-            <h3>Pet Portraits</h3>
-            <p>Custom pet portraits...</p>
-        </div>
-        <div class="category-item">
-            <h3>Product Design</h3>
-            <p>My product designs...</p>
-        </div>
-        <div class="category-item">
-            <h3>Clissoné</h3>
-            <p>Clissoné works & accessories...</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
+  <section id="contact">
     <h2>Contact</h2>
     <p>Instagram: <a href="https://www.instagram.com/kaiyo.z" target="_blank">Follow me on Instagram</a></p>
-    <p>Email: <a href="mailto:kaiyozpuma@gmail.com">kaiyo@example.com</a></p>
-</section>
+    <p>Email: <a href="mailto:kaiyozpuma@gmail.com">kaiyozpuma@gmail.com</a></p>
+  </section>
+</div>
 
 <footer>
-    &copy; 2025 Kaiyo
+  &copy; 2025 Kaiyo
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+  </div>
 </footer>
 
 </body>
