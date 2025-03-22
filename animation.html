@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animation - Kaiyo</title>
+  <!-- 引入 Font Awesome 用於社群媒體圖示 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- 引入 Lightbox2 用於圖片燈箱效果 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
   <style>
     body {
@@ -14,7 +17,6 @@
       background-color: #fff;
       color: #333;
     }
-
     .name {
       position: fixed;
       top: 20px;
@@ -23,14 +25,12 @@
       display: flex;
       align-items: center;
     }
-
     .name img {
       width: 80px;
       height: 80px;
       margin-right: 10px;
       cursor: pointer;
     }
-
     nav {
       position: fixed;
       top: 20px;
@@ -40,23 +40,19 @@
       padding: 10px;
       border-radius: 5px;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       margin: 10px;
       font-size: 1.2em;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     .dropdown {
       position: relative;
       display: inline-block;
     }
-
     .dropdown-content {
       display: none;
       position: absolute;
@@ -64,57 +60,47 @@
       min-width: 160px;
       z-index: 1;
     }
-
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .dropdown-content a {
       color: white;
       padding: 10px;
       text-decoration: none;
       display: block;
     }
-
     .dropdown-content a:hover {
-      background-color: #ddd;
-      color: black;
+      background-color: #555;
+      color: white;
     }
-
     header {
       background-color: #f9f9f9;
       padding-top: 100px;
       text-align: center;
     }
-
     header h1 {
       font-size: 2.5em;
       margin: 20px 0;
     }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 40px 20px;
     }
-
     .gallery-item {
       width: 300px;
       margin: 15px;
       text-align: center;
     }
-
     .gallery-item img {
       width: 100%;
       border: 1px solid #ccc;
       cursor: pointer;
     }
-
     .gallery-item p {
       margin-top: 10px;
     }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -122,29 +108,38 @@
       background-color: #333;
       color: white;
     }
-
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social-icons a:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
     @media (max-width: 768px) {
       nav {
         top: 10px;
         right: 10px;
         padding: 5px;
       }
-
       nav a {
         font-size: 0.9em;
         margin: 5px;
       }
-
       .name img {
         width: 30px;
         height: 30px;
       }
-
       .name {
         top: 10px;
         left: 10px;
       }
-
       header h1 {
         font-size: 2em;
       }
@@ -178,26 +173,25 @@
 </header>
 
 <section class="gallery">
+  <!-- 在這裡添加您的動畫作品 -->
   <div class="gallery-item">
-    <a href="/a1.mp4" data-lightbox="animation" data-title="Animation Work 1">
-      <img src="/a1.GIF" alt="Animation Work 1">
+    <a href="/a1.mp4" data-lightbox="animation" data-title="Whack a mole /モグラたたき / 腦洞">
+      <img src="/a1.GIF" alt="Whack a mole /モグラたたき / 腦洞">
     </a>
     <p>Whack a mole /モグラたたき / 腦洞</p>
-    <p>Music Arranger:Kaiyu Lee</p>
+    <p>Music Arranger: Kaiyu Lee</p>
   </div>
   <div class="gallery-item">
-    <a href="/a2.mp4" data-lightbox="animation" data-title="Animation Work 2">
-      <img src="/a2.gif" alt="Animation Work 2">
+    <a href="/a2.mp4" data-lightbox="animation" data-title="Just keep breathing / 呼吸すれば良い / 只要呼吸就好">
+      <img src="/a2.gif" alt="Just keep breathing / 呼吸すれば良い / 只要呼吸就好">
     </a>
-    <p>Just keep breathing / 呼吸すれば良い / 只要呼吸就好 </p>
-    <p>Music Arranger:Kaiyu Lee</p>
+    <p>Just keep breathing / 呼吸すれば良い / 只要呼吸就好</p>
+    <p>Music Arranger: Kaiyu Lee</p>
   </div>
+  <!-- 如需添加更多作品，請複製上述結構並替換相應的文件路徑和描述 -->
 </section>
 
 <footer>
   &copy; 2025 Kaiyo
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-</body>
-</html>
+  <div class="social-icons">
+    <a href 
