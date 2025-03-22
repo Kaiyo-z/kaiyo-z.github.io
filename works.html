@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Works - Kaiyo</title>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+  <title>About - Kaiyo</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
+      background-color: #fff;
+      color: #333;
     }
 
     .name {
@@ -26,8 +24,8 @@
     }
 
     .name img {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
       margin-right: 10px;
       cursor: pointer;
     }
@@ -82,24 +80,68 @@
       color: black;
     }
 
-    .swiper {
-      width: 100%;
-      height: 90vh;
-    }
-
-    .swiper-slide {
+    header {
+      background-color: #f9f9f9;
+      padding-top: 100px;
       text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-size: cover;
-      background-position: center;
     }
 
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    header h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+    }
+
+    .about-section {
+      max-width: 1000px;
+      margin: 50px auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .about-content {
+      flex: 2;
+      padding: 20px;
+    }
+
+    .language-tabs {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .language-tabs button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .language-tabs button.active {
+      background-color: hotpink;
+    }
+
+    .language-content {
+      display: none;
+      line-height: 1.8;
+    }
+
+    .language-content.active {
+      display: block;
     }
 
     footer {
@@ -132,9 +174,17 @@
         left: 10px;
       }
 
-      footer {
-        font-size: 0.9em;
-        padding: 10px;
+      header h1 {
+        font-size: 2em;
+      }
+
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-image img {
+        width: 60%;
+        margin-bottom: 20px;
       }
     }
   </style>
@@ -161,38 +211,71 @@
   <a href="/index.html#contact">Contact</a>
 </nav>
 
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="/your-image1.jpg" alt="Work 1"></div>
-    <div class="swiper-slide"><img src="/your-image2.jpg" alt="Work 2"></div>
-    <div class="swiper-slide"><img src="/your-image3.jpg" alt="Work 3"></div>
+<header>
+  <h1>About</h1>
+</header>
+
+<div class="about-section">
+  <div class="about-image">
+    <img src="/your-photo.jpg" alt="Kaiyo Photo">
   </div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
+  <div class="about-content">
+    <div class="language-tabs">
+      <button class="tab-button active" onclick="showLanguage(event, 'jp')">日本語</button>
+      <button class="tab-button" onclick="showLanguage(event, 'en')">English</button>
+      <button class="tab-button" onclick="showLanguage(event, 'cn')">中文</button>
+    </div>
+
+    <div id="jp" class="language-content active">
+      <p>
+        台湾の台中出身です。大学ではジュエリーメタルデザインを専攻し、大学院ではデザイン造形を学びました。
+        イラストやものづくりが好きで、普段の生活の中で感じたことや気づいたことを大切にしながら、自分なりの形にすることを心がけています。
+        動物や自然、心に残る思い出や感情をテーマに、心がほっと温まるような作品を制作しています。
+        作品を通して、見てくださる方の心が少しでもふっと軽くなるような、温かさや癒しを届けられたら嬉しいです。
+      </p>
+    </div>
+
+    <div id="en" class="language-content">
+      <p>
+        I’m from Taichung, Taiwan, and currently based in Japan.
+        I majored in Jewelry and Metal Design in university, and specialized in Design and Formative Arts in graduate school.
+        I enjoy illustration, as well as metal and enamel craft. I value the small feelings and discoveries I encounter in daily life, and try to turn them into my own creations.
+        With themes of animals, nature, and emotional memories, I create works that convey a sense of warmth.
+        Through my work, I hope to bring a bit of gentleness to those who see it and make their hearts feel a little lighter.
+      </p>
+    </div>
+
+    <div id="cn" class="language-content">
+      <p>
+        我來自台灣台中，目前在日本從事創作活動。
+        大學主修珠寶金屬設計，研究所時專攻設計造形。
+        平時喜歡插畫與金屬、琺瑯工藝創作，也很重視日常生活中的感受與小小的發現，並試著將這些轉化為自己的作品。
+        以動物、自然，以及那些蘊含情感的回憶為主題，創作出能讓人感到溫暖的作品。
+        希望我的作品，能為觀看的人帶來一點溫柔，讓心情稍微變得輕鬆起來。
+      </p>
+    </div>
+  </div>
 </div>
 
 <footer>
   &copy; 2025 Kaiyo
 </footer>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+  function showLanguage(event, lang) {
+    const contents = document.querySelectorAll('.language-content');
+    const buttons = document.querySelectorAll('.tab-button');
+
+    contents.forEach(content => {
+      content.classList.remove('active');
+    });
+    buttons.forEach(button => {
+      button.classList.remove('active');
+    });
+
+    document.getElementById(lang).classList.add('active');
+    event.target.classList.add('active');
+  }
 </script>
 
 </body>
