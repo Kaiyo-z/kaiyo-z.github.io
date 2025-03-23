@@ -160,26 +160,26 @@
   <section class="gallery-item">
     <a href="/animism.html">
       <img id="animism-img" src="/anim1.jpg" alt="Animism Style">
-      <p id="animism-text">Animism Style</p>
     </a>
+    <p>Animism Style</p>
   </section>
   <section class="gallery-item">
     <a href="/playful.html">
       <img id="playful-img" src="/playful1.jpg" alt="Playful Style">
-      <p id="playful-text">Playful Style</p>
     </a>
+    <p>Playful Style</p>
   </section>
   <section class="gallery-item">
     <a href="/american.html">
       <img id="american-img" src="/american1.jpg" alt="American Cartoon Style">
-      <p id="american-text">American Cartoon Style</p>
     </a>
+    <p>American Cartoon Style</p>
   </section>
   <section class="gallery-item">
     <a href="/styleD.html">
       <img id="styleD-img" src="/styleD1.jpg" alt="Style D">
-      <p id="styleD-text">Style D</p>
     </a>
+    <p>Style D</p>
   </section>
 </div>
 
@@ -194,45 +194,24 @@
 
 <script>
   const images = {
-    animism: [
-      { src: "/anim1.jpg",  },
-      { src: "/anim2.jpg",  },
-      { src: "/anim3.jpg",  },
-      { src: "/anim4.jpg",  }
-    ],
-    playful: [
-      { src: "/playful1.jpg",  },
-      { src: "/playful2.jpg",  },
-      { src: "/playful3.jpg",  },
-      { src: "/playful4.jpg",  }
-    ],
-    american: [
-      { src: "/american1.jpg", text:  },
-      { src: "/american2.jpg", text:  },
-      { src: "/american3.jpg", text:  },
-      { src: "/american4.jpg", text:  }
-    ],
-    styleD: [
-      { src: "/styleD1.jpg", text: " },
-      { src: "/styleD2.jpg", text: " },
-      { src: "/styleD3.jpg", text: " },
-      { src: "/styleD4.jpg", text: " }
-    ]
+    animism: ["/anim1.jpg", "/anim2.jpg", "/anim3.jpg", "/anim4.jpg"],
+    playful: ["/playful1.jpg", "/playful2.jpg", "/playful3.jpg", "/playful4.jpg"],
+    american: ["/american1.jpg", "/american2.jpg", "/american3.jpg", "/american4.jpg"],
+    styleD: ["/styleD1.jpg", "/styleD2.jpg", "/styleD3.jpg", "/styleD4.jpg"]
   };
 
-  const updateGalleryItem = (imageId, textId, imageList) => {
+  const changeImage = (elementId, imageList) => {
     let currentIndex = 0;
     setInterval(() => {
       currentIndex = (currentIndex + 1) % imageList.length;
-      document.getElementById(imageId).src = imageList[currentIndex].src;
-      document.getElementById(textId).textContent = imageList[currentIndex].text;
+      document.getElementById(elementId).src = imageList[currentIndex];
     }, 3000);
   };
 
-  updateGalleryItem("animism-img", "animism-text", images.animism);
-  updateGalleryItem("playful-img", "playful-text", images.playful);
-  updateGalleryItem("american-img", "american-text", images.american);
-  updateGalleryItem("styleD-img", "styleD-text", images.styleD);
+  changeImage("animism-img", images.animism);
+  changeImage("playful-img", images.playful);
+  changeImage("american-img", images.american);
+  changeImage("styleD-img", images.styleD);
 </script>
 
 </body>
