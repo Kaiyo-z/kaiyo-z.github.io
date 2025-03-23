@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Illustration - Kaiyo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
     body {
       margin: 0;
@@ -94,7 +93,6 @@
 
     .gallery {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       padding: 40px 20px;
     }
@@ -116,13 +114,9 @@
     }
 
     .style-section {
-      display: none;
+      margin-bottom: 40px;
       padding: 40px 20px;
       text-align: center;
-    }
-
-    .style-section.active {
-      display: block;
     }
 
     .style-section h2 {
@@ -213,30 +207,54 @@
   <h1>Illustration</h1>
 </header>
 
-<section id="styleA" class="style-section active">
-  <h2>Animism</h2>
+<section class="style-section">
+  <h2><a href="/illustration_a.html">Style A</a></h2>
   <div class="gallery">
+    <!-- Replace these images with your own -->
     <div class="gallery-item">
-      <img src="/pumasad1.jpg" alt="Illustration A1">
-      <p>Illustration A1</p>
+      <img src="/pumasad1.jpg" alt="Style A Image 1">
     </div>
     <div class="gallery-item">
-      <img src="/illustration_a2.jpg" alt="Illustration A2">
-      <p>Illustration A2</p>
+      <img src="/illustration_a2.jpg" alt="Style A Image 2">
     </div>
   </div>
 </section>
 
-<section id="styleB" class="style-section">
-  <h2>風格 B</h2>
+<section class="style-section">
+  <h2><a href="/illustration_b.html">Style B</a></h2>
   <div class="gallery">
+    <!-- Replace these images with your own -->
     <div class="gallery-item">
-      <img src="/pumasad2.jpg" alt="Illustration B1">
-      <p>Illustration B1</p>
+      <img src="/pumasad2.jpg" alt="Style B Image 1">
     </div>
     <div class="gallery-item">
-      <img src="/illustration_b2.jpg" alt="Illustration B2">
-      <p>Illustration B2</p>
+      <img src="/illustration_b2.jpg" alt="Style B Image 2">
+    </div>
+  </div>
+</section>
+
+<section class="style-section">
+  <h2><a href="/illustration_c.html">Style C</a></h2>
+  <div class="gallery">
+    <!-- Replace these images with your own -->
+    <div class="gallery-item">
+      <img src="/illustration_c1.jpg" alt="Style C Image 1">
+    </div>
+    <div class="gallery-item">
+      <img src="/illustration_c2.jpg" alt="Style C Image 2">
+    </div>
+  </div>
+</section>
+
+<section class="style-section">
+  <h2><a href="/illustration_d.html">Style D</a></h2>
+  <div class="gallery">
+    <!-- Replace these images with your own -->
+    <div class="gallery-item">
+      <img src="/illustration_d1.jpg" alt="Style D Image 1">
+    </div>
+    <div class="gallery-item">
+      <img src="/illustration_d2.jpg" alt="Style D Image 2">
     </div>
   </div>
 </section>
@@ -251,21 +269,15 @@
 </footer>
 
 <script>
-  let currentStyle = "A";
-  const interval = 30000; // 30 seconds
-  const styles = ["A", "B"];
+  const styleSections = document.querySelectorAll('.style-section');
+  let currentIndex = 0;
 
   setInterval(() => {
-    currentStyle = currentStyle === "A" ? "B" : "A";
-
-    styles.forEach(style => {
-      document.getElementById(`style${style}`).classList.remove("active");
-    });
-
-    document.getElementById(`style${currentStyle}`).classList.add("active");
-  }, interval);
+    styleSections[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % styleSections.length;
+    styleSections[currentIndex].classList.add('active');
+  }, 10000); // 每10秒換一次
 </script>
 
 </body>
 </html>
-
