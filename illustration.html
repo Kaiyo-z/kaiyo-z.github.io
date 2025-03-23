@@ -116,8 +116,13 @@
     }
 
     .style-section {
+      display: none;
       padding: 40px 20px;
       text-align: center;
+    }
+
+    .style-section.active {
+      display: block;
     }
 
     .style-section h2 {
@@ -208,7 +213,7 @@
   <h1>Illustration</h1>
 </header>
 
-<section class="style-section">
+<section id="styleA" class="style-section active">
   <h2>風格 A</h2>
   <div class="gallery">
     <div class="gallery-item">
@@ -222,7 +227,7 @@
   </div>
 </section>
 
-<section class="style-section">
+<section id="styleB" class="style-section">
   <h2>風格 B</h2>
   <div class="gallery">
     <div class="gallery-item">
@@ -245,6 +250,22 @@
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+<script>
+  let currentStyle = "A";
+  const interval = 30000; // 30 seconds
+  const styles = ["A", "B"];
+
+  setInterval(() => {
+    currentStyle = currentStyle === "A" ? "B" : "A";
+
+    styles.forEach(style => {
+      document.getElementById(`style${style}`).classList.remove("active");
+    });
+
+    document.getElementById(`style${currentStyle}`).classList.add("active");
+  }, interval);
+</script>
+
 </body>
 </html>
+
