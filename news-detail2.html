@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News Detail2- Kaiyo</title>
+  <title>News Detail2 - Kaiyo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-     scroll-behavior:smooth;
+      scroll-behavior: smooth;
       background-color: #fff;
       color: #333;
     }
 
-      .name {
+    .name {
       position: fixed;
       top: 20px;
       left: 20px;
@@ -31,7 +31,7 @@
       cursor: pointer;
     }
 
-     nav {
+    nav {
       position: fixed;
       top: 20px;
       right: 20px;
@@ -69,10 +69,6 @@
       display: block;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
     .dropdown-content a {
       color: white;
       padding: 10px;
@@ -85,7 +81,6 @@
       color: black;
     }
 
-
     header {
       background-color: #f9f9f9;
       padding-top: 100px;
@@ -97,7 +92,7 @@
       margin: 20px 0;
     }
 
-    container {
+    .container {
       max-width: 800px;
       margin: 40px auto;
       padding: 0 20px;
@@ -110,17 +105,29 @@
       text-align: center;
     }
 
-     .content img {
-      width: 150;
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .content img {
+      width: 100%;
+      max-width: 300px;
       height: auto;
-      margin: 20px 0;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      object-fit: cover;
     }
 
     .content p {
       line-height: 1.8;
       margin-bottom: 20px;
+      text-align: justify;
     }
-   
+
     footer {
       text-align: center;
       padding: 20px;
@@ -147,15 +154,6 @@
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1em;
-        margin: 5px 0;
-      }
-
       nav {
         top: 20px;
         right: 15px;
@@ -165,11 +163,6 @@
       nav a {
         font-size: 1em;
         margin: 5px;
-      }
-
-      .category-item {
-        width: 100%;
-        margin: 10px 0;
       }
 
       .name img {
@@ -182,20 +175,19 @@
         left: 15px;
       }
 
-      section {
-        padding: 20px;
-      }
-
       footer {
         font-size: 0.9em;
         padding: 10px;
       }
-    }
 
-    img {
-      max-width: 100%;
-      max-height: 200px;
-      object-fit: contain;
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .content img {
+        max-width: 80%;
+      }
     }
   </style>
 </head>
@@ -224,16 +216,14 @@
     <h1>2024日本七宝作家協会国際展 学生部門 奨励賞を受賞</h1>
   </header>
 
-    <div class="container">
-      <div class="meta">by Kaiyo | October 10, 2024</div>
-      
-      <div class="content">
-        <img src="/pumasad1.jpg" alt="Award Image">
-        <img src="/pumasad2.jpg" alt="Award Image">
-        <img src="/shippo.jpg" alt="Award Image"> 
-        <p>第５７回日本七宝作家協会国際展にて、学生部門奨励賞を頂きました。</p>
-      </div>
+  <div class="container">
+    <div class="meta">by Kaiyo | October 10, 2024</div>
+    <div class="content">
+      <img src="/pumasad1.jpg" alt="Award Image">
+      <img src="/pumasad2.jpg" alt="Award Image">
+      <img src="/shippo.jpg" alt="Award Image">
     </div>
+    <p>第５７回日本七宝作家協会国際展にて、学生部門奨励賞を頂きました。</p>
   </div>
 
   <footer>
