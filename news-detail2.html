@@ -11,9 +11,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
-      background-color: #fff;
-      color: #333;
-    }
+      background-image: url('/paper.jpg');
 
     .name {
       position: fixed;
@@ -107,28 +105,30 @@
 
     .content {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
     }
 
     .content img {
+      width: 100%;
       max-width: 300px;
       height: auto;
       margin: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       object-fit: cover;
+      transition: transform 0.3s ease-in-out;
     }
 
-    .image-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    .content img:hover {
+      transform: scale(1.05);
     }
 
     .content p {
       line-height: 1.8;
       margin-bottom: 20px;
+      text-align: justify;
     }
 
     footer {
@@ -183,6 +183,11 @@
         padding: 10px;
       }
 
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+
       .content img {
         max-width: 80%;
       }
@@ -217,13 +222,10 @@
   <div class="container">
     <div class="meta">by Kaiyo | October 10, 2024</div>
     <div class="content">
-      <div class="image-row">
-        <img src="/shippo.jpg" alt="Award Image">
-      </div>
-      <div class="image-row">
-        <img src="/pumasad1.jpg" alt="Award Image">
-        <img src="/pumasad2.jpg" alt="Award Image">
-      </div>
+      <img src="/pumasad1.jpg" alt="Award Image">
+      <img src="/pumasad2.jpg" alt="Award Image"><p>Puma's Adventure Diary</p>
+      <img src="/shippo.jpg" alt="Award Image"><p>Puma's Adventure Diary</p>
+      
     </div>
     <p>第５７回日本七宝作家協会国際展にて、学生部門奨励賞を頂きました。</p>
   </div>
@@ -238,3 +240,4 @@
   </footer>
 </body>
 </html>
+
