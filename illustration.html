@@ -62,33 +62,22 @@
       margin: 20px 0;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 40px;
+    .gallery {
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
     }
 
-    .grid-item {
-      position: relative;
-      cursor: pointer;
+    .gallery-item {
+      width: 300px;
+      margin: 15px;
+      text-align: center;
     }
 
-    .grid-item img {
+    .gallery-item img {
       width: 100%;
       border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .grid-item h2 {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      color: white;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 5px 10px;
-      font-size: 1.2em;
-      border-radius: 4px;
+      cursor: pointer;
     }
 
     footer {
@@ -126,7 +115,16 @@
 <nav>
   <a href="/news.html">News</a>
   <a href="/about.html">About</a>
-  <a href="/works.html">Works</a>
+  <div class="dropdown">
+    <a href="/works.html">Works</a>
+    <div class="dropdown-content">
+      <a href="/illustration.html">Illustration</a>
+      <a href="/pet-portraits.html">Pet Portraits</a>
+      <a href="/animation.html">Animation</a>
+      <a href="/product-design.html">Product Design</a>
+      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+    </div>
+  </div>
   <a href="/contact.html">Contact</a>
 </nav>
 
@@ -134,24 +132,18 @@
   <h1>Illustration</h1>
 </header>
 
-<div class="grid">
-  <div class="grid-item" onclick="location.href='/illustration_a.html';">
-    <img src="/pumasad1.jpg" alt="Animism Style">
-    <h2>Animism Style</h2>
-  </div>
-  <div class="grid-item" onclick="location.href='/illustration_b.html';">
-    <img src="/pumasad2.jpg" alt="Playful Style">
-    <h2>Playful Style</h2>
-  </div>
-  <div class="grid-item" onclick="location.href='/illustration_c.html';">
-    <img src="/illustration_c1.jpg" alt="American Cartoon Style">
-    <h2>American Cartoon Style</h2>
-  </div>
-  <div class="grid-item" onclick="location.href='/illustration_d.html';">
-    <img src="/illustration_d1.jpg" alt="Style D">
-    <h2>Style D</h2>
-  </div>
-</div>
+<section id="animism" class="gallery-item">
+  <img id="animism-img" src="/pumasad1.jpg" alt="Animism Image">
+</section>
+<section id="playful" class="gallery-item">
+  <img id="playful-img" src="/playful1.jpg" alt="Playful Image">
+</section>
+<section id="american" class="gallery-item">
+  <img id="american-img" src="/american1.jpg" alt="American Cartoon Image">
+</section>
+<section id="styleD" class="gallery-item">
+  <img id="styleD-img" src="/styleD1.jpg" alt="Style D Image">
+</section>
 
 <footer>
   &copy; 2025 Kaiyo
@@ -161,6 +153,36 @@
     <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
   </div>
 </footer>
+
+<script>
+  const images = {
+    animism: [
+      "/pumasad1.jpg", "/pumasad2.jpg", "/pumasad3.jpg", "/pumasad4.jpg"
+    ],
+    playful: [
+      "/playful1.jpg", "/playful2.jpg", "/playful3.jpg", "/playful4.jpg"
+    ],
+    american: [
+      "/american1.jpg", "/american2.jpg", "/american3.jpg", "/american4.jpg"
+    ],
+    styleD: [
+      "/styleD1.jpg", "/styleD2.jpg", "/styleD3.jpg", "/styleD4.jpg"
+    ]
+  };
+
+  const changeImage = (elementId, imageList) => {
+    let currentIndex = 0;
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % imageList.length;
+      document.getElementById(elementId).src = imageList[currentIndex];
+    }, 3000);
+  };
+
+  changeImage("animism-img", images.animism);
+  changeImage("playful-img", images.playful);
+  changeImage("american-img", images.american);
+  changeImage("styleD-img", images.styleD);
+</script>
 
 </body>
 </html>
