@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News Detail - Kaiyo</title>
+  <title>Illustration - Kaiyo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
       background-color: #fff;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex: 1;
     }
 
     .name {
@@ -68,18 +75,6 @@
       display: block;
     }
 
-    .dropdown-content a {
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-
     header {
       background-color: #f9f9f9;
       padding-top: 100px;
@@ -91,30 +86,6 @@
       margin: 20px 0;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .meta {
-      color: #888;
-      font-size: 0.9em;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .content img {
-      width: 100%;
-      height: auto;
-      margin: 20px 0;
-    }
-
-    .content p {
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -123,32 +94,24 @@
       color: white;
     }
 
-   @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
-      }
+    .social-icons {
+      margin-top: 10px;
+    }
 
-      .hero p {
-        font-size: 1em;
-        margin: 5px 0;
-      }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-      nav {
-        top: 20px;
-        right: 15px;
-        padding: 5px;
-      }
+    .social-icons a:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
 
-      nav a {
-        font-size: 1em;
-        margin: 5px;
-      }
-
-      .category-item {
-        width: 100%;
-        margin: 10px 0;
-      }
-
+    @media (max-width: 768px) {
       .name img {
         width: 60px;
         height: 60px;
@@ -159,41 +122,46 @@
         left: 15px;
       }
 
-      section {
-        padding: 20px;
+      nav {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+      }
+
+      nav a {
+        font-size: 1em;
       }
 
       footer {
-        font-size: 0.9em;
         padding: 10px;
+        font-size: 0.9em;
       }
     }
   </style>
 </head>
 <body>
-
-<div class="name">
-  <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
-</div>
-
-<nav>
-  <a href="/news.html">News</a>
-  <a href="/about.html">About</a>
-  <div class="dropdown">
-    <a href="/works.html">Works</a>
-    <div class="dropdown-content">
-      <a href="/illustration.html">Illustration</a>
-      <a href="/pet-portraits.html">Pet Portraits</a>
-      <a href="/animation.html">Animation</a>
-      <a href="/product-design.html">Product Design</a>
-      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
-    </div>
+  <div class="name">
+    <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
   </div>
-  <a href="/index.html#contact">Contact</a>
-</nav>
 
-<header>
-  <h1>日本七宝作家協会国際展 学生部門 契励賞を受賞</h1>
+  <nav>
+    <a href="/news.html">News</a>
+    <a href="/about.html">About</a>
+    <div class="dropdown">
+      <a href="/works.html">Works</a>
+      <div class="dropdown-content">
+        <a href="/illustration.html">Illustration</a>
+        <a href="/pet-portraits.html">Pet Portraits</a>
+        <a href="/animation.html">Animation</a>
+        <a href="/product-design.html">Product Design</a>
+        <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+      </div>
+    </div>
+    <a href="/contact.html">Contact</a>
+  </nav>
+
+  <header>
+  <h1>2024日本七宝作家協会国際展 学生部門 奨励賞を受賞</h1>
 </header>
 
 <div class="container">
@@ -203,18 +171,21 @@
     <img src="/pumasad1.jpg" alt="Award Image">
     <img src="/pumasad2.jpg" alt="Award Image">
     <img src="/shippo.jpg" alt="Award Image"> 
-    <p>第５７回日本七宝作家協会国際展にて、学生部門契励賞を頂きました。</p>
+    <p>第５７回日本七宝作家協会国際展にて、学生部門奨励賞を頂きました。</p>
   </div>
 </div>
 
-<footer>
-  &copy; 2025 Kaiyo
-  <div class="social-icons">
-    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+  <div class="content">
+    <!-- Add your main content here -->
   </div>
-</footer>
 
+  <footer>
+    &copy; 2025 Kaiyo
+    <div class="social-icons">
+      <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+      <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+    </div>
+  </footer>
 </body>
 </html>
