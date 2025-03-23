@@ -12,6 +12,13 @@
       font-family: Arial, sans-serif;
       background-color: #fff;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex: 1;
     }
 
     .name {
@@ -44,8 +51,7 @@
       color: white;
       text-decoration: none;
       margin: 10px;
-      font-size: 1em; /* 調整字體大小 */
-      padding: 5px 10px; /* 增加內邊距 */
+      font-size: 1.2em;
     }
 
     nav a:hover {
@@ -60,25 +66,13 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: rgba(0, 0, 0, 0.8); /* 調整背景顏色 */
+      background-color: #333;
       min-width: 160px;
       z-index: 1;
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
-    }
-
-    .dropdown-content a {
-      color: white;
-      padding: 10px 20px; /* 調整內邊距 */
-      text-decoration: none;
-      display: block;
-      font-size: 0.9em; /* 調整字體大小 */
-    }
-
-    .dropdown-content a:hover {
-      background-color: rgba(255, 255, 255, 0.1); /* hover效果 */
     }
 
     header {
@@ -169,31 +163,33 @@
   <h1>Illustration</h1>
 </header>
 
-<div class="gallery-container">
-  <section class="gallery-item">
-    <a href="/animism.html">
-      <img id="animism-img" src="/anim1.jpg" alt="Animism Style">
-      <p id="animism-text">Animism Style</p>
-    </a>
-  </section>
-  <section class="gallery-item">
-    <a href="/playful.html">
-      <img id="playful-img" src="/playful1.jpg" alt="Playful Style">
-      <p id="playful-text">Playful Style</p>
-    </a>
-  </section>
-  <section class="gallery-item">
-    <a href="/american.html">
-      <img id="american-img" src="/american1.jpg" alt="American Cartoon Style">
-      <p id="american-text">American Cartoon Style</p>
-    </a>
-  </section>
-  <section class="gallery-item">
-    <a href="/styleD.html">
-      <img id="styleD-img" src="/styleD1.jpg" alt="Style D">
-      <p id="styleD-text">Style D</p>
-    </a>
-  </section>
+<div class="content">
+  <div class="gallery-container">
+    <section class="gallery-item">
+      <a href="/animism.html">
+        <img id="animism-img" src="/anim1.jpg" alt="Animism Style">
+        <p id="animism-text">Animism Style</p>
+      </a>
+    </section>
+    <section class="gallery-item">
+      <a href="/playful.html">
+        <img id="playful-img" src="/playful1.jpg" alt="Playful Style">
+        <p id="playful-text">Playful Style</p>
+      </a>
+    </section>
+    <section class="gallery-item">
+      <a href="/american.html">
+        <img id="american-img" src="/american1.jpg" alt="American Cartoon Style">
+        <p id="american-text">American Cartoon Style</p>
+      </a>
+    </section>
+    <section class="gallery-item">
+      <a href="/styleD.html">
+        <img id="styleD-img" src="/styleD1.jpg" alt="Style D">
+        <p id="styleD-text">Style D</p>
+      </a>
+    </section>
+  </div>
 </div>
 
 <footer>
@@ -208,44 +204,31 @@
 <script>
   const images = {
     animism: [
-      { src: "/anim1.jpg", text: "Animism Style" },
-      { src: "/anim2.jpg", text: "Animism Style" },
-      { src: "/anim3.jpg", text: "Animism Style" },
-      { src: "/anim4.jpg", text: "Animism Style" }
+      "/anim1.jpg", "/anim2.jpg", "/anim3.jpg", "/anim4.jpg"
     ],
     playful: [
-      { src: "/playful1.jpg", text: "Playful Style" },
-      { src: "/playful2.jpg", text: "Playful Style" },
-      { src: "/playful3.jpg", text: "Playful Style" },
-      { src: "/playful4.jpg", text: "Playful Style" }
+      "/playful1.jpg", "/playful2.jpg", "/playful3.jpg", "/playful4.jpg"
     ],
     american: [
-      { src: "/american1.jpg", text: "American Cartoon Style" },
-      { src: "/american2.jpg", text: "American Cartoon Style" },
-      { src: "/american3.jpg", text: "American Cartoon Style" },
-      { src: "/american4.jpg", text: "American Cartoon Style" }
+      "/american1.jpg", "/american2.jpg", "/american3.jpg", "/american4.jpg"
     ],
     styleD: [
-      { src: "/styleD1.jpg", text: "Style D" },
-      { src: "/styleD2.jpg", text: "Style D" },
-      { src: "/styleD3.jpg", text: "Style D" },
-      { src: "/styleD4.jpg", text: "Style D" }
+      "/styleD1.jpg", "/styleD2.jpg", "/styleD3.jpg", "/styleD4.jpg"
     ]
   };
 
-  const updateGalleryItem = (imageId, textId, imageList) => {
+  const updateGalleryItem = (imageId, imageList) => {
     let currentIndex = 0;
     setInterval(() => {
       currentIndex = (currentIndex + 1) % imageList.length;
-      document.getElementById(imageId).src = imageList[currentIndex].src;
-      document.getElementById(textId).textContent = imageList[currentIndex].text;
+      document.getElementById(imageId).src = imageList[currentIndex];
     }, 3000);
   };
 
-  updateGalleryItem("animism-img", "animism-text", images.animism);
-  updateGalleryItem("playful-img", "playful-text", images.playful);
-  updateGalleryItem("american-img", "american-text", images.american);
-  updateGalleryItem("styleD-img", "styleD-text", images.styleD);
+  updateGalleryItem("animism-img", images.animism);
+  updateGalleryItem("playful-img", images.playful);
+  updateGalleryItem("american-img", images.american);
+  updateGalleryItem("styleD-img", images.styleD);
 </script>
 
 </body>
