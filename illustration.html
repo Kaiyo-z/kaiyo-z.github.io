@@ -51,35 +51,6 @@
       text-decoration: underline;
     }
 
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #333;
-      min-width: 160px;
-      z-index: 1;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-
     header {
       background-color: #f9f9f9;
       padding-top: 100px;
@@ -91,37 +62,33 @@
       margin: 20px 0;
     }
 
-    .gallery {
-      display: flex;
-      justify-content: center;
-      padding: 40px 20px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px;
     }
 
-    .gallery-item {
-      width: 300px;
-      margin: 15px;
-      text-align: center;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      border: 1px solid #ccc;
+    .grid-item {
+      position: relative;
       cursor: pointer;
     }
 
-    .gallery-item p {
-      margin-top: 10px;
+    .grid-item img {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
 
-    .style-section {
-      margin-bottom: 40px;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .style-section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
+    .grid-item h2 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+      font-size: 1.2em;
+      border-radius: 4px;
     }
 
     footer {
@@ -148,37 +115,6 @@
       opacity: 0.7;
       transform: scale(1.2);
     }
-
-    @media (max-width: 768px) {
-      nav {
-        top: 10px;
-        right: 10px;
-        padding: 5px;
-      }
-
-      nav a {
-        font-size: 0.9em;
-        margin: 5px;
-      }
-
-      .name img {
-        width: 30px;
-        height: 30px;
-      }
-
-      .name {
-        top: 10px;
-        left: 10px;
-      }
-
-      header h1 {
-        font-size: 2em;
-      }
-
-      .gallery-item {
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
@@ -190,16 +126,7 @@
 <nav>
   <a href="/news.html">News</a>
   <a href="/about.html">About</a>
-  <div class="dropdown">
-    <a href="/works.html">Works</a>
-    <div class="dropdown-content">
-      <a href="/illustration.html">Illustration</a>
-      <a href="/pet-portraits.html">Pet Portraits</a>
-      <a href="/animation.html">Animation</a>
-      <a href="/product-design.html">Product Design</a>
-      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
-    </div>
-  </div>
+  <a href="/works.html">Works</a>
   <a href="/contact.html">Contact</a>
 </nav>
 
@@ -207,57 +134,24 @@
   <h1>Illustration</h1>
 </header>
 
-<section class="style-section">
-  <h2><a href="/illustration_a.html">Animism style</a></h2>
-  <div class="gallery">
-    <!-- Replace these images with your own -->
-    <div class="gallery-item">
-      <img src="/pumasad1.jpg" alt="Style A Image 1">
-    </div>
-    <div class="gallery-item">
-      <img src="/illustration_a2.jpg" alt="Style A Image 2">
-    </div>
+<div class="grid">
+  <div class="grid-item" onclick="location.href='/illustration_a.html';">
+    <img src="/pumasad1.jpg" alt="Animism Style">
+    <h2>Animism Style</h2>
   </div>
-</section>
-
-<section class="style-section">
-  <h2><a href="/illustration_b.html">Playful style:</a></h2>
-  <div class="gallery">
-    <!-- Replace these images with your own -->
-    <div class="gallery-item">
-      <img src="/pumasad2.jpg" alt="Style B Image 1">
-    </div>
-    <div class="gallery-item">
-      <img src="/illustration_b2.jpg" alt="Style B Image 2">
-    </div>
+  <div class="grid-item" onclick="location.href='/illustration_b.html';">
+    <img src="/pumasad2.jpg" alt="Playful Style">
+    <h2>Playful Style</h2>
   </div>
-</section>
-
-<section class="style-section">
-  <h2><a href="/illustration_c.html">American cartoon style</a></h2>
-  <div class="gallery">
-    <!-- Replace these images with your own -->
-    <div class="gallery-item">
-      <img src="/illustration_c1.jpg" alt="Style C Image 1">
-    </div>
-    <div class="gallery-item">
-      <img src="/illustration_c2.jpg" alt="Style C Image 2">
-    </div>
+  <div class="grid-item" onclick="location.href='/illustration_c.html';">
+    <img src="/illustration_c1.jpg" alt="American Cartoon Style">
+    <h2>American Cartoon Style</h2>
   </div>
-</section>
-
-<section class="style-section">
-  <h2><a href="/illustration_d.html">Style D</a></h2>
-  <div class="gallery">
-    <!-- Replace these images with your own -->
-    <div class="gallery-item">
-      <img src="/illustration_d1.jpg" alt="Style D Image 1">
-    </div>
-    <div class="gallery-item">
-      <img src="/illustration_d2.jpg" alt="Style D Image 2">
-    </div>
+  <div class="grid-item" onclick="location.href='/illustration_d.html';">
+    <img src="/illustration_d1.jpg" alt="Style D">
+    <h2>Style D</h2>
   </div>
-</section>
+</div>
 
 <footer>
   &copy; 2025 Kaiyo
@@ -267,17 +161,6 @@
     <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
   </div>
 </footer>
-
-<script>
-  const styleSections = document.querySelectorAll('.style-section');
-  let currentIndex = 0;
-
-  setInterval(() => {
-    styleSections[currentIndex].classList.remove('active');
-    currentIndex = (currentIndex + 1) % styleSections.length;
-    styleSections[currentIndex].classList.add('active');
-  }, 10000); // 每10秒換一次
-</script>
 
 </body>
 </html>
