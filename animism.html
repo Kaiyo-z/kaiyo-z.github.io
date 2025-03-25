@@ -292,7 +292,7 @@
     </div>
   </div>
 
-  <footer>
+   <footer>
     &copy; 2025 Kaiyo
     <div class="social-icons">
       <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -358,6 +358,10 @@
       const data = translations[currentIndex];
       document.getElementById('lightbox-title').textContent = data.title[currentLang] || data.title.en;
       document.getElementById('lightbox-description').textContent = data.description[currentLang] || data.description.en;
+
+      document.querySelectorAll('.caption').forEach(el => {
+        el.textContent = el.dataset[currentLang] || el.dataset.en;
+      });
     }
 
     function closeLightbox(e) {
@@ -383,11 +387,6 @@
     function changeLanguage(lang) {
       currentLang = lang;
       updateCaption();
-
-      // 更新圖片下的 p 標籤標題
-      document.querySelectorAll('.caption').forEach(el => {
-        el.textContent = el.dataset[lang] || el.dataset.en;
-      });
     }
 
     document.addEventListener('keydown', function(e) {
@@ -397,6 +396,30 @@
       if (e.key === 'ArrowLeft') prevImage();
       if (e.key === 'Escape') lightbox.classList.remove('active');
     });
+
+    // 👇 加入手機滑動功能
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const lightbox = document.getElementById("lightbox");
+    lightbox.addEventListener("touchstart", function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener("touchend", function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    });
+
+    function handleGesture() {
+      const threshold = 50;
+      if (touchEndX < touchStartX - threshold) {
+        nextImage();
+      }
+      if (touchEndX > touchStartX + threshold) {
+        prevImage();
+      }
+    }
   </script>
 </body>
 </html>
