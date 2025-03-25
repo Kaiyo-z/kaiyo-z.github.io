@@ -405,14 +405,7 @@
       title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
       desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
 
-      // 顯示目前的 caption，隱藏其他
-      if (index === currentIndex) {
-        caption.style.display = 'block';
-      } else {
-        caption.style.display = 'none';
-      }
-    });
-  }
+     
 
   function changeLang(lang) {
     currentLang = lang;
