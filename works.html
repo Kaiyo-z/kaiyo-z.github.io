@@ -123,7 +123,26 @@
 
     .carousel-track {
       display: flex;
-      transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      text-align: center;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .caption {
+      margin-top: 10px;
+    }
+
+    .caption h2, .caption p {
+      margin: 5px;
     }
 
     .carousel-dots {
@@ -144,27 +163,6 @@
 
     .carousel-dots .dot.active {
       background-color: #333;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      text-align: center;
-      opacity: 1;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .caption {
-      margin-top: 10px;
-    }
-
-    .caption h2, .caption p {
-      margin: 5px;
     }
 
     .carousel-nav {
@@ -212,36 +210,23 @@
     }
 
     @media (max-width: 768px) {
-      nav {
-        top: 20px;
-        right: 15px;
-        padding: 5px;
+      .carousel-button {
+        padding: 6px 12px;
       }
-
-      nav a {
-        font-size: 1em;
-        margin: 5px;
-      }
-
       .name img {
         width: 60px;
         height: 60px;
       }
-
-      .name {
-        top: 10px;
-        left: 15px;
-      }
-
-      .carousel-button {
-        padding: 6px 12px;
+      nav a {
+        font-size: 1em;
+        margin: 5px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="name">
+<div class="name">
   <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
 </div>
 
@@ -264,7 +249,6 @@
 <header>
   <h1 id="works-title" data-en="Works" data-ja="作品" data-zh="作品集">Works</h1>
 </header>
-
 <div class="lang-switch">
   <button onclick="changeLang('en')">EN</button>
   <button onclick="changeLang('ja')">日本語</button>
@@ -281,8 +265,7 @@
 
 <div class="carousel">
   <div class="carousel-track">
-    <!-- 重複的 slide 內容略去，請保留你原本的五個 slide，不用改動 -->
-    <!-- 以 Slide 1 為例 -->
+    <!-- Slide 1 -->
     <div class="carousel-slide">
       <img src="https://via.placeholder.com/800x500?text=Illustration" alt="Illustration">
       <div class="caption"
@@ -296,7 +279,8 @@
         <p class="caption-desc">Healing and playful illustrations full of personality.</p>
       </div>
     </div>
-      <!-- Slide 2 -->
+
+    <!-- Slide 2 -->
     <div class="carousel-slide">
       <img src="https://via.placeholder.com/800x500?text=Pet+Portraits" alt="Pet Portraits">
       <div class="caption"
@@ -357,6 +341,7 @@
     </div>
   </div>
 
+  <!-- Navigation buttons -->
   <div class="carousel-nav">
     <button class="carousel-button prev">‹</button>
     <button class="carousel-button next">›</button>
@@ -384,9 +369,14 @@
   let currentLang = 'en';
 
   function updateSlide() {
-    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-    updateCaptions();
+    // 淡出動畫
+    track.style.opacity = 0;
+    setTimeout(() => {
+      track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+      updateCaptions();
+      track.style.opacity = 1;
+    }, 200);
   }
 
   function goToSlide(index) {
@@ -424,6 +414,7 @@
     updateCaptions();
   }
 
+  // 預設語言設定
   document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang');
     if (savedLang) {
@@ -434,6 +425,7 @@
       else if (browserLang.startsWith('zh')) currentLang = 'zh';
     }
     updateCaptions();
+    updateSlide();
   });
 
   // 手機滑動功能
