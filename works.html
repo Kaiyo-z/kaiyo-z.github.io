@@ -385,16 +385,26 @@
   let currentLang = 'en';
 
   function updateSlide() {
-    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-    updateCaptions();
-  }
+  track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentIndex);
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentIndex);
+  });
+
+  updateCaptions();
+}
+  
 
   function goToSlide(index) {
     currentIndex = index;
     updateSlide();
   }
 
+  
   function updateCaptions() {
   titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
 
