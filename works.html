@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>作品集 - Kaiyo</title>
-  <!-- 引入 Font Awesome 样式表 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Works - Kaiyo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <style>
-    /* 样式重置 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
       font-family: Arial, sans-serif;
       background-color: #fff;
       background-image: url('/paper.jpg');
       background-repeat: repeat;
       background-size: contain;
+      margin: 0;
+      padding: 0;
       color: #333;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-    .content-wrapper {
-      flex: 1;
-    }
+
     .name {
       position: fixed;
       top: 20px;
@@ -35,12 +28,14 @@
       display: flex;
       align-items: center;
     }
+
     .name img {
       width: 80px;
       height: 80px;
       margin-right: 10px;
       cursor: pointer;
     }
+
     nav {
       position: fixed;
       top: 20px;
@@ -50,19 +45,23 @@
       padding: 10px;
       border-radius: 5px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       margin: 10px;
       font-size: 1.2em;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .dropdown {
       position: relative;
       display: inline-block;
     }
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -70,37 +69,82 @@
       min-width: 160px;
       z-index: 1;
     }
+
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
     .dropdown-content a {
       color: white;
       padding: 10px;
       text-decoration: none;
       display: block;
     }
+
     .dropdown-content a:hover {
       background-color: #555;
       color: white;
     }
-    .carousel {
-      width: 80%;
-      margin: 100px auto;
-      overflow: hidden;
-      position: relative;
+
+    header {
+      background-color: #f9f9f9;
+      padding-top: 100px;
+      text-align: center;
     }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+    }
+
+    .lang-switch {
+      text-align: center;
+      margin: 10px 0 20px;
+    }
+
+    .lang-switch button {
+      margin: 0 5px;
+      padding: 8px 16px;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .carousel {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
     .carousel-track {
       display: flex;
-      transition: transform 0.5s ease;
+      transition: transform 0.5s ease-in-out;
     }
+
     .carousel-slide {
       min-width: 100%;
-      transition: opacity 0.5s ease;
+      text-align: center;
     }
+
     .carousel-slide img {
       width: 100%;
-      display: block;
+      height: auto;
+      border-radius: 10px;
     }
+
+    .caption {
+      margin-top: 10px;
+    }
+
+    .caption h2, .caption p {
+      margin: 5px;
+    }
+
     .carousel-nav {
       position: absolute;
       top: 50%;
@@ -109,23 +153,29 @@
       justify-content: space-between;
       transform: translateY(-50%);
     }
+
     .carousel-button {
       background-color: rgba(0, 0, 0, 0.5);
       border: none;
       color: white;
       padding: 10px;
+      font-size: 1.5em;
       cursor: pointer;
     }
+
     footer {
       text-align: center;
       padding: 20px;
       font-size: 1em;
       background-color: #333;
       color: white;
+      margin-top: auto;
     }
+
     .social-icons {
       margin-top: 10px;
     }
+
     .social-icons a {
       color: white;
       margin: 0 10px;
@@ -133,20 +183,13 @@
       text-decoration: none;
       transition: 0.3s;
     }
+
     .social-icons a:hover {
       opacity: 0.7;
       transform: scale(1.2);
     }
+
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1em;
-        margin: 5px 0;
-      }
-
       nav {
         top: 20px;
         right: 15px;
@@ -156,11 +199,6 @@
       nav a {
         font-size: 1em;
         margin: 5px;
-      }
-
-      .category-item {
-        width: 100%;
-        margin: 10px 0;
       }
 
       .name img {
@@ -173,13 +211,8 @@
         left: 15px;
       }
 
-      section {
-        padding: 20px;
-      }
-
-      footer {
-        font-size: 0.9em;
-        padding: 10px;
+      .carousel-button {
+        padding: 6px 12px;
       }
     }
   </style>
@@ -206,25 +239,98 @@
   <a href="/contact.html">Contact</a>
 </nav>
 
-<div class="content-wrapper">
-  <div class="carousel">
-    <div class="carousel-track">
-      <!-- 在此处添加您的图片 -->
-      <div class="carousel-slide">
-        <img src="/images/image1.jpg" alt="Image 1">
+<header>
+  <h1 id="works-title" data-en="Works" data-ja="作品" data-zh="作品集">Works</h1>
+</header>
+
+<div class="lang-switch">
+  <button onclick="changeLang('en')">EN</button>
+  <button onclick="changeLang('ja')">日本語</button>
+  <button onclick="changeLang('zh')">中文</button>
+</div>
+
+<div class="carousel">
+  <div class="carousel-track">
+    <!-- Slide 1 -->
+    <div class="carousel-slide">
+      <img src="https://via.placeholder.com/800x500?text=Illustration" alt="Illustration">
+      <div class="caption"
+           data-en-title="Illustration"
+           data-ja-title="イラスト"
+           data-zh-title="插畫"
+           data-en-desc="Healing and playful illustrations full of personality."
+           data-ja-desc="個性豊かで癒される遊び心あるイラスト。"
+           data-zh-desc="充滿療癒與個性的可愛插畫。">
+        <h2 class="caption-title">Illustration</h2>
+        <p class="caption-desc">Healing and playful illustrations full of personality.</p>
       </div>
-      <div class="carousel-slide">
-        <img src="/images/image2.jpg" alt="Image 2">
-      </div>
-      <div class="carousel-slide">
-        <img src="/images/image3.jpg" alt="Image 3">
-      </div>
-      <!-- 添加更多图片 -->
     </div>
-    <div class="carousel-nav">
-      <button class="carousel-button prev">‹</button>
-      <button class="carousel-button next">›</button>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide">
+      <img src="https://via.placeholder.com/800x500?text=Pet+Portraits" alt="Pet Portraits">
+      <div class="caption"
+           data-en-title="Pet Portraits"
+           data-ja-title="ペットポートレート"
+           data-zh-title="寵物肖像"
+           data-en-desc="A one-of-a-kind portrait that captures your pet’s soul."
+           data-ja-desc="あなたのペットの魂を映し出す唯一無二の肖像。"
+           data-zh-desc="捕捉寵物靈魂的獨一無二肖像。">
+        <h2 class="caption-title">Pet Portraits</h2>
+        <p class="caption-desc">A one-of-a-kind portrait that captures your pet’s soul.</p>
+      </div>
     </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide">
+      <img src="https://via.placeholder.com/800x500?text=Animation" alt="Animation">
+      <div class="caption"
+           data-en-title="Animation"
+           data-ja-title="アニメーション"
+           data-zh-title="動畫"
+           data-en-desc="Emotional stories told through expressive animation."
+           data-ja-desc="感情豊かに物語を描くアニメーション作品。"
+           data-zh-desc="用動畫講述情感滿溢的故事。">
+        <h2 class="caption-title">Animation</h2>
+        <p class="caption-desc">Emotional stories told through expressive animation.</p>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="carousel-slide">
+      <img src="https://via.placeholder.com/800x500?text=Product+Design" alt="Product Design">
+      <div class="caption"
+           data-en-title="Product Design"
+           data-ja-title="プロダクトデザイン"
+           data-zh-title="產品設計"
+           data-en-desc="Playful everyday items with artistic twists."
+           data-ja-desc="遊び心のある日常プロダクト。"
+           data-zh-desc="日常中充滿趣味與美感的設計。">
+        <h2 class="caption-title">Product Design</h2>
+        <p class="caption-desc">Playful everyday items with artistic twists.</p>
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="carousel-slide">
+      <img src="https://via.placeholder.com/800x500?text=Cloisonné" alt="Cloisonné">
+      <div class="caption"
+           data-en-title="Cloisonné Objects & Accessories"
+           data-ja-title="七宝焼作品＆アクセサリー"
+           data-zh-title="琺瑯物件與飾品"
+           data-en-desc="Unique enamel creations inspired by memories and nature."
+           data-ja-desc="思い出や自然をもとにした七宝焼の表現。"
+           data-zh-desc="從回憶與自然中誕生的琺瑯創作。">
+        <h2 class="caption-title">Cloisonné Objects & Accessories</h2>
+        <p class="caption-desc">Unique enamel creations inspired by memories and nature.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="carousel-nav">
+    <button class="carousel-button prev">‹</button>
+    <button class="carousel-button next">›</button>
   </div>
 </div>
 
@@ -238,7 +344,59 @@
 </footer>
 
 <script>
-  // 轮播图功能
   const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  const 
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const title = document.getElementById('works-title');
+  let currentIndex = 0;
+  let currentLang = localStorage.getItem('preferredLang') || navigator.language.toLowerCase().startsWith('ja') ? 'ja' :
+                    navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+
+  function updateSlidePosition() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function updateCaptions() {
+    slides.forEach(slide => {
+      const caption = slide.querySelector('.caption');
+      if (!caption) return;
+      const titleText = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+      const descText = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+      caption.querySelector('.caption-title').textContent = titleText;
+      caption.querySelector('.caption-desc').textContent = descText;
+    });
+
+    // 標題也要切換語言
+    const titleMap = {
+      en: title.dataset.en,
+      ja: title.dataset.ja,
+      zh: title.dataset.zh
+    };
+    title.textContent = titleMap[currentLang] || title.dataset.en;
+  }
+
+  function changeLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('preferredLang', lang);
+    updateCaptions();
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateSlidePosition();
+    updateCaptions();
+  });
+</script>
+
+</body>
+</html>
