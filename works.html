@@ -382,6 +382,12 @@
   let currentIndex = 0;
   let currentLang = 'en';
 
+  function updateSlide() {
+    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    updateCaptions();
+  }
+
   function updateCaptions() {
     titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
     document.querySelectorAll('.caption').forEach(caption => {
@@ -392,22 +398,15 @@
     });
   }
 
-  function updateSlide() {
-    // 移除全部 slide 的 active 狀態
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[currentIndex].classList.add('active');
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
-
-    updateCaptions();
-  }
-
   function goToSlide(index) {
     currentIndex = index;
     updateSlide();
+  }
+
+  function changeLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('preferredLang', lang);
+    updateCaptions();
   }
 
   prevButton.addEventListener('click', () => {
@@ -421,15 +420,12 @@
   });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
+    dot.addEventListener('click', () => {
+      goToSlide(i);
+    });
   });
 
-  function changeLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('preferredLang', lang);
-    updateCaptions();
-  }
-
+  // 自動偵測語言或使用儲存的偏好語言
   document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang');
     if (savedLang) {
@@ -440,33 +436,30 @@
       else if (browserLang.startsWith('zh')) currentLang = 'zh';
       else currentLang = 'en';
     }
-    updateCaptions();
-    updateSlide();
+    updateSlide();     // 初始化顯示正確圖片
+    updateCaptions();  // 初始化語言對應的 caption
   });
 
- // 手機滑動（解決只能滑一次的問題）
-let touchStartX = 0;
-let touchEndX = 0;
-const threshold = 50;
+  // 手機滑動手勢
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const threshold = 50;
 
-const carousel = document.querySelector('.carousel'); // 改成整個容器
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
 
-carousel.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-carousel.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
-  const deltaX = touchEndX - touchStartX;
-  if (deltaX > threshold) {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlide();
-  } else if (deltaX < -threshold) {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlide();
-  }
-});
-
+  track.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchEndX - touchStartX;
+    if (deltaX > threshold) {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlide();
+    } else if (deltaX < -threshold) {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlide();
+    }
+  });
 </script>
 
 </body>
