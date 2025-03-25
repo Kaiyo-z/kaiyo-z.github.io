@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News Detail - Kaiyo</title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -92,6 +92,11 @@
       margin: 20px 0;
     }
 
+    .lang-switch {
+      text-align: center;
+      margin-top: 10px;
+    }
+
     .container {
       max-width: 800px;
       margin: 40px auto;
@@ -105,13 +110,13 @@
       text-align: center;
     }
 
-     .content {
+    .content {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
     }
-      
+
     .content img {
       width: 100%;
       max-width: 300px;
@@ -126,7 +131,7 @@
     .content img:hover {
       transform: scale(1.05);
     }
-    
+
     .content p {
       line-height: 1.8;
       margin-bottom: 20px;
@@ -139,9 +144,9 @@
       font-size: 1em;
       background-color: #333;
       color: white;
-   
     }
-      .social-icons {
+
+    .social-icons {
       margin-top: 10px;
     }
 
@@ -194,10 +199,10 @@
         max-width: 80%;
       }
     }
-
   </style>
 </head>
 <body>
+
 <div class="name">
   <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
 </div>
@@ -219,25 +224,72 @@
 </nav>
 
 <header>
-  <h1>Group Exhibition Opens on April 5th, 2024</h1>
+  <h1 id="news-title"
+      data-en="Group Exhibition Opens on April 5th, 2024"
+      data-ja="グループ展が2024年4月5日に開催"
+      data-zh="群展將於2024年4月5日開幕">Group Exhibition Opens on April 5th, 2024</h1>
 </header>
+
+<!-- 語言切換按鈕 -->
+<div class="lang-switch">
+  <button onclick="changeLang('en')">EN</button>
+  <button onclick="changeLang('ja')">日本語</button>
+  <button onclick="changeLang('zh')">中文</button>
+</div>
 
 <div class="container">
   <div class="meta">by Kaiyo | March 22, 2024</div>
- <div class="content">
+  <div class="content">
     <img src="/n1.jpg" alt="News Image">
     <img src="/n2.jpg" alt="News Image">
- </div>
-    <p>From the group exhibition "あちこち 超．対話", I’m happy to announce the show will open on April 5th, 2024, at biggako studio. The exhibit will feature my painting.</p>
-    </div>
+  </div>
+  <p class="news-content"
+     data-en="From the group exhibition 'あちこち 超．対話', I’m happy to announce the show will open on April 5th, 2024, at biggako studio. The exhibit will feature my painting."
+     data-ja="グループ展「あちこち 超．対話」にて、2024年4月5日からbiggako studioで開催されます。私の絵画作品も展示されます。"
+     data-zh="群展《あちこち 超．対話》將於2024年4月5日在 biggako studio 舉行，展覽中也將展出我的繪畫作品。">
+    From the group exhibition 'あちこち 超．対話', I’m happy to announce the show will open on April 5th, 2024, at biggako studio. The exhibit will feature my painting.
+  </p>
+</div>
 
- <footer>
-    &copy; 2025 Kaiyo
-    <div class="social-icons">
-      <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-      <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
-    </div>
-  </footer>
+<footer>
+  &copy; 2025 Kaiyo
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+  </div>
+</footer>
+
+<script>
+  function applyLanguage(lang) {
+    localStorage.setItem('preferredLang', lang);
+    const title = document.getElementById('news-title');
+    const content = document.querySelector('.news-content');
+    if (title && title.dataset[lang]) {
+      title.textContent = title.dataset[lang];
+    }
+    if (content && content.dataset[lang]) {
+      content.textContent = content.dataset[lang];
+    }
+  }
+
+  function changeLang(lang) {
+    applyLanguage(lang);
+  }
+
+  // 初次進入頁面：自動套用 localStorage 或偵測語言
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('preferredLang');
+    if (saved) {
+      applyLanguage(saved);
+    } else {
+      const lang = navigator.language.toLowerCase();
+      if (lang.startsWith('ja')) applyLanguage('ja');
+      else if (lang.startsWith('zh')) applyLanguage('zh');
+      else applyLanguage('en');
+    }
+  });
+</script>
+
 </body>
 </html>
