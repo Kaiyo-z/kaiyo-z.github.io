@@ -106,32 +106,39 @@
     }
 
      .content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-      
-    .content img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      margin: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      object-fit: cover;
-      transition: transform 0.3s ease-in-out;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-    .content img:hover {
-      transform: scale(1.05);
-    }
-    
-    .content p {
-      line-height: 1.8;
-      margin-bottom: 20px;
-      text-align: justify;
-    }
+.item {
+  width: 300px; /* 每張圖片固定寬度，確保三欄整齊排列 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #333;
+}
 
     footer {
       text-align: center;
@@ -184,7 +191,7 @@
         font-size: 0.9em;
         padding: 10px;
       }
-
+      
       .content {
         flex-direction: column;
         align-items: center;
