@@ -124,28 +124,21 @@
       padding: 20px;
     }
 
-    .language-tabs {
+    .language-switch {
       text-align: center;
       margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      font-size: 1.1em;
     }
 
-    .language-tabs button {
-      padding: 10px 20px;
-      border: none;
-      background-color: #333;
-      color: white;
+    .language-switch a {
+      margin: 0 10px;
       cursor: pointer;
-      border-radius: 5px;
-      font-size: 1em;
-      min-width: 100px;
+      color: #333;
+      text-decoration: none;
     }
 
-    .language-tabs button.active {
-      background-color: #555;
+    .language-switch a:hover {
+      text-decoration: underline;
     }
 
     .language-content {
@@ -184,16 +177,7 @@
       transform: scale(1.2);
     }
 
-     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1em;
-        margin: 5px 0;
-      }
-
+    @media (max-width: 768px) {
       nav {
         top: 20px;
         right: 15px;
@@ -203,11 +187,6 @@
       nav a {
         font-size: 1em;
         margin: 5px;
-      }
-
-      .category-item {
-        width: 100%;
-        margin: 10px 0;
       }
 
       .name img {
@@ -220,8 +199,12 @@
         left: 15px;
       }
 
-      section {
-        padding: 20px;
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-image img {
+        max-width: 80%;
       }
 
       footer {
@@ -263,13 +246,13 @@
       <img src="/your-photo.jpg" alt="Kaiyo Photo">
     </div>
     <div class="about-content">
-      <div class="language-tabs">
-        <button class="tab-button active" onclick="showLanguage(event, 'jp')">日本語</button>
-        <button class="tab-button" onclick="showLanguage(event, 'en')">English</button>
-        <button class="tab-button" onclick="showLanguage(event, 'cn')">中文</button>
+      <div class="language-switch">
+        <a href="#" onclick="setLanguage('en')">EN</a> /
+        <a href="#" onclick="setLanguage('ja')">日本語</a> /
+        <a href="#" onclick="setLanguage('cn')">中文</a>
       </div>
 
-      <div id="jp" class="language-content active">
+      <div id="jp" class="language-content">
         <p>こんにちわ！Kaiyoと申します。台湾の台中出身です。大学ではジュエリーメタルデザインを専攻し、大学院ではデザイン造形を学びました。
         イラストやものづくりが好きで、普段の生活の中で感じたことや気づいたことを大切にしながら、自分なりの形にすることを心がけています。
         動物や自然、心に残る思い出や感情をテーマに、心がほっと温まるような作品を制作しています。
@@ -313,37 +296,28 @@
     'zh-cn': 'cn'
   };
 
-  function showLanguageByKey(key) {
-    const allContents = document.querySelectorAll('.language-content');
-    const allButtons = document.querySelectorAll('.tab-button');
-
-    allContents.forEach(c => c.classList.remove('active'));
-    allButtons.forEach(b => b.classList.remove('active'));
-
-    const langContent = document.getElementById(key);
-    const langButton = document.querySelector(`.tab-button[onclick*="${key}"]`);
-
-    if (langContent) langContent.classList.add('active');
-    if (langButton) langButton.classList.add('active');
+  function setLanguage(lang) {
+    localStorage.setItem('preferredLang', lang);
+    updateLanguageView(lang);
   }
 
-  function showLanguage(event, lang) {
-    localStorage.setItem('preferredLang', lang);
-    showLanguageByKey(lang);
+  function updateLanguageView(langKey) {
+    const allContents = document.querySelectorAll('.language-content');
+    allContents.forEach(content => content.classList.remove('active'));
+
+    const target = document.getElementById(langKey);
+    if (target) {
+      target.classList.add('active');
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('preferredLang');
-    if (saved) {
-      showLanguageByKey(saved);
-    } else {
-      const browserLang = navigator.language.toLowerCase();
-      const key = langMap[browserLang] || 'en';
-      showLanguageByKey(key);
-    }
+    const browserLang = navigator.language.toLowerCase();
+    const preferredLang = saved || langMap[browserLang] || 'en';
+    updateLanguageView(preferredLang);
   });
 </script>
-
 
 </body>
 </html>
