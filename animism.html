@@ -400,15 +400,16 @@
   }
 
   function changeLanguage(lang) {
-    currentLang = lang;
-    updateCaption();
-  }
-  
+  currentLang = lang;
+  updateCaption();
+
+  // ✅ 更新主標題（h1）
   document.getElementById('main-title').textContent = {
-  en: 'Animism',
-  ja: 'アニミズム',
-  zh: '萬物有靈'
-}[lang] || 'Animism';
+    en: 'Animism',
+    ja: 'アニミズム',
+    zh: '萬物有靈'
+  }[lang] || 'Animism';
+}
 
   document.addEventListener('keydown', function(e) {
     const lightbox = document.getElementById('lightbox');
