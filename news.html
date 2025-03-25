@@ -234,7 +234,9 @@
     <img src="/pumasad1.jpg" alt="Award News">
     <h2 data-en="Received Encouragement Award from Japan Cloisonné Association International Exhibition"
         data-ja="日本七宝作家協会国際展 学生部門 奨励賞を受賞"
-        data-zh="榮獲日本七寶作家協會國際展學生部門獎勵獎">Received Encouragement Award from Japan Cloisonné Association International Exhibition</h2>
+        data-zh="榮獲日本七寶作家協會國際展學生部門獎勵獎">
+      Received Encouragement Award from Japan Cloisonné Association International Exhibition
+    </h2>
     <p>October 10, 2024</p>
   </a>
 
@@ -243,7 +245,9 @@
     <img src="/n1.jpg" alt="Group Exhibition">
     <h2 data-en="Group Exhibition Opens on April 5th, 2024"
         data-ja="グループ展が2024年4月5日に開催"
-        data-zh="群展將於2024年4月5日開幕">Group Exhibition Opens on April 5th, 2024</h2>
+        data-zh="群展將於2024年4月5日開幕">
+      Group Exhibition Opens on April 5th, 2024
+    </h2>
     <p>March 22, 2024</p>
   </a>
 </div>
@@ -260,22 +264,44 @@
 <script>
   let currentLang = 'en';
 
-  function changeLang(lang) {
+  function applyLanguage(lang) {
     currentLang = lang;
+    localStorage.setItem('preferredLang', lang);
 
-    // 切換主標題
+    // 主標題
     const titles = {
       en: 'News',
       ja: 'ニュース',
       zh: '最新消息'
     };
-    document.getElementById('news-title').textContent = titles[lang] || 'News';
+    document.getElementById('news-title').textContent = titles[lang] || titles.en;
 
-    // 切換每則新聞標題
+    // 每則新聞標題
     document.querySelectorAll('.news-card h2').forEach(h2 => {
       h2.textContent = h2.dataset[lang] || h2.dataset.en;
     });
   }
+
+  function changeLang(lang) {
+    applyLanguage(lang);
+  }
+
+  // 初始載入：偵測 localStorage 或瀏覽器語言
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLang');
+    if (savedLang) {
+      applyLanguage(savedLang);
+    } else {
+      const browserLang = navigator.language.toLowerCase();
+      if (browserLang.startsWith('ja')) {
+        applyLanguage('ja');
+      } else if (browserLang.startsWith('zh')) {
+        applyLanguage('zh');
+      } else {
+        applyLanguage('en');
+      }
+    }
+  });
 </script>
 
 </body>
