@@ -305,17 +305,45 @@
 </footer>
 
 <script>
-  function showLanguage(event, lang) {
-    const contents = document.querySelectorAll('.language-content');
-    const buttons = document.querySelectorAll('.tab-button');
+  const langMap = {
+    ja: 'jp',
+    en: 'en',
+    zh: 'cn',
+    'zh-tw': 'cn',
+    'zh-cn': 'cn'
+  };
 
-    contents.forEach(content => content.classList.remove('active'));
-    buttons.forEach(button => button.classList.remove('active'));
+  function showLanguageByKey(key) {
+    const allContents = document.querySelectorAll('.language-content');
+    const allButtons = document.querySelectorAll('.tab-button');
 
-    document.getElementById(lang).classList.add('active');
-    event.currentTarget.classList.add('active');
+    allContents.forEach(c => c.classList.remove('active'));
+    allButtons.forEach(b => b.classList.remove('active'));
+
+    const langContent = document.getElementById(key);
+    const langButton = document.querySelector(`.tab-button[onclick*="${key}"]`);
+
+    if (langContent) langContent.classList.add('active');
+    if (langButton) langButton.classList.add('active');
   }
+
+  function showLanguage(event, lang) {
+    localStorage.setItem('preferredLang', lang);
+    showLanguageByKey(lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('preferredLang');
+    if (saved) {
+      showLanguageByKey(saved);
+    } else {
+      const browserLang = navigator.language.toLowerCase();
+      const key = langMap[browserLang] || 'en';
+      showLanguageByKey(key);
+    }
+  });
 </script>
+
 
 </body>
 </html>
