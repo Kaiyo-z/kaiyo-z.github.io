@@ -126,6 +126,26 @@
       transition: transform 0.5s ease-in-out;
     }
 
+    .carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-dots .dot {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+  background-color: #333;
+}
+
     .carousel-slide {
       min-width: 100%;
       text-align: center;
@@ -248,6 +268,14 @@
   <button onclick="changeLang('ja')">日本語</button>
   <button onclick="changeLang('zh')">中文</button>
 </div>
+  
+<div class="carousel-dots">
+  <span class="dot active" onclick="goToSlide(0)"></span>
+  <span class="dot" onclick="goToSlide(1)"></span>
+  <span class="dot" onclick="goToSlide(2)"></span>
+  <span class="dot" onclick="goToSlide(3)"></span>
+  <span class="dot" onclick="goToSlide(4)"></span>
+</div>
 
 <div class="carousel">
   <div class="carousel-track">
@@ -345,58 +373,52 @@
 
 <script>
   const track = document.querySelector('.carousel-track');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
-  const title = document.getElementById('works-title');
+  const slides = Array.from(track.children);
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+  const dots = document.querySelectorAll('.dot');
+
   let currentIndex = 0;
-  let currentLang = localStorage.getItem('preferredLang') || navigator.language.toLowerCase().startsWith('ja') ? 'ja' :
-                    navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
 
-  function updateSlidePosition() {
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
+  function updateSlide() {
+    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
 
-  function updateCaptions() {
-    slides.forEach(slide => {
-      const caption = slide.querySelector('.caption');
-      if (!caption) return;
-      const titleText = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-      const descText = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-      caption.querySelector('.caption-title').textContent = titleText;
-      caption.querySelector('.caption-desc').textContent = descText;
+    // 更新 dot 樣式
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
     });
 
-    // 標題也要切換語言
-    const titleMap = {
-      en: title.dataset.en,
-      ja: title.dataset.ja,
-      zh: title.dataset.zh
-    };
-    title.textContent = titleMap[currentLang] || title.dataset.en;
+    // 如果你有多語言 caption 功能，這裡可以觸發語言更新（可選）
+    if (typeof updateCaptionLanguage === 'function') {
+      updateCaptionLanguage(currentLang || 'en');
+    }
   }
 
-  function changeLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('preferredLang', lang);
-    updateCaptions();
+  function goToSlide(index) {
+    currentIndex = index;
+    updateSlide();
   }
 
-  prevBtn.addEventListener('click', () => {
+  prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlidePosition();
+    updateSlide();
   });
 
-  nextBtn.addEventListener('click', () => {
+  nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % slides.length;
-    updateSlidePosition();
+    updateSlide();
   });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    updateSlidePosition();
-    updateCaptions();
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goToSlide(i);
+    });
   });
+
+  // 初始化第一張
+  updateSlide();
 </script>
+
 
 </body>
 </html>
