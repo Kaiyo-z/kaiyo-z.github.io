@@ -145,10 +145,18 @@
     }
 
     .caption {
-      margin-top: 10px;
-     transition: opacity 0.3s ease;
-    }
-    
+  display: none;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.carousel-slide.active .caption {
+  opacity: 1;
+  pointer-events: auto;
+}
+
     .caption h2, .caption p {
       margin: 5px;
     }
@@ -405,17 +413,26 @@
   }
 
   
-  function updateCaptions() {
+ function updateCaptions() {
   titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
 
-  slides.forEach((slide) => {
+  slides.forEach((slide, i) => {
     const caption = slide.querySelector('.caption');
     const title = caption.querySelector('.caption-title');
     const desc = caption.querySelector('.caption-desc');
+
     title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
     desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+
+    // ➤ 只有目前這張 slide 顯示 caption，其他隱藏
+    if (i === currentIndex) {
+      caption.style.display = 'block';
+    } else {
+      caption.style.display = 'none';
+    }
   });
 }
+
      
   function changeLang(lang) {
     currentLang = lang;
