@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Kaiyo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
     html, body {
       margin: 0;
@@ -124,20 +123,23 @@
       padding: 20px;
     }
 
-    .language-switch {
+    .language-tabs {
       text-align: center;
       margin-bottom: 20px;
-      font-size: 1.1em;
     }
 
-    .language-switch a {
+    .language-tabs button {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 1em;
       margin: 0 10px;
       cursor: pointer;
-      color: #333;
-      text-decoration: none;
+      padding: 5px 10px;
     }
 
-    .language-switch a:hover {
+    .language-tabs button.active {
+      font-weight: bold;
       text-decoration: underline;
     }
 
@@ -201,10 +203,11 @@
 
       .about-section {
         flex-direction: column;
+        text-align: center;
       }
 
-      .about-image img {
-        max-width: 80%;
+      .about-content {
+        padding: 10px;
       }
 
       footer {
@@ -236,44 +239,42 @@
   <a href="/contact.html">Contact</a>
 </nav>
 
-<div class="content-wrapper">
-  <header>
-    <h1>About</h1>
-  </header>
+<header>
+  <h1>About</h1>
+</header>
 
-  <div class="about-section">
-    <div class="about-image">
-      <img src="/your-photo.jpg" alt="Kaiyo Photo">
+<div class="about-section">
+  <div class="about-image">
+    <img src="/your-photo.jpg" alt="Kaiyo Photo">
+  </div>
+  <div class="about-content">
+    <div class="language-tabs">
+      <button class="tab-button" onclick="showLanguage(event, 'en')">EN</button>
+      <button class="tab-button" onclick="showLanguage(event, 'jp')">日本語</button>
+      <button class="tab-button" onclick="showLanguage(event, 'cn')">中文</button>
     </div>
-    <div class="about-content">
-      <div class="language-switch">
-        <a href="#" onclick="setLanguage('en')">EN</a> /
-        <a href="#" onclick="setLanguage('ja')">日本語</a> /
-        <a href="#" onclick="setLanguage('cn')">中文</a>
-      </div>
 
-      <div id="jp" class="language-content">
-        <p>こんにちわ！Kaiyoと申します。台湾の台中出身です。大学ではジュエリーメタルデザインを専攻し、大学院ではデザイン造形を学びました。
-        イラストやものづくりが好きで、普段の生活の中で感じたことや気づいたことを大切にしながら、自分なりの形にすることを心がけています。
-        動物や自然、心に残る思い出や感情をテーマに、心がほっと温まるような作品を制作しています。
-        作品を通して、見てくださる方の心が少しでもふっと軽くなるような、温かさや癒しを届けられたら嬉しいです。</p>
-      </div>
+    <div id="jp" class="language-content">
+      <p>こんにちわ！Kaiyoと申します。台湾の台中出身です。大学ではジュエリーメタルデザインを専攻し、大学院ではデザイン造形を学びました。
+      イラストやものづくりが好きで、普段の生活の中で感じたことや気づいたことを大切にしながら、自分なりの形にすることを心がけています。
+      動物や自然、心に残る思い出や感情をテーマに、心がほっと温まるような作品を制作しています。
+      作品を通して、見てくださる方の心が少しでもふっと軽くなるような、温かさや癒しを届けられたら嬉しいです。</p>
+    </div>
 
-      <div id="en" class="language-content">
-        <p>Hi! I’m Kaiyo. from Taichung, Taiwan, and currently based in Japan.
-        I majored in Jewelry and Metal Design in university, and specialized in Design and Formative Arts in graduate school.
-        I enjoy illustration, as well as metal and enamel craft. I value the small feelings and discoveries I encounter in daily life, and try to turn them into my own creations.
-        With themes of animals, nature, and emotional memories, I create works that convey a sense of warmth.
-        Through my work, I hope to bring a bit of gentleness to those who see it and make their hearts feel a little lighter.</p>
-      </div>
+    <div id="en" class="language-content">
+      <p>Hi! I’m Kaiyo. from Taichung, Taiwan, and currently based in Japan.
+      I majored in Jewelry and Metal Design in university, and specialized in Design and Formative Arts in graduate school.
+      I enjoy illustration, as well as metal and enamel craft. I value the small feelings and discoveries I encounter in daily life, and try to turn them into my own creations.
+      With themes of animals, nature, and emotional memories, I create works that convey a sense of warmth.
+      Through my work, I hope to bring a bit of gentleness to those who see it and make their hearts feel a little lighter.</p>
+    </div>
 
-      <div id="cn" class="language-content">
-        <p>你好！我叫Kaiyo。來自台灣台中，目前在日本從事創作活動。
-        大學主修珠寶金屬設計，研究所時專攻設計造形。
-        平時喜歡插畫與金屬、琺瑯工藝創作，也很重視日常生活中的感受與小小的發現，並試著將這些轉化為自己的作品。
-        以動物、自然，以及那些蘊含情感的回憶為主題，創作出能讓人感到溫暖的作品。
-        希望我的作品，能為觀看的人帶來一點療癒，讓心情稍微變得輕鬆起來。</p>
-      </div>
+    <div id="cn" class="language-content">
+      <p>你好！我叫Kaiyo。來自台灣台中，目前在日本從事創作活動。
+      大學主修珠寶金屬設計，研究所時專攻設計造形。
+      平時喜歡插畫與金屬、琺瑯工藝創作，也很重視日常生活中的感受與小小的發現，並試著將這些轉化為自己的作品。
+      以動物、自然，以及那些蘊含情感的回憶為主題，創作出能讓人感到溫暖的作品。
+      希望我的作品，能為觀看的人帶來一點療癒，讓心情稍微變得輕鬆起來。</p>
     </div>
   </div>
 </div>
@@ -296,26 +297,29 @@
     'zh-cn': 'cn'
   };
 
-  function setLanguage(lang) {
+  function showLanguage(event, lang) {
     localStorage.setItem('preferredLang', lang);
-    updateLanguageView(lang);
+    updateLanguage(lang);
   }
 
-  function updateLanguageView(langKey) {
-    const allContents = document.querySelectorAll('.language-content');
-    allContents.forEach(content => content.classList.remove('active'));
-
-    const target = document.getElementById(langKey);
-    if (target) {
-      target.classList.add('active');
-    }
+  function updateLanguage(lang) {
+    document.querySelectorAll('.language-content').forEach(el => {
+      el.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    const content = document.getElementById(lang);
+    const button = document.querySelector(`.tab-button[onclick*="${lang}"]`);
+    if (content) content.classList.add('active');
+    if (button) button.classList.add('active');
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('preferredLang');
+    const savedLang = localStorage.getItem('preferredLang');
     const browserLang = navigator.language.toLowerCase();
-    const preferredLang = saved || langMap[browserLang] || 'en';
-    updateLanguageView(preferredLang);
+    const initialLang = savedLang || langMap[browserLang] || 'en';
+    updateLanguage(initialLang);
   });
 </script>
 
