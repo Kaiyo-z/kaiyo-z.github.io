@@ -145,8 +145,6 @@
     }
 
     .caption {
-  display: none;
-  margin-top: 10px;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -392,6 +390,7 @@
   let currentIndex = 0;
   let currentLang = 'en';
 
+
   function updateSlide() {
   track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
 
@@ -412,17 +411,19 @@
     updateSlide();
   }
 
-  
- function updateCaptions() {
+  function updateCaptions() {
   titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
 
-  slides.forEach((slide, i) => {
+  slides.forEach((slide) => {
     const caption = slide.querySelector('.caption');
     const title = caption.querySelector('.caption-title');
     const desc = caption.querySelector('.caption-desc');
 
     title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
     desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+  });
+}
+
 
     // ➤ 只有目前這張 slide 顯示 caption，其他隱藏
     if (i === currentIndex) {
