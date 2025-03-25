@@ -107,13 +107,14 @@
     }
 
     .item {
-      flex: 0 1 48%;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+  flex: 0 1 calc(33.333% - 30px); /* 三欄排版 */
+  max-width: calc(33.333% - 30px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
     .image-wrapper {
       width: 100%;
