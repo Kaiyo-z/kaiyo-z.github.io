@@ -146,8 +146,9 @@
 
     .caption {
       margin-top: 10px;
+     transition: opacity 0.3s ease;
     }
-
+    
     .caption h2, .caption p {
       margin: 5px;
     }
@@ -378,30 +379,10 @@
   const nextButton = document.querySelector('.carousel-button.next');
   const dots = document.querySelectorAll('.dot');
   const titleEl = document.getElementById('works-title');
+  const carousel = document.querySelector('.carousel');
 
   let currentIndex = 0;
   let currentLang = 'en';
-
-  function updateCaptions() {
-    // 更新主標題
-    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
-
-    // 更新每張圖片 caption，只有當前那一張顯示
-    slides.forEach((slide, index) => {
-      const caption = slide.querySelector('.caption');
-      if (!caption) return;
-
-      if (index === currentIndex) {
-        caption.style.display = 'block';
-        const title = caption.querySelector('.caption-title');
-        const desc = caption.querySelector('.caption-desc');
-        title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-        desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-      } else {
-        caption.style.display = 'none';
-      }
-    });
-  }
 
   function updateSlide() {
     track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
@@ -412,6 +393,25 @@
   function goToSlide(index) {
     currentIndex = index;
     updateSlide();
+  }
+
+  function updateCaptions() {
+    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
+
+    slides.forEach((slide, index) => {
+      const caption = slide.querySelector('.caption');
+      const title = caption.querySelector('.caption-title');
+      const desc = caption.querySelector('.caption-desc');
+      title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+      desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+
+      // 顯示目前的 caption，隱藏其他
+      if (index === currentIndex) {
+        caption.style.display = 'block';
+      } else {
+        caption.style.display = 'none';
+      }
+    });
   }
 
   function changeLang(lang) {
@@ -436,29 +436,29 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang');
-    if (savedLang) currentLang = savedLang;
-    else {
+    if (savedLang) {
+      currentLang = savedLang;
+    } else {
       const browserLang = navigator.language.toLowerCase();
       if (browserLang.startsWith('ja')) currentLang = 'ja';
       else if (browserLang.startsWith('zh')) currentLang = 'zh';
     }
-
-    updateCaptions();
     updateSlide();
   });
 
-  // 手機滑動功能
+  // 手機滑動支援
   let touchStartX = 0;
   let touchEndX = 0;
   const threshold = 50;
 
-  track.addEventListener('touchstart', e => {
+  carousel.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
   });
 
-  track.addEventListener('touchend', e => {
+  carousel.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
     const deltaX = touchEndX - touchStartX;
+
     if (deltaX > threshold) {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateSlide();
@@ -468,6 +468,7 @@
     }
   });
 </script>
+
 
 
 </body>
