@@ -377,21 +377,41 @@
   const prevButton = document.querySelector('.carousel-button.prev');
   const nextButton = document.querySelector('.carousel-button.next');
   const dots = document.querySelectorAll('.dot');
+  const captionTitles = document.querySelectorAll('.caption-title');
+  const captionDescs = document.querySelectorAll('.caption-desc');
+  const worksTitle = document.getElementById('works-title');
 
   let currentIndex = 0;
+  let currentLang = localStorage.getItem('preferredLang') || detectLang();
 
-  function updateSlide() {
-    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+  function detectLang() {
+    const lang = navigator.language.toLowerCase();
+    if (lang.startsWith('ja')) return 'ja';
+    if (lang.startsWith('zh')) return 'zh';
+    return 'en';
+  }
 
-    // 更新 dot 樣式
+  function updateSlide(fade = true) {
+    if (fade) {
+      track.style.transition = 'opacity 0.5s ease';
+      track.style.opacity = 0;
+      setTimeout(() => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+        updateCaptionLanguage(currentLang);
+        track.style.opacity = 1;
+      }, 300);
+    } else {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots();
+      updateCaptionLanguage(currentLang);
+    }
+  }
+
+  function updateDots() {
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });
-
-    // 如果你有多語言 caption 功能，這裡可以觸發語言更新（可選）
-    if (typeof updateCaptionLanguage === 'function') {
-      updateCaptionLanguage(currentLang || 'en');
-    }
   }
 
   function goToSlide(index) {
@@ -415,10 +435,51 @@
     });
   });
 
-  // 初始化第一張
-  updateSlide();
-</script>
+  function changeLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('preferredLang', lang);
+    updateCaptionLanguage(lang);
+  }
 
+  function updateCaptionLanguage(lang) {
+    worksTitle.textContent = worksTitle.dataset[lang] || worksTitle.dataset.en;
+    slides.forEach(slide => {
+      const caption = slide.querySelector('.caption');
+      const title = caption.querySelector('.caption-title');
+      const desc = caption.querySelector('.caption-desc');
+      title.textContent = caption.dataset[`${lang}-title`] || caption.dataset['en-title'];
+      desc.textContent = caption.dataset[`${lang}-desc`] || caption.dataset['en-desc'];
+    });
+  }
+
+  // Mobile swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  track.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipeGesture();
+  });
+
+  function handleSwipeGesture() {
+    const threshold = 50;
+    if (touchEndX < touchStartX - threshold) {
+      nextButton.click();
+    } else if (touchEndX > touchStartX + threshold) {
+      prevButton.click();
+    }
+  }
+
+  // 初始化
+  document.addEventListener('DOMContentLoaded', () => {
+    updateSlide(false);
+    updateCaptionLanguage(currentLang);
+  });
+</script>
 
 </body>
 </html>
