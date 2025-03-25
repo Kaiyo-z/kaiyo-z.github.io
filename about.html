@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About - Kaiyo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
       background-color: #fff;
@@ -17,10 +16,7 @@
       background-repeat: repeat;
       background-size: contain;
       color: #333;
-      display: flex;
-      flex-direction: column;
     }
-
     .name {
       position: fixed;
       top: 20px;
@@ -29,14 +25,12 @@
       display: flex;
       align-items: center;
     }
-
     .name img {
       width: 80px;
       height: 80px;
       margin-right: 10px;
       cursor: pointer;
     }
-
     nav {
       position: fixed;
       top: 20px;
@@ -46,23 +40,19 @@
       padding: 10px;
       border-radius: 5px;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       margin: 10px;
       font-size: 1.2em;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     .dropdown {
       position: relative;
       display: inline-block;
     }
-
     .dropdown-content {
       display: none;
       position: absolute;
@@ -70,102 +60,61 @@
       min-width: 160px;
       z-index: 1;
     }
-
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .dropdown-content a {
       color: white;
       padding: 10px;
       text-decoration: none;
       display: block;
     }
-
     .dropdown-content a:hover {
-      background-color: #555;
-      color: white;
+      background-color: #ddd;
+      color: black;
     }
-
     header {
       background-color: #f9f9f9;
       padding-top: 100px;
       text-align: center;
     }
-
     header h1 {
       font-size: 2.5em;
       margin: 20px 0;
     }
-
-    .about-section {
-      max-width: 1000px;
-      margin: 50px auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+    .lang-switch {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
       padding: 0 20px;
     }
-
-    .about-image {
-      flex: 1;
-      text-align: center;
-    }
-
-    .about-image img {
-      width: 80%;
-      max-width: 300px;
-      border-radius: 10px;
-    }
-
-    .about-content {
-      flex: 2;
-      padding: 20px;
-    }
-
-    .language-tabs {
+    .about-img {
       text-align: center;
       margin-bottom: 20px;
     }
-
-    .language-tabs button {
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 1em;
-      margin: 0 10px;
-      cursor: pointer;
-      padding: 5px 10px;
+    .about-img img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
     }
-
-    .language-tabs button.active {
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    .language-content {
-      display: none;
+    .about-text {
+      font-size: 1.1em;
       line-height: 1.8;
+      text-align: justify;
     }
-
-    .language-content.active {
-      display: block;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
       font-size: 1em;
       background-color: #333;
       color: white;
-      width: 100%;
-      margin-top: auto;
     }
-
     .social-icons {
       margin-top: 10px;
     }
-
     .social-icons a {
       color: white;
       margin: 0 10px;
@@ -173,43 +122,28 @@
       text-decoration: none;
       transition: 0.3s;
     }
-
     .social-icons a:hover {
       opacity: 0.7;
       transform: scale(1.2);
     }
-
     @media (max-width: 768px) {
       nav {
         top: 20px;
         right: 15px;
         padding: 5px;
       }
-
       nav a {
         font-size: 1em;
         margin: 5px;
       }
-
       .name img {
         width: 60px;
         height: 60px;
       }
-
       .name {
         top: 10px;
         left: 15px;
       }
-
-      .about-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .about-content {
-        padding: 10px;
-      }
-
       footer {
         font-size: 0.9em;
         padding: 10px;
@@ -218,110 +152,84 @@
   </style>
 </head>
 <body>
-
-<div class="name">
-  <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
-</div>
-
-<nav>
-  <a href="/news.html">News</a>
-  <a href="/about.html">About</a>
-  <div class="dropdown">
-    <a href="/works.html">Works</a>
-    <div class="dropdown-content">
-      <a href="/illustration.html">Illustration</a>
-      <a href="/pet-portraits.html">Pet Portraits</a>
-      <a href="/animation.html">Animation</a>
-      <a href="/product-design.html">Product Design</a>
-      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
-    </div>
+  <div class="name">
+    <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
   </div>
-  <a href="/contact.html">Contact</a>
-</nav>
 
-<header>
-  <h1>About</h1>
-</header>
+  <nav>
+    <a href="/news.html">News</a>
+    <a href="/about.html">About</a>
+    <div class="dropdown">
+      <a href="/works.html">Works</a>
+      <div class="dropdown-content">
+        <a href="/illustration.html">Illustration</a>
+        <a href="/pet-portraits.html">Pet Portraits</a>
+        <a href="/animation.html">Animation</a>
+        <a href="/product-design.html">Product Design</a>
+        <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+      </div>
+    </div>
+    <a href="/contact.html#contact">Contact</a>
+  </nav>
 
-<div class="about-section">
-  <div class="about-image">
-    <img src="/your-photo.jpg" alt="Kaiyo Photo">
+  <header>
+    <h1 id="about-title"
+        data-en="About"
+        data-ja="自己紹介"
+        data-zh="關於我">About</h1>
+  </header>
+
+  <div class="lang-switch">
+    <button onclick="changeLang('en')">EN</button>
+    <button onclick="changeLang('ja')">日本語</button>
+    <button onclick="changeLang('zh')">中文</button>
   </div>
-  <div class="about-content">
-    <div class="language-tabs">
-      <button class="tab-button" onclick="showLanguage(event, 'en')">EN</button>
-      <button class="tab-button" onclick="showLanguage(event, 'jp')">日本語</button>
-      <button class="tab-button" onclick="showLanguage(event, 'cn')">中文</button>
-    </div>
 
-    <div id="jp" class="language-content">
-      <p>こんにちわ！Kaiyoと申します。台湾の台中出身です。大学ではジュエリーメタルデザインを専攻し、大学院ではデザイン造形を学びました。
-      イラストやものづくりが好きで、普段の生活の中で感じたことや気づいたことを大切にしながら、自分なりの形にすることを心がけています。
-      動物や自然、心に残る思い出や感情をテーマに、心がほっと温まるような作品を制作しています。
-      作品を通して、見てくださる方の心が少しでもふっと軽くなるような、温かさや癒しを届けられたら嬉しいです。</p>
+  <div class="container">
+    <div class="about-img">
+      <img src="/your-photo.jpg" alt="Kaiyo Photo">
     </div>
-
-    <div id="en" class="language-content">
-      <p>Hi! I’m Kaiyo. from Taichung, Taiwan, and currently based in Japan.
-      I majored in Jewelry and Metal Design in university, and specialized in Design and Formative Arts in graduate school.
-      I enjoy illustration, as well as metal and enamel craft. I value the small feelings and discoveries I encounter in daily life, and try to turn them into my own creations.
-      With themes of animals, nature, and emotional memories, I create works that convey a sense of warmth.
-      Through my work, I hope to bring a bit of gentleness to those who see it and make their hearts feel a little lighter.</p>
-    </div>
-
-    <div id="cn" class="language-content">
-      <p>你好！我叫Kaiyo。來自台灣台中，目前在日本從事創作活動。
-      大學主修珠寶金屬設計，研究所時專攻設計造形。
-      平時喜歡插畫與金屬、琺瑯工藝創作，也很重視日常生活中的感受與小小的發現，並試著將這些轉化為自己的作品。
-      以動物、自然，以及那些蘊含情感的回憶為主題，創作出能讓人感到溫暖的作品。
-      希望我的作品，能為觀看的人帶來一點療癒，讓心情稍微變得輕鬆起來。</p>
-    </div>
+    <p class="about-text" id="about-text"
+       data-en="Hi! I’m Kaiyo, from Taichung, Taiwan. I majored in Jewelry and Metal Design in university and studied Design and Formative Arts in grad school. I create illustrations and enamel crafts inspired by emotions, nature, animals, and daily discoveries. Through my work, I hope to bring warmth and healing to others."
+       data-ja="こんにちは、Kaiyoと申します。台湾の台中出身で、大学ではジュエリーメタルデザイン、大学院ではデザイン造形を学びました。イラストや七宝作品を制作し、感情や自然、動物、日常の気づきを大切にしています。作品を通して、見る人の心に温かさや癒しを届けたいと願っています。"
+       data-zh="你好，我是Kaiyo，來自台灣台中。大學主修珠寶金屬設計，研究所攻讀設計造形。我喜歡創作插畫與七寶作品，靈感來自情感、自然、動物與日常的發現。希望透過作品傳達溫暖與療癒。">
+      Hi! I’m Kaiyo, from Taichung, Taiwan. I majored in Jewelry and Metal Design in university and studied Design and Formative Arts in grad school. I create illustrations and enamel crafts inspired by emotions, nature, animals, and daily discoveries. Through my work, I hope to bring warmth and healing to others.
+    </p>
   </div>
-</div>
 
-<footer>
-  &copy; 2025 Kaiyo
-  <div class="social-icons">
-    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
-  </div>
-</footer>
+  <footer>
+    &copy; 2025 Kaiyo
+    <div class="social-icons">
+      <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+      <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+    </div>
+  </footer>
 
-<script>
-  const langMap = {
-    ja: 'jp',
-    en: 'en',
-    zh: 'cn',
-    'zh-tw': 'cn',
-    'zh-cn': 'cn'
-  };
+  <script>
+    function applyLang(lang) {
+      localStorage.setItem('preferredLang', lang);
+      const title = document.getElementById('about-title');
+      const text = document.getElementById('about-text');
+      if (title.dataset[lang]) title.textContent = title.dataset[lang];
+      if (text.dataset[lang]) text.textContent = text.dataset[lang];
+    }
 
-  function showLanguage(event, lang) {
-    localStorage.setItem('preferredLang', lang);
-    updateLanguage(lang);
-  }
+    function changeLang(lang) {
+      applyLang(lang);
+    }
 
-  function updateLanguage(lang) {
-    document.querySelectorAll('.language-content').forEach(el => {
-      el.classList.remove('active');
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('preferredLang');
+      if (saved) {
+        applyLang(saved);
+      } else {
+        const lang = navigator.language.toLowerCase();
+        if (lang.startsWith('ja')) applyLang('ja');
+        else if (lang.startsWith('zh')) applyLang('zh');
+        else applyLang('en');
+      }
     });
-    document.querySelectorAll('.tab-button').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    const content = document.getElementById(lang);
-    const button = document.querySelector(`.tab-button[onclick*="${lang}"]`);
-    if (content) content.classList.add('active');
-    if (button) button.classList.add('active');
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLang');
-    const browserLang = navigator.language.toLowerCase();
-    const initialLang = savedLang || langMap[browserLang] || 'en';
-    updateLanguage(initialLang);
-  });
-</script>
-
+  </script>
 </body>
 </html>
