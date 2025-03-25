@@ -87,13 +87,19 @@
       margin-top: 10px;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
     }
+    .about-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
     .about-img {
+      flex: 1;
       text-align: center;
-      margin-bottom: 20px;
     }
     .about-img img {
       width: 100%;
@@ -101,6 +107,7 @@
       border-radius: 10px;
     }
     .about-text {
+      flex: 2;
       font-size: 1.1em;
       line-height: 1.8;
       text-align: justify;
@@ -127,6 +134,13 @@
       transform: scale(1.2);
     }
     @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-text {
+        text-align: left;
+      }
       nav {
         top: 20px;
         right: 15px;
@@ -186,15 +200,17 @@
   </div>
 
   <div class="container">
-    <div class="about-img">
-      <img src="/your-photo.jpg" alt="Kaiyo Photo">
+    <div class="about-section">
+      <div class="about-img">
+        <img src="/your-photo.jpg" alt="Kaiyo Photo">
+      </div>
+      <div class="about-text" id="about-text"
+        data-en="Hi! I’m Kaiyo, from Taichung, Taiwan. I majored in Jewelry and Metal Design in university and studied Design and Formative Arts in grad school. I create illustrations and enamel crafts inspired by emotions, nature, animals, and daily discoveries. Through my work, I hope to bring warmth and healing to others."
+        data-ja="こんにちは、Kaiyoと申します。台湾の台中出身で、大学ではジュエリーメタルデザイン、大学院ではデザイン造形を学びました。イラストや七宝作品を制作し、感情や自然、動物、日常の気づきを大切にしています。作品を通して、見る人の心に温かさや癒しを届けたいと願っています。"
+        data-zh="你好，我是Kaiyo，來自台灣台中。大學主修珠寶金屬設計，研究所攻讀設計造形。我喜歡創作插畫與七寶作品，靈感來自情感、自然、動物與日常的發現。希望透過作品傳達溫暖與療癒。">
+        Hi! I’m Kaiyo, from Taichung, Taiwan. I majored in Jewelry and Metal Design in university and studied Design and Formative Arts in grad school. I create illustrations and enamel crafts inspired by emotions, nature, animals, and daily discoveries. Through my work, I hope to bring warmth and healing to others.
+      </div>
     </div>
-    <p class="about-text" id="about-text"
-       data-en="Hi! I’m Kaiyo, from Taichung, Taiwan. I majored in Jewelry and Metal Design in university and studied Design and Formative Arts in grad school. I create illustrations and enamel crafts inspired by emotions, nature, animals, and daily discoveries. Through my work, I hope to bring warmth and healing to others."
-       data-ja="こんにちは、Kaiyoと申します。台湾の台中出身で、大学ではジュエリーメタルデザイン、大学院ではデザイン造形を学びました。イラストや七宝作品を制作し、感情や自然、動物、日常の気づきを大切にしています。作品を通して、見る人の心に温かさや癒しを届けたいと願っています。"
-       data-zh="你好，我是Kaiyo，來自台灣台中。大學主修珠寶金屬設計，研究所攻讀設計造形。我喜歡創作插畫與七寶作品，靈感來自情感、自然、動物與日常的發現。希望透過作品傳達溫暖與療癒。">
-      Hi! I’m Kaiyo, from Taichung, Taiwan. I majored in Jewelry and Metal Design in university and studied Design and Formative Arts in grad school. I create illustrations and enamel crafts inspired by emotions, nature, animals, and daily discoveries. Through my work, I hope to bring warmth and healing to others.
-    </p>
   </div>
 
   <footer>
