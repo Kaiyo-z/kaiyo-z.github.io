@@ -382,20 +382,31 @@
   let currentIndex = 0;
   let currentLang = 'en';
 
+  function updateCaptions() {
+    // 更新主標題
+    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
+
+    // 更新每張圖片 caption，只有當前那一張顯示
+    slides.forEach((slide, index) => {
+      const caption = slide.querySelector('.caption');
+      if (!caption) return;
+
+      if (index === currentIndex) {
+        caption.style.display = 'block';
+        const title = caption.querySelector('.caption-title');
+        const desc = caption.querySelector('.caption-desc');
+        title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+        desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+      } else {
+        caption.style.display = 'none';
+      }
+    });
+  }
+
   function updateSlide() {
     track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
     dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
     updateCaptions();
-  }
-
-  function updateCaptions() {
-    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
-    document.querySelectorAll('.caption').forEach(caption => {
-      const title = caption.querySelector('.caption-title');
-      const desc = caption.querySelector('.caption-desc');
-      title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-      desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-    });
   }
 
   function goToSlide(index) {
@@ -420,27 +431,23 @@
   });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      goToSlide(i);
-    });
+    dot.addEventListener('click', () => goToSlide(i));
   });
 
-  // 自動偵測語言或使用儲存的偏好語言
   document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang');
-    if (savedLang) {
-      currentLang = savedLang;
-    } else {
+    if (savedLang) currentLang = savedLang;
+    else {
       const browserLang = navigator.language.toLowerCase();
       if (browserLang.startsWith('ja')) currentLang = 'ja';
       else if (browserLang.startsWith('zh')) currentLang = 'zh';
-      else currentLang = 'en';
     }
-    updateSlide();     // 初始化顯示正確圖片
-    updateCaptions();  // 初始化語言對應的 caption
+
+    updateCaptions();
+    updateSlide();
   });
 
-  // 手機滑動手勢
+  // 手機滑動功能
   let touchStartX = 0;
   let touchEndX = 0;
   const threshold = 50;
@@ -461,6 +468,7 @@
     }
   });
 </script>
+
 
 </body>
 </html>
