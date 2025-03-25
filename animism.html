@@ -256,29 +256,30 @@
         <div class="image-wrapper">
           <img src="/anim1.jpg" alt="ILYSB" onclick="openLightbox(this)">
         </div>
-        <p>ILYSB</p>
+        <p class="caption" data-en="ILYSB" data-ja="大好きすぎて" data-zh="非常喜歡你">ILYSB</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
           <img src="/anim2.jpg" alt="Partner" onclick="openLightbox(this)">
         </div>
-        <p>Partner</p>
+        <p class="caption" data-en="Partner" data-ja="相棒" data-zh="夥伴">Partner</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
           <img src="/anim3.jpg" alt="How to be a warm person" onclick="openLightbox(this)">
         </div>
-        <p>How to be a warm person</p>
+        <p class="caption" data-en="How to be a warm person" data-ja="優しい人になるには" data-zh="如何成為溫暖的人">How to be a warm person</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
           <img src="/anim4.jpg" alt="Beer olympics Game" onclick="openLightbox(this)">
         </div>
-        <p>Beer olympics Game</p>
+        <p class="caption" data-en="Beer olympics Game" data-ja="ビールオリンピックゲーム" data-zh="啤酒奧運遊戲">Beer olympics Game</p>
       </div>
     </div>
   </div>
 
+  <!-- Lightbox -->
   <div id="lightbox" onclick="closeLightbox(event)">
     <div class="controls">
       <button onclick="prevImage(event)">&#10094;</button>
@@ -308,11 +309,7 @@
     const translations = [
       {
         src: '/anim1.jpg',
-        title: {
-          en: 'ILYSB',
-          ja: '大好きすぎて',
-          zh: '非常喜歡你'
-        },
+        title: { en: 'ILYSB', ja: '大好きすぎて', zh: '非常喜歡你' },
         description: {
           en: 'This piece explores the heart and its emotions.',
           ja: '心と感情の関係を描いた作品。',
@@ -321,11 +318,7 @@
       },
       {
         src: '/anim2.jpg',
-        title: {
-          en: 'Partner',
-          ja: '相棒',
-          zh: '夥伴'
-        },
+        title: { en: 'Partner', ja: '相棒', zh: '夥伴' },
         description: {
           en: 'A visual depiction of friendship and food forms.',
           ja: '友情と食べ物の融合を描いた作品。',
@@ -334,11 +327,7 @@
       },
       {
         src: '/anim3.jpg',
-        title: {
-          en: 'How to be a warm person',
-          ja: '優しい人になるには',
-          zh: '如何成為溫暖的人'
-        },
+        title: { en: 'How to be a warm person', ja: '優しい人になるには', zh: '如何成為溫暖的人' },
         description: {
           en: 'An abstract take on kindness and care.',
           ja: '優しさと気遣いを抽象的に表現。',
@@ -347,11 +336,7 @@
       },
       {
         src: '/anim4.jpg',
-        title: {
-          en: 'Beer olympics Game',
-          ja: 'ビールオリンピックゲーム',
-          zh: '啤酒奧運遊戲'
-        },
+        title: { en: 'Beer olympics Game', ja: 'ビールオリンピックゲーム', zh: '啤酒奧運遊戲' },
         description: {
           en: 'Fun, chaos and beer-themed sports.',
           ja: '楽しさと混沌、ビールをテーマにした運動会。',
@@ -398,6 +383,11 @@
     function changeLanguage(lang) {
       currentLang = lang;
       updateCaption();
+
+      // 更新圖片下的 p 標籤標題
+      document.querySelectorAll('.caption').forEach(el => {
+        el.textContent = el.dataset[lang] || el.dataset.en;
+      });
     }
 
     document.addEventListener('keydown', function(e) {
