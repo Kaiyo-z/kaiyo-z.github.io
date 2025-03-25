@@ -217,6 +217,11 @@
         padding: 10px;
       }
     }
+    #lightbox-img.fade {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
   </style>
 </head>
 <body>
@@ -300,126 +305,136 @@
       <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
     </div>
   </footer>
+<script>
+  const images = document.querySelectorAll('.image-wrapper img');
+  let currentIndex = 0;
+  let currentLang = 'en';
 
-  <script>
-    const images = document.querySelectorAll('.image-wrapper img');
-    let currentIndex = 0;
-    let currentLang = 'en';
-
-    const translations = [
-      {
-        src: '/anim1.jpg',
-        title: { en: 'ILYSB', ja: '大好きすぎて', zh: '非常喜歡你' },
-        description: {
-          en: 'This piece explores the heart and its emotions.',
-          ja: '心と感情の関係を描いた作品。',
-          zh: '這件作品描繪了心與情感之間的聯繫。'
-        }
-      },
-      {
-        src: '/anim2.jpg',
-        title: { en: 'Partner', ja: '相棒', zh: '夥伴' },
-        description: {
-          en: 'A visual depiction of friendship and food forms.',
-          ja: '友情と食べ物の融合を描いた作品。',
-          zh: '展現友誼與食物結合的視覺表現。'
-        }
-      },
-      {
-        src: '/anim3.jpg',
-        title: { en: 'How to be a warm person', ja: '優しい人になるには', zh: '如何成為溫暖的人' },
-        description: {
-          en: 'An abstract take on kindness and care.',
-          ja: '優しさと気遣いを抽象的に表現。',
-          zh: '以抽象方式呈現善良與關懷。'
-        }
-      },
-      {
-        src: '/anim4.jpg',
-        title: { en: 'Beer olympics Game', ja: 'ビールオリンピックゲーム', zh: '啤酒奧運遊戲' },
-        description: {
-          en: 'Fun, chaos and beer-themed sports.',
-          ja: '楽しさと混沌、ビールをテーマにした運動会。',
-          zh: '充滿歡樂與混亂的啤酒主題競賽。'
-        }
+  const translations = [
+    {
+      src: '/anim1.jpg',
+      title: { en: 'ILYSB', ja: '大好きすぎて', zh: '非常喜歡你' },
+      description: {
+        en: 'This piece explores the heart and its emotions.',
+        ja: '心と感情の関係を描いた作品。',
+        zh: '這件作品描繪了心與情感之間的聯繫。'
       }
-    ];
-
-    function openLightbox(img) {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      currentIndex = Array.from(images).indexOf(img);
-      lightboxImg.src = img.src;
-      updateCaption();
-      lightbox.classList.add('active');
-    }
-
-    function updateCaption() {
-      const data = translations[currentIndex];
-      document.getElementById('lightbox-title').textContent = data.title[currentLang] || data.title.en;
-      document.getElementById('lightbox-description').textContent = data.description[currentLang] || data.description.en;
-
-      document.querySelectorAll('.caption').forEach(el => {
-        el.textContent = el.dataset[currentLang] || el.dataset.en;
-      });
-    }
-
-    function closeLightbox(e) {
-      if (e.target.id === 'lightbox') {
-        document.getElementById('lightbox').classList.remove('active');
+    },
+    {
+      src: '/anim2.jpg',
+      title: { en: 'Partner', ja: '相棒', zh: '夥伴' },
+      description: {
+        en: 'A visual depiction of friendship and food forms.',
+        ja: '友情と食べ物の融合を描いた作品。',
+        zh: '展現友誼與食物結合的視覺表現。'
+      }
+    },
+    {
+      src: '/anim3.jpg',
+      title: { en: 'How to be a warm person', ja: '優しい人になるには', zh: '如何成為溫暖的人' },
+      description: {
+        en: 'An abstract take on kindness and care.',
+        ja: '優しさと気遣いを抽象的に表現。',
+        zh: '以抽象方式呈現善良與關懷。'
+      }
+    },
+    {
+      src: '/anim4.jpg',
+      title: { en: 'Beer olympics Game', ja: 'ビールオリンピックゲーム', zh: '啤酒奧運遊戲' },
+      description: {
+        en: 'Fun, chaos and beer-themed sports.',
+        ja: '楽しさと混沌、ビールをテーマにした運動会。',
+        zh: '充滿歡樂與混亂的啤酒主題競賽。'
       }
     }
+  ];
 
-    function nextImage(e) {
-      if (e) e.stopPropagation();
-      currentIndex = (currentIndex + 1) % images.length;
-      document.getElementById('lightbox-img').src = images[currentIndex].src;
-      updateCaption();
-    }
+  function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    currentIndex = Array.from(images).indexOf(img);
+    lightboxImg.src = img.src;
+    updateCaption();
+    lightbox.classList.add('active');
+  }
 
-    function prevImage(e) {
-      if (e) e.stopPropagation();
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      document.getElementById('lightbox-img').src = images[currentIndex].src;
-      updateCaption();
-    }
+  function updateCaption() {
+    const data = translations[currentIndex];
+    document.getElementById('lightbox-title').textContent = data.title[currentLang] || data.title.en;
+    document.getElementById('lightbox-description').textContent = data.description[currentLang] || data.description.en;
 
-    function changeLanguage(lang) {
-      currentLang = lang;
-      updateCaption();
-    }
-
-    document.addEventListener('keydown', function(e) {
-      const lightbox = document.getElementById('lightbox');
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'Escape') lightbox.classList.remove('active');
+    // 同步更新頁面下方的圖片標題
+    document.querySelectorAll('.caption').forEach(el => {
+      el.textContent = el.dataset[currentLang] || el.dataset.en;
     });
+  }
 
-    // 👇 加入手機滑動功能
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    const lightbox = document.getElementById("lightbox");
-    lightbox.addEventListener("touchstart", function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    lightbox.addEventListener("touchend", function(e) {
-      touchEndX = e.changedTouches[0].screenX;
-      handleGesture();
-    });
-
-    function handleGesture() {
-      const threshold = 50;
-      if (touchEndX < touchStartX - threshold) {
-        nextImage();
-      }
-      if (touchEndX > touchStartX + threshold) {
-        prevImage();
-      }
+  function closeLightbox(e) {
+    if (e.target.id === 'lightbox') {
+      document.getElementById('lightbox').classList.remove('active');
     }
-  </script>
+  }
+
+  function nextImage(e) {
+    if (e) e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    fadeAndSwitchImage();
+  }
+
+  function prevImage(e) {
+    if (e) e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    fadeAndSwitchImage();
+  }
+
+  function fadeAndSwitchImage() {
+    const img = document.getElementById('lightbox-img');
+    img.classList.add('fade');
+
+    setTimeout(() => {
+      img.src = images[currentIndex].src;
+      updateCaption();
+      img.classList.remove('fade');
+    }, 200); // 動畫時間一致
+  }
+
+  function changeLanguage(lang) {
+    currentLang = lang;
+    updateCaption();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+  });
+
+  // 手機滑動功能
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const lightbox = document.getElementById("lightbox");
+  lightbox.addEventListener("touchstart", function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  lightbox.addEventListener("touchend", function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+
+  function handleGesture() {
+    const threshold = 50;
+    if (touchEndX < touchStartX - threshold) {
+      nextImage();
+    }
+    if (touchEndX > touchStartX + threshold) {
+      prevImage();
+    }
+  }
+</script>
+
 </body>
 </html>
