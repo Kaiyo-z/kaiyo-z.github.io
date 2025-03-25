@@ -62,7 +62,7 @@
       position: absolute;
       background-color: #333;
       min-width: 160px;
-      z-index: 1;
+      z-index: 11;
     }
 
     .dropdown:hover .dropdown-content {
@@ -142,29 +142,28 @@
       color: #333;
     }
 
-    /* Lightbox */
-    .lightbox {
-      display: none;
+    /* 修正 Lightbox 用透明遮罩與圖片展示 */
+    #lightbox {
       position: fixed;
-      z-index: 999;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
+      background-color: rgba(0, 0, 0, 0.85);
+      display: none;
       justify-content: center;
       align-items: center;
-      cursor: zoom-out;
+      z-index: 1000;
     }
 
-    .lightbox img {
+    #lightbox img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 8px;
-      cursor: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
-    .lightbox.active {
+    #lightbox.active {
       display: flex;
     }
 
@@ -194,6 +193,15 @@
     }
 
     @media (max-width: 768px) {
+      .item {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .image-wrapper {
+        height: auto;
+      }
+
       nav {
         top: 20px;
         right: 15px;
@@ -218,15 +226,6 @@
       footer {
         font-size: 0.9em;
         padding: 10px;
-      }
-
-      .item {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-
-      .image-wrapper {
-        height: auto;
       }
     }
   </style>
@@ -285,9 +284,9 @@
     </div>
   </div>
 
-  <!-- 🔍 Custom Lightbox -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-    <img id="lightbox-img" src="" alt="preview">
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox(event)">
+    <img id="lightbox-img" src="" alt="Preview Image">
   </div>
 
   <footer>
@@ -301,15 +300,15 @@
 
   <script>
     function openLightbox(img) {
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
       lightboxImg.src = img.src;
-      lightbox.classList.add("active");
+      lightbox.classList.add('active');
     }
 
     function closeLightbox(e) {
-      if (e.target.id === "lightbox") {
-        document.getElementById("lightbox").classList.remove("active");
+      if (e.target.id === 'lightbox') {
+        document.getElementById('lightbox').classList.remove('active');
       }
     }
   </script>
