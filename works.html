@@ -112,150 +112,6 @@
       border: none;
       border-radius: 4px;
     }
-
-    .carousel {
-      width: 90%;
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-      touch-action: pan-y;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .carousel-slide.active {
-      opacity: 1;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .caption {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.carousel-slide.active .caption {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-    .caption h2, .caption p {
-      margin: 5px;
-    }
-
-    .carousel-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-
-    .carousel-button {
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: white;
-      padding: 10px;
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-
-    .carousel-dots {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .carousel-dots .dot {
-      display: inline-block;
-      height: 12px;
-      width: 12px;
-      margin: 0 5px;
-      background-color: #ccc;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .carousel-dots .dot.active {
-      background-color: #333;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 1em;
-      background-color: #333;
-      color: white;
-      margin-top: auto;
-    }
-
-    .social-icons {
-      margin-top: 10px;
-    }
-
-    .social-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 1.5em;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .social-icons a:hover {
-      opacity: 0.7;
-      transform: scale(1.2);
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        top: 20px;
-        right: 15px;
-        padding: 5px;
-      }
-
-      nav a {
-        font-size: 1em;
-        margin: 5px;
-      }
-
-      .name img {
-        width: 60px;
-        height: 60px;
-      }
-
-      .name {
-        top: 10px;
-        left: 15px;
-      }
-
-      .carousel-button {
-        padding: 6px 12px;
-      }
-    }
-
-    .carousel-slide.active .caption {
-  opacity: 1 !important;
-  display: block !important;
-  pointer-events: auto;
-}
-  </style>
 </head>
 <body>
 
@@ -288,7 +144,8 @@
   <button onclick="changeLang('ja')">日本語</button>
   <button onclick="changeLang('zh')">中文</button>
 </div>
-<!-- Carousel Dots -->
+
+<!-- Carousel dots -->
 <div class="carousel-dots">
   <span class="dot active" onclick="goToSlide(0)"></span>
   <span class="dot" onclick="goToSlide(1)"></span>
@@ -297,7 +154,7 @@
   <span class="dot" onclick="goToSlide(4)"></span>
 </div>
 
-<!-- Carousel Images -->
+<!-- Carousel -->
 <div class="carousel">
   <div class="carousel-track">
     <!-- Slide 1 -->
@@ -375,13 +232,21 @@
       </div>
     </div>
   </div>
-
   <!-- Navigation buttons -->
   <div class="carousel-nav">
     <button class="carousel-button prev">‹</button>
     <button class="carousel-button next">›</button>
   </div>
 </div>
+
+<footer>
+  &copy; 2025 Kaiyo
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+  </div>
+</footer>
 
 <script>
   const track = document.querySelector('.carousel-track');
@@ -395,23 +260,19 @@
   let currentIndex = 0;
   let currentLang = 'en';
 
-function updateSlide() {
-  track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+  function updateSlide() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-  slides.forEach((slide, i) => {
-    const isActive = i === currentIndex;
-    slide.classList.toggle('active', isActive);
-    if (isActive) console.log("Active slide index:", i); // ← 加這行
-  });
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
+    });
 
-  dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentIndex);
-  });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
 
-  updateCaptions();
-}
-
-  
+    updateCaptions();
+  }
 
   function goToSlide(index) {
     currentIndex = index;
@@ -419,19 +280,27 @@ function updateSlide() {
   }
 
   function updateCaptions() {
-  titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
+    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
 
-  slides.forEach((slide) => {
-    const caption = slide.querySelector('.caption');
-    const title = caption.querySelector('.caption-title');
-    const desc = caption.querySelector('.caption-desc');
+    slides.forEach((slide, i) => {
+      const caption = slide.querySelector('.caption');
+      const title = caption.querySelector('.caption-title');
+      const desc = caption.querySelector('.caption-desc');
 
-    title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-    desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-  });
-}
+      title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+      desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
 
-     
+      // 顯示目前的 slide 的 caption，其他隱藏
+      if (i === currentIndex) {
+        caption.style.opacity = '1';
+        caption.style.pointerEvents = 'auto';
+      } else {
+        caption.style.opacity = '0';
+        caption.style.pointerEvents = 'none';
+      }
+    });
+  }
+
   function changeLang(lang) {
     currentLang = lang;
     localStorage.setItem('preferredLang', lang);
@@ -487,8 +356,5 @@ function updateSlide() {
   });
 </script>
 
-
-
 </body>
 </html>
-
