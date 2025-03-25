@@ -245,7 +245,8 @@
   </nav>
 
   <header>
-    <h1>Animism</h1>
+    <h1 id="main-title">Animism</h1>
+
   </header>
 
   <!-- 語言切換按鈕 -->
@@ -402,6 +403,12 @@
     currentLang = lang;
     updateCaption();
   }
+  
+  document.getElementById('main-title').textContent = {
+  en: 'Animism',
+  ja: 'アニミズム',
+  zh: '萬物有靈'
+}[lang] || 'Animism';
 
   document.addEventListener('keydown', function(e) {
     const lightbox = document.getElementById('lightbox');
