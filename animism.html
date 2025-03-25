@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>News Detail - Kaiyo</title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -92,11 +92,11 @@
       margin: 20px 0;
     }
 
-   .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
     .meta {
       color: #888;
@@ -106,42 +106,49 @@
     }
 
     .content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 0 10px;
-}
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 30px;
+    }
 
-.item {
-  flex: 1 1 calc(33.333% - 30px); /* 三欄排列 */
-  max-width: calc(33.333% - 30px);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+    .item {
+      flex: 1 1 calc(33.333% - 30px);
+      max-width: calc(33.333% - 30px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-sizing: border-box;
+    }
 
-.item img {
-  width: 100%;
-  height: auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-}
+    .image-wrapper {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.item img:hover {
-  transform: scale(1.05);
-}
+    .image-wrapper img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
 
-.item p {
-  margin-top: 10px;
-  font-size: 1em;
-  line-height: 1.5;
-  color: #333;
-}
+    .image-wrapper img:hover {
+      transform: scale(1.05);
+    }
+
+    .item p {
+      margin-top: 10px;
+      font-size: 1em;
+      line-height: 1.5;
+      color: #333;
+    }
 
     footer {
       text-align: center;
@@ -149,9 +156,9 @@
       font-size: 1em;
       background-color: #333;
       color: white;
-   
     }
-      .social-icons {
+
+    .social-icons {
       margin-top: 10px;
     }
 
@@ -194,89 +201,98 @@
         font-size: 0.9em;
         padding: 10px;
       }
-      
-      .content {
-        flex-direction: column;
-        align-items: center;
+
+      .item {
+        flex: 1 1 80%;
+        max-width: 80%;
       }
 
-  .item {
-    flex: 1 1 80%;
-    max-width: 80%;
-  }
-}
-
-
+      .image-wrapper {
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
-<div class="name">
-  <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
-</div>
+  <div class="name">
+    <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
+  </div>
 
-<nav>
-  <a href="/news.html">News</a>
-  <a href="/about.html">About</a>
-  <div class="dropdown">
-    <a href="/works.html">Works</a>
-    <div class="dropdown-content">
-      <a href="/illustration.html">Illustration</a>
-      <a href="/pet-portraits.html">Pet Portraits</a>
-      <a href="/animation.html">Animation</a>
-      <a href="/product-design.html">Product Design</a>
-      <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+  <nav>
+    <a href="/news.html">News</a>
+    <a href="/about.html">About</a>
+    <div class="dropdown">
+      <a href="/works.html">Works</a>
+      <div class="dropdown-content">
+        <a href="/illustration.html">Illustration</a>
+        <a href="/pet-portraits.html">Pet Portraits</a>
+        <a href="/animation.html">Animation</a>
+        <a href="/product-design.html">Product Design</a>
+        <a href="/cloisonne.html">Cloisonné Objects & Accessories</a>
+      </div>
+    </div>
+    <a href="/contact.html#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Group Exhibition Opens on April 5th, 2024</h1>
+  </header>
+
+  <div class="container">
+    <div class="meta">by Kaiyo | March 22, 2024</div>
+    <div class="content">
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim1.jpg" alt="ILYSB">
+        </div>
+        <p>ILYSB</p>
+      </div>
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim2.jpg" alt="Partner">
+        </div>
+        <p>Partner</p>
+      </div>
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim3.jpg" alt="How to be a warm person">
+        </div>
+        <p>How to be a warm person</p>
+      </div>
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim7.jpg" alt="Kitchen">
+        </div>
+        <p>Welcome to my kitchen</p>
+      </div>
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim4.jpg" alt="Beer olympics Game">
+        </div>
+        <p>Beer olympics Game</p>
+      </div>
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim5.jpg" alt="Egg">
+        </div>
+        <p>Egg</p>
+      </div>
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim6.gif" alt="Moon Cake">
+        </div>
+        <p>Unhappy moon festival</p>
+      </div>
+      <div class="item">
+        <div class="image-wrapper">
+          <img src="/anim8.jpg" alt="Alcoholic">
+        </div>
+        <p>Alcoholic</p>
+      </div>
     </div>
   </div>
-  <a href="/contact.html#contact">Contact</a>
-</nav>
 
-<header>
-  <h1>Animism </h1>
-</header>
-
-<div class="container">
-  <div class="meta">by Kaiyo | 2021-2025</div>
- <div class="content">
-  <div class="item">
-    <img src="/anim1.jpg" alt="ILYSB">
-    <p>ILYSB</p>
-  </div>
-  <div class="item">
-    <img src="/anim3.jpg" alt="How to be a warm person">
-    <p>How to be a warm person</p>
-  </div>
-  <div class="item">
-    <img src="/anim7.jpg" alt="zoez's Kitchen icon">
-    <p>Welcome to my kitchen</p>
-  </div>
-    <div class="item">
-    <img src="/anim2.jpg" alt="Partner">
-    <p>Partner</p>
-  </div>
-  <div class="item">
-    <img src="/anim4.jpg" alt="Beer olympics Game">
-    <p>Beer olympics Game</p>
-  </div>
-  <div class="item">
-    <img src="/anim5.jpg" alt="Egg">
-    <p>Egg</p>
-  </div>
-  <div class="item">
-    <img src="/anim6.gif" alt="moon cake">
-    <p>Unhappy moon festival</p>
-  </div>
-  <div class="item">
-    <img src="/anim8.jpg" alt="alcoholic">
-    <p>Alcoholic</p>
-  </div>
-</div>
-
-   
- </div>
-    <p></p>
-    </div>
-
- <footer>
+  <footer>
     &copy; 2025 Kaiyo
     <div class="social-icons">
       <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
