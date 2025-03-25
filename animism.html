@@ -92,11 +92,11 @@
       margin: 20px 0;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+   .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
 
     .meta {
       color: #888;
@@ -105,15 +105,18 @@
       text-align: center;
     }
 
-     .content {
+    .content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  padding: 0 10px;
 }
 
 .item {
-  width: 300px; /* 每張圖片固定寬度，確保三欄整齊排列 */
+  flex: 1 1 calc(33.333% - 30px); /* 三欄排列 */
+  max-width: calc(33.333% - 30px);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
