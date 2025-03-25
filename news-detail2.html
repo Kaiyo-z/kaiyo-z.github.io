@@ -12,6 +12,10 @@
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
       background-image: url('/paper.jpg');
+      background-size: cover;
+      background-repeat: repeat;
+      color: #333;
+    }
 
     .name {
       position: fixed;
@@ -90,6 +94,11 @@
       margin: 20px 0;
     }
 
+    .lang-switch {
+      text-align: center;
+      margin-top: 10px;
+    }
+
     .container {
       max-width: 800px;
       margin: 40px auto;
@@ -114,7 +123,6 @@
       width: 100%;
       max-width: 300px;
       height: auto;
-      margin: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       object-fit: cover;
@@ -129,6 +137,9 @@
       line-height: 1.8;
       margin-bottom: 20px;
       text-align: justify;
+      width: 100%;
+      text-align: center;
+      font-style: italic;
     }
 
     footer {
@@ -216,18 +227,36 @@
   </nav>
 
   <header>
-    <h1>2024日本七宝作家協会国際展 学生部門 奨励賞を受賞</h1>
+    <h1 id="news-title"
+        data-en="Won the Student Encouragement Award in the 2024 Japan Cloisonné Artists Association International Exhibition"
+        data-ja="2024日本七宝作家協会国際展 学生部門 奨励賞を受賞"
+        data-zh="榮獲2024日本七寶作家協會國際展學生部門獎勵獎">
+      2024日本七宝作家協会国際展 学生部門 奨励賞を受賞
+    </h1>
   </header>
+
+  <!-- 語言切換 -->
+  <div class="lang-switch">
+    <button onclick="changeLang('en')">EN</button>
+    <button onclick="changeLang('ja')">日本語</button>
+    <button onclick="changeLang('zh')">中文</button>
+  </div>
 
   <div class="container">
     <div class="meta">by Kaiyo | October 10, 2024</div>
     <div class="content">
       <img src="/pumasad1.jpg" alt="Award Image">
-      <img src="/pumasad2.jpg" alt="Award Image"><p>Puma's Adventure Diary</p>
-      <img src="/shippo.jpg" alt="Award Image"><p>Puma's Adventure Diary</p>
-      
+      <img src="/pumasad2.jpg" alt="Award Image">
+      <p>Puma's Adventure Diary</p>
+      <img src="/shippo.jpg" alt="Award Image">
+      <p>Puma's Adventure Diary</p>
     </div>
-    <p>第５７回日本七宝作家協会国際展にて、学生部門奨励賞を頂きました。</p>
+    <p class="news-content"
+       data-en="I’m honored to receive the Student Encouragement Award at the 57th Japan Cloisonné Artists Association International Exhibition."
+       data-ja="第57回日本七宝作家協会国際展にて、学生部門奨励賞を頂きました。"
+       data-zh="我很榮幸獲得第57屆日本七寶作家協會國際展的學生部門獎勵獎。">
+      第57回日本七宝作家協会国際展にて、学生部門奨励賞を頂きました。
+    </p>
   </div>
 
   <footer>
@@ -238,6 +267,36 @@
       <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
     </div>
   </footer>
+
+  <script>
+    function applyLanguage(lang) {
+      localStorage.setItem('preferredLang', lang);
+      const title = document.getElementById('news-title');
+      const content = document.querySelector('.news-content');
+      if (title && title.dataset[lang]) {
+        title.textContent = title.dataset[lang];
+      }
+      if (content && content.dataset[lang]) {
+        content.textContent = content.dataset[lang];
+      }
+    }
+
+    function changeLang(lang) {
+      applyLanguage(lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('preferredLang');
+      if (saved) {
+        applyLanguage(saved);
+      } else {
+        const lang = navigator.language.toLowerCase();
+        if (lang.startsWith('ja')) applyLanguage('ja');
+        else if (lang.startsWith('zh')) applyLanguage('zh');
+        else applyLanguage('en');
+      }
+    });
+  </script>
+
 </body>
 </html>
-
