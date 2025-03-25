@@ -96,6 +96,11 @@
       margin: 20px 0;
     }
 
+    .lang-switch {
+      text-align: center;
+      margin-top: 10px;
+    }
+
     .news-list {
       display: flex;
       flex-wrap: wrap;
@@ -162,15 +167,6 @@
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1em;
-        margin: 5px 0;
-      }
-
       nav {
         top: 20px;
         right: 15px;
@@ -182,11 +178,6 @@
         margin: 5px;
       }
 
-      .category-item {
-        width: 100%;
-        margin: 10px 0;
-      }
-
       .name img {
         width: 60px;
         height: 60px;
@@ -195,10 +186,6 @@
       .name {
         top: 10px;
         left: 15px;
-      }
-
-      section {
-        padding: 20px;
       }
 
       footer {
@@ -231,21 +218,32 @@
 </nav>
 
 <header>
-  <h1>News</h1>
+  <h1 id="news-title">News</h1>
 </header>
 
+<!-- 語言切換按鈕 -->
+<div class="lang-switch">
+  <button onclick="changeLang('en')">EN</button>
+  <button onclick="changeLang('ja')">日本語</button>
+  <button onclick="changeLang('zh')">中文</button>
+</div>
+
 <div class="news-list">
-  <!-- 最新 News 第一則 -->
+  <!-- 最新 News -->
   <a class="news-card" href="/news-detail2.html">
     <img src="/pumasad1.jpg" alt="Award News">
-    <h2>日本七宝作家協会国際展 学生部門 奨励賞を受賞</h2>
+    <h2 data-en="Received Encouragement Award from Japan Cloisonné Association International Exhibition"
+        data-ja="日本七宝作家協会国際展 学生部門 奨励賞を受賞"
+        data-zh="榮獲日本七寶作家協會國際展學生部門獎勵獎">Received Encouragement Award from Japan Cloisonné Association International Exhibition</h2>
     <p>October 10, 2024</p>
   </a>
-  
+
   <!-- 舊 News -->
   <a class="news-card" href="/news-detail1.html">
-    <img src="/n1.jpg" alt="News 1">
-    <h2>Ｇroup exhibitionOpens on April 5th, 2024</h2>
+    <img src="/n1.jpg" alt="Group Exhibition">
+    <h2 data-en="Group Exhibition Opens on April 5th, 2024"
+        data-ja="グループ展が2024年4月5日に開催"
+        data-zh="群展將於2024年4月5日開幕">Group Exhibition Opens on April 5th, 2024</h2>
     <p>March 22, 2024</p>
   </a>
 </div>
@@ -258,6 +256,27 @@
     <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
   </div>
 </footer>
+
+<script>
+  let currentLang = 'en';
+
+  function changeLang(lang) {
+    currentLang = lang;
+
+    // 切換主標題
+    const titles = {
+      en: 'News',
+      ja: 'ニュース',
+      zh: '最新消息'
+    };
+    document.getElementById('news-title').textContent = titles[lang] || 'News';
+
+    // 切換每則新聞標題
+    document.querySelectorAll('.news-card h2').forEach(h2 => {
+      h2.textContent = h2.dataset[lang] || h2.dataset.en;
+    });
+  }
+</script>
 
 </body>
 </html>
