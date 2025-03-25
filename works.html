@@ -121,10 +121,11 @@
       overflow: hidden;
     }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+ 
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
 
     .carousel-dots {
   text-align: center;
@@ -377,41 +378,15 @@
   const prevButton = document.querySelector('.carousel-button.prev');
   const nextButton = document.querySelector('.carousel-button.next');
   const dots = document.querySelectorAll('.dot');
-  const captionTitles = document.querySelectorAll('.caption-title');
-  const captionDescs = document.querySelectorAll('.caption-desc');
-  const worksTitle = document.getElementById('works-title');
+  const titleEl = document.getElementById('works-title');
 
   let currentIndex = 0;
-  let currentLang = localStorage.getItem('preferredLang') || detectLang();
+  let currentLang = 'en';
 
-  function detectLang() {
-    const lang = navigator.language.toLowerCase();
-    if (lang.startsWith('ja')) return 'ja';
-    if (lang.startsWith('zh')) return 'zh';
-    return 'en';
-  }
-
-  function updateSlide(fade = true) {
-    if (fade) {
-      track.style.transition = 'opacity 0.5s ease';
-      track.style.opacity = 0;
-      setTimeout(() => {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
-        updateCaptionLanguage(currentLang);
-        track.style.opacity = 1;
-      }, 300);
-    } else {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      updateDots();
-      updateCaptionLanguage(currentLang);
-    }
-  }
-
-  function updateDots() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
+  function updateSlide() {
+    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    updateCaptions();
   }
 
   function goToSlide(index) {
@@ -430,31 +405,42 @@
   });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      goToSlide(i);
-    });
+    dot.addEventListener('click', () => goToSlide(i));
   });
+
+  function updateCaptions() {
+    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
+    document.querySelectorAll('.caption').forEach(caption => {
+      const title = caption.querySelector('.caption-title');
+      const desc = caption.querySelector('.caption-desc');
+      title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+      desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+    });
+  }
 
   function changeLang(lang) {
     currentLang = lang;
     localStorage.setItem('preferredLang', lang);
-    updateCaptionLanguage(lang);
+    updateCaptions();
   }
 
-  function updateCaptionLanguage(lang) {
-    worksTitle.textContent = worksTitle.dataset[lang] || worksTitle.dataset.en;
-    slides.forEach(slide => {
-      const caption = slide.querySelector('.caption');
-      const title = caption.querySelector('.caption-title');
-      const desc = caption.querySelector('.caption-desc');
-      title.textContent = caption.dataset[`${lang}-title`] || caption.dataset['en-title'];
-      desc.textContent = caption.dataset[`${lang}-desc`] || caption.dataset['en-desc'];
-    });
-  }
+  // 初始語言設定
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLang');
+    if (savedLang) {
+      currentLang = savedLang;
+    } else {
+      const browserLang = navigator.language.toLowerCase();
+      if (browserLang.startsWith('ja')) currentLang = 'ja';
+      else if (browserLang.startsWith('zh')) currentLang = 'zh';
+    }
+    updateCaptions();
+  });
 
-  // Mobile swipe support
+  // 加入手機滑動手勢
   let touchStartX = 0;
   let touchEndX = 0;
+  const threshold = 50; // 最小滑動距離
 
   track.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
@@ -462,24 +448,19 @@
 
   track.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipeGesture();
-  });
-
-  function handleSwipeGesture() {
-    const threshold = 50;
-    if (touchEndX < touchStartX - threshold) {
-      nextButton.click();
-    } else if (touchEndX > touchStartX + threshold) {
-      prevButton.click();
+    const deltaX = touchEndX - touchStartX;
+    if (deltaX > threshold) {
+      // 向右滑動（上一張）
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlide();
+    } else if (deltaX < -threshold) {
+      // 向左滑動（下一張）
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlide();
     }
-  }
-
-  // 初始化
-  document.addEventListener('DOMContentLoaded', () => {
-    updateSlide(false);
-    updateCaptionLanguage(currentLang);
   });
 </script>
+
 
 </body>
 </html>
