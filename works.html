@@ -396,17 +396,17 @@
   }
 
   function updateCaptions() {
-    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
+  titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
 
-    slides.forEach((slide, index) => {
-      const caption = slide.querySelector('.caption');
-      const title = caption.querySelector('.caption-title');
-      const desc = caption.querySelector('.caption-desc');
-      title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-      desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-
+  slides.forEach((slide) => {
+    const caption = slide.querySelector('.caption');
+    const title = caption.querySelector('.caption-title');
+    const desc = caption.querySelector('.caption-desc');
+    title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+    desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+  });
+}
      
-
   function changeLang(lang) {
     currentLang = lang;
     localStorage.setItem('preferredLang', lang);
