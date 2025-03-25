@@ -108,28 +108,28 @@
 .content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* 平均分配空間讓圖片撐開 */
-  align-items: stretch;
-  gap: 20px; /* 適中間距 */
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 10px;
 }
 
 .item {
-  flex: 0 1 32%; /* 控制在32%，讓三欄有空間 */
-  max-width: 32%;
+  flex: 0 1 48%; /* 兩欄寬度 */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-sizing: border-box;
 }
 
 .image-wrapper {
   width: 100%;
-  height: 260px; /* 比之前高，圖片更大 */
+  height: 350px; /* 圖片顯示更大 */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: zoom-in;
 }
 
 .image-wrapper img {
@@ -145,9 +145,44 @@
 
 .item p {
   margin-top: 10px;
-  font-size: 1em;
-  line-height: 1.5;
+  font-size: 1.1em;
   color: #333;
+}
+
+/* 手機版改成單欄 */
+@media (max-width: 768px) {
+  .item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .image-wrapper {
+    height: auto;
+  }
+}
+
+/* Lightbox Dialog 樣式 */
+dialog#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  z-index: 999;
+}
+
+dialog#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
 }
 
 
@@ -241,59 +276,38 @@
     <h1>Animism</h1>
   </header>
 
-  <div class="container">
-    <div class="meta">by Kaiyo | 2021-2025</div>
-    <div class="content">
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim1.jpg" alt="ILYSB">
-        </div>
-        <p>ILYSB</p>
-      </div>
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim2.jpg" alt="Partner">
-        </div>
-        <p>Partner</p>
-      </div>
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim3.jpg" alt="How to be a warm person">
-        </div>
-        <p>How to be a warm person</p>
-      </div>
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim7.jpg" alt="Kitchen">
-        </div>
-        <p>Welcome to my kitchen</p>
-      </div>
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim4.jpg" alt="Beer olympics Game">
-        </div>
-        <p>Beer olympics Game</p>
-      </div>
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim5.jpg" alt="Egg">
-        </div>
-        <p>Egg</p>
-      </div>
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim6.gif" alt="Moon Cake">
-        </div>
-        <p>Unhappy moon festival</p>
-      </div>
-      <div class="item">
-        <div class="image-wrapper">
-          <img src="/anim8.jpg" alt="Alcoholic">
-        </div>
-        <p>Alcoholic</p>
-      </div>
+  <div class="content">
+  <div class="item">
+    <div class="image-wrapper">
+      <img src="/anim1.jpg" alt="ILYSB" onclick="openLightbox(this)">
     </div>
+    <p>ILYSB</p>
   </div>
+  <div class="item">
+    <div class="image-wrapper">
+      <img src="/anim2.jpg" alt="Partner" onclick="openLightbox(this)">
+    </div>
+    <p>Partner</p>
+  </div>
+  <div class="item">
+    <div class="image-wrapper">
+      <img src="/anim3.jpg" alt="How to be a warm person" onclick="openLightbox(this)">
+    </div>
+    <p>How to be a warm person</p>
+  </div>
+  <div class="item">
+    <div class="image-wrapper">
+      <img src="/anim4.jpg" alt="Beer olympics Game" onclick="openLightbox(this)">
+    </div>
+    <p>Beer olympics Game</p>
+  </div>
+</div>
+
+<!-- 🔍 點擊放大用 -->
+<dialog id="lightbox" onclick="this.close()">
+  <img id="lightbox-img" src="" alt="preview">
+</dialog>
+
 
   <footer>
     &copy; 2025 Kaiyo
@@ -303,5 +317,15 @@
       <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
     </div>
   </footer>
+ 
+  <script>
+  function openLightbox(img) {
+    const dialog = document.getElementById("lightbox");
+    const dialogImg = document.getElementById("lightbox-img");
+    dialogImg.src = img.src;
+    dialog.showModal();
+  }
+</script>
+
 </body>
 </html>
