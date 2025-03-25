@@ -166,19 +166,16 @@
       cursor: pointer;
       padding: 0 20px;
     }
-
-     footer {
+    footer {
       text-align: center;
       padding: 20px;
       font-size: 1em;
       background-color: #333;
       color: white;
     }
-
     .social-icons {
       margin-top: 10px;
     }
-
     .social-icons a {
       color: white;
       margin: 0 10px;
@@ -186,12 +183,10 @@
       text-decoration: none;
       transition: 0.3s;
     }
-
     .social-icons a:hover {
       opacity: 0.7;
       transform: scale(1.2);
     }
-
     @media (max-width: 768px) {
       .item {
         flex: 1 1 100%;
@@ -243,37 +238,47 @@
     </div>
     <a href="/contact.html#contact">Contact</a>
   </nav>
+
   <header>
     <h1>Animism</h1>
   </header>
+
+  <!-- 語言切換按鈕 -->
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="changeLanguage('en')">EN</button>
+    <button onclick="changeLanguage('ja')">日本語</button>
+    <button onclick="changeLanguage('zh')">中文</button>
+  </div>
+
   <div class="container">
     <div class="content">
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim1.jpg" alt="ILYSB" data-description="This piece explores the heart and its emotions." onclick="openLightbox(this)">
+          <img src="/anim1.jpg" alt="ILYSB" onclick="openLightbox(this)">
         </div>
         <p>ILYSB</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim2.jpg" alt="Partner" data-description="A visual depiction of friendship and food forms." onclick="openLightbox(this)">
+          <img src="/anim2.jpg" alt="Partner" onclick="openLightbox(this)">
         </div>
         <p>Partner</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim3.jpg" alt="How to be a warm person" data-description="An abstract take on kindness and care." onclick="openLightbox(this)">
+          <img src="/anim3.jpg" alt="How to be a warm person" onclick="openLightbox(this)">
         </div>
         <p>How to be a warm person</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim4.jpg" alt="Beer olympics Game" data-description="Fun, chaos and beer-themed sports." onclick="openLightbox(this)">
+          <img src="/anim4.jpg" alt="Beer olympics Game" onclick="openLightbox(this)">
         </div>
         <p>Beer olympics Game</p>
       </div>
     </div>
   </div>
+
   <div id="lightbox" onclick="closeLightbox(event)">
     <div class="controls">
       <button onclick="prevImage(event)">&#10094;</button>
@@ -285,6 +290,7 @@
       <div id="lightbox-description"></div>
     </div>
   </div>
+
   <footer>
     &copy; 2025 Kaiyo
     <div class="social-icons">
@@ -293,46 +299,113 @@
       <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
     </div>
   </footer>
+
   <script>
     const images = document.querySelectorAll('.image-wrapper img');
     let currentIndex = 0;
+    let currentLang = 'en';
+
+    const translations = [
+      {
+        src: '/anim1.jpg',
+        title: {
+          en: 'ILYSB',
+          ja: '大好きすぎて',
+          zh: '非常喜歡你'
+        },
+        description: {
+          en: 'This piece explores the heart and its emotions.',
+          ja: '心と感情の関係を描いた作品。',
+          zh: '這件作品描繪了心與情感之間的聯繫。'
+        }
+      },
+      {
+        src: '/anim2.jpg',
+        title: {
+          en: 'Partner',
+          ja: '相棒',
+          zh: '夥伴'
+        },
+        description: {
+          en: 'A visual depiction of friendship and food forms.',
+          ja: '友情と食べ物の融合を描いた作品。',
+          zh: '展現友誼與食物結合的視覺表現。'
+        }
+      },
+      {
+        src: '/anim3.jpg',
+        title: {
+          en: 'How to be a warm person',
+          ja: '優しい人になるには',
+          zh: '如何成為溫暖的人'
+        },
+        description: {
+          en: 'An abstract take on kindness and care.',
+          ja: '優しさと気遣いを抽象的に表現。',
+          zh: '以抽象方式呈現善良與關懷。'
+        }
+      },
+      {
+        src: '/anim4.jpg',
+        title: {
+          en: 'Beer olympics Game',
+          ja: 'ビールオリンピックゲーム',
+          zh: '啤酒奧運遊戲'
+        },
+        description: {
+          en: 'Fun, chaos and beer-themed sports.',
+          ja: '楽しさと混沌、ビールをテーマにした運動会。',
+          zh: '充滿歡樂與混亂的啤酒主題競賽。'
+        }
+      }
+    ];
+
     function openLightbox(img) {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
-      const title = document.getElementById('lightbox-title');
-      const description = document.getElementById('lightbox-description');
-      const index = Array.from(images).indexOf(img);
-      currentIndex = index;
+      currentIndex = Array.from(images).indexOf(img);
       lightboxImg.src = img.src;
-      title.textContent = img.alt;
-      description.textContent = img.dataset.description || '';
+      updateCaption();
       lightbox.classList.add('active');
     }
+
+    function updateCaption() {
+      const data = translations[currentIndex];
+      document.getElementById('lightbox-title').textContent = data.title[currentLang] || data.title.en;
+      document.getElementById('lightbox-description').textContent = data.description[currentLang] || data.description.en;
+    }
+
     function closeLightbox(e) {
       if (e.target.id === 'lightbox') {
         document.getElementById('lightbox').classList.remove('active');
       }
     }
+
     function nextImage(e) {
       if (e) e.stopPropagation();
       currentIndex = (currentIndex + 1) % images.length;
-      openLightbox(images[currentIndex]);
+      document.getElementById('lightbox-img').src = images[currentIndex].src;
+      updateCaption();
     }
+
     function prevImage(e) {
       if (e) e.stopPropagation();
       currentIndex = (currentIndex - 1 + images.length) % images.length;
-      openLightbox(images[currentIndex]);
+      document.getElementById('lightbox-img').src = images[currentIndex].src;
+      updateCaption();
     }
+
+    function changeLanguage(lang) {
+      currentLang = lang;
+      updateCaption();
+    }
+
     document.addEventListener('keydown', function(e) {
       const lightbox = document.getElementById('lightbox');
       if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'ArrowRight') {
-        nextImage();
-      } else if (e.key === 'ArrowLeft') {
-        prevImage();
-      } else if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-      }
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') lightbox.classList.remove('active');
     });
   </script>
 </body>
