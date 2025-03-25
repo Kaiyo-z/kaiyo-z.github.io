@@ -14,7 +14,6 @@
       background-color: #fff;
       color: #333;
     }
-
     .name {
       position: fixed;
       top: 20px;
@@ -23,14 +22,12 @@
       display: flex;
       align-items: center;
     }
-
     .name img {
       width: 80px;
       height: 80px;
       margin-right: 10px;
       cursor: pointer;
     }
-
     nav {
       position: fixed;
       top: 20px;
@@ -40,23 +37,19 @@
       padding: 10px;
       border-radius: 5px;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       margin: 10px;
       font-size: 1.2em;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     .dropdown {
       position: relative;
       display: inline-block;
     }
-
     .dropdown-content {
       display: none;
       position: absolute;
@@ -64,40 +57,33 @@
       min-width: 160px;
       z-index: 11;
     }
-
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .dropdown-content a {
       color: white;
       padding: 10px;
       text-decoration: none;
       display: block;
     }
-
     .dropdown-content a:hover {
       background-color: #ddd;
       color: black;
     }
-
     header {
       background-color: #f9f9f9;
       padding-top: 100px;
       text-align: center;
     }
-
     header h1 {
       font-size: 2.5em;
       margin: 20px 0;
     }
-
     .container {
       max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
     }
-
     .content {
       display: flex;
       flex-wrap: wrap;
@@ -105,17 +91,15 @@
       gap: 40px;
       padding: 0 10px;
     }
-
     .item {
-  flex: 0 1 calc(33.333% - 30px); /* 三欄排版 */
-  max-width: calc(33.333% - 30px);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
+      flex: 0 1 calc(33.333% - 30px);
+      max-width: calc(33.333% - 30px);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
     .image-wrapper {
       width: 100%;
       height: 350px;
@@ -125,25 +109,20 @@
       justify-content: center;
       cursor: zoom-in;
     }
-
     .image-wrapper img {
       max-width: 100%;
       max-height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease-in-out;
     }
-
     .image-wrapper img:hover {
       transform: scale(1.05);
     }
-
     .item p {
       margin-top: 10px;
       font-size: 1.1em;
       color: #333;
     }
-
-    /* 修正 Lightbox 用透明遮罩與圖片展示 */
     #lightbox {
       position: fixed;
       top: 0;
@@ -152,78 +131,66 @@
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.85);
       display: none;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
-
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-
     #lightbox.active {
       display: flex;
     }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 1em;
-      background-color: #333;
-      color: white;
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-
-    .social-icons {
+    .lightbox-caption {
+      color: white;
+      text-align: center;
       margin-top: 10px;
     }
-
-    .social-icons a {
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .controls button {
+      background: none;
+      border: none;
       color: white;
-      margin: 0 10px;
-      font-size: 1.5em;
-      text-decoration: none;
-      transition: 0.3s;
+      font-size: 2em;
+      cursor: pointer;
+      padding: 0 20px;
     }
-
-    .social-icons a:hover {
-      opacity: 0.7;
-      transform: scale(1.2);
-    }
-
     @media (max-width: 768px) {
       .item {
         flex: 1 1 100%;
         max-width: 100%;
       }
-
       .image-wrapper {
         height: auto;
       }
-
       nav {
         top: 20px;
         right: 15px;
         padding: 5px;
       }
-
       nav a {
         font-size: 1em;
         margin: 5px;
       }
-
       .name img {
         width: 60px;
         height: 60px;
       }
-
       .name {
         top: 10px;
         left: 15px;
       }
-
       footer {
         font-size: 0.9em;
         padding: 10px;
@@ -235,7 +202,6 @@
   <div class="name">
     <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
   </div>
-
   <nav>
     <a href="/news.html">News</a>
     <a href="/about.html">About</a>
@@ -251,45 +217,48 @@
     </div>
     <a href="/contact.html#contact">Contact</a>
   </nav>
-
   <header>
     <h1>Animism</h1>
   </header>
-
   <div class="container">
     <div class="content">
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim1.jpg" alt="ILYSB" onclick="openLightbox(this)">
+          <img src="/anim1.jpg" alt="ILYSB" data-description="This piece explores the heart and its emotions." onclick="openLightbox(this)">
         </div>
         <p>ILYSB</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim2.jpg" alt="Partner" onclick="openLightbox(this)">
+          <img src="/anim2.jpg" alt="Partner" data-description="A visual depiction of friendship and food forms." onclick="openLightbox(this)">
         </div>
         <p>Partner</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim3.jpg" alt="How to be a warm person" onclick="openLightbox(this)">
+          <img src="/anim3.jpg" alt="How to be a warm person" data-description="An abstract take on kindness and care." onclick="openLightbox(this)">
         </div>
         <p>How to be a warm person</p>
       </div>
       <div class="item">
         <div class="image-wrapper">
-          <img src="/anim4.jpg" alt="Beer olympics Game" onclick="openLightbox(this)">
+          <img src="/anim4.jpg" alt="Beer olympics Game" data-description="Fun, chaos and beer-themed sports." onclick="openLightbox(this)">
         </div>
         <p>Beer olympics Game</p>
       </div>
     </div>
   </div>
-
-  <!-- Lightbox -->
   <div id="lightbox" onclick="closeLightbox(event)">
+    <div class="controls">
+      <button onclick="prevImage(event)">&#10094;</button>
+      <button onclick="nextImage(event)">&#10095;</button>
+    </div>
     <img id="lightbox-img" src="" alt="Preview Image">
+    <div class="lightbox-caption">
+      <div id="lightbox-title"></div>
+      <div id="lightbox-description"></div>
+    </div>
   </div>
-
   <footer>
     &copy; 2025 Kaiyo
     <div class="social-icons">
@@ -298,20 +267,47 @@
       <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
     </div>
   </footer>
-
   <script>
+    const images = document.querySelectorAll('.image-wrapper img');
+    let currentIndex = 0;
     function openLightbox(img) {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
+      const title = document.getElementById('lightbox-title');
+      const description = document.getElementById('lightbox-description');
+      const index = Array.from(images).indexOf(img);
+      currentIndex = index;
       lightboxImg.src = img.src;
+      title.textContent = img.alt;
+      description.textContent = img.dataset.description || '';
       lightbox.classList.add('active');
     }
-
     function closeLightbox(e) {
       if (e.target.id === 'lightbox') {
         document.getElementById('lightbox').classList.remove('active');
       }
     }
+    function nextImage(e) {
+      if (e) e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
+      openLightbox(images[currentIndex]);
+    }
+    function prevImage(e) {
+      if (e) e.stopPropagation();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      openLightbox(images[currentIndex]);
+    }
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('lightbox');
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      } else if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>
