@@ -252,31 +252,29 @@
   window.addEventListener('load', () => {
     const apng = document.getElementById('apng-animation');
     const smoke = document.getElementById('smoke');
-    const duration = 400;
+
+    // 立即凍結 APNG，避免重播
+    const newApng = apng.cloneNode(true);
+    apng.parentNode.replaceChild(newApng, apng);
 
     setTimeout(() => {
-      apng.style.animation = 'fadeOut 1s forwards';
       smoke.style.animationPlayState = 'running';
-      apng.src = apng.src; // 強制 reload，一次性顯示
-    }, duration);
+    }, 400);
 
     setTimeout(() => {
-      const left = document.getElementById('char-left');
-      left.style.opacity = 1;
-      left.style.animation = 'bounceInPlace 0.8s ease-out forwards';
-    }, duration + 300);
+      document.getElementById('char-left').style.opacity = 1;
+      document.getElementById('char-left').style.animation = 'bounceInPlace 0.8s ease-out forwards';
+    }, 700);
 
     setTimeout(() => {
-      const right = document.getElementById('char-right');
-      right.style.opacity = 1;
-      right.style.animation = 'bounceInPlace 0.8s ease-out forwards';
-    }, duration + 500);
+      document.getElementById('char-right').style.opacity = 1;
+      document.getElementById('char-right').style.animation = 'bounceInPlace 0.8s ease-out forwards';
+    }, 900);
 
     setTimeout(() => {
-      const mid = document.getElementById('char-bottom');
-      mid.style.opacity = 1;
-      mid.style.animation = 'bounceInPlace 0.8s ease-out forwards';
-    }, duration + 700);
+      document.getElementById('char-bottom').style.opacity = 1;
+      document.getElementById('char-bottom').style.animation = 'bounceInPlace 0.8s ease-out forwards';
+    }, 1100);
   });
 </script>
 </body>
