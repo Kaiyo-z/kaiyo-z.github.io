@@ -267,9 +267,13 @@
 <script>
   window.addEventListener('load', () => {
     const animationDuration = 400;
+    const apng = document.getElementById('apng-animation');
+
+    // 強制刷新圖片避免 APNG 快取
+    apng.src = `p-plane.png?${Date.now()}`;
 
     setTimeout(() => {
-      document.getElementById('apng-animation').style.opacity = 0;
+      apng.style.opacity = 0;
       document.getElementById('smoke').style.animationPlayState = 'running';
     }, animationDuration);
 
