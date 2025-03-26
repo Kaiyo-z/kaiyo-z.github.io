@@ -55,6 +55,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      z-index: 1;
     }
 
     .smoke-layer {
@@ -64,7 +65,7 @@
       background: radial-gradient(ellipse at center, #ffffffee 10%, transparent 80%);
       opacity: 0;
       animation: smokeFade 0.2s ease-out forwards;
-      z-index: 3;
+      z-index: 2;
     }
 
     @keyframes smokeFade {
@@ -75,33 +76,37 @@
 
     .character-wrapper {
       position: absolute;
+      z-index: 3;
+    }
+
+    .character {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      opacity: 0;
+      transition: opacity 0.8s ease-out;
       mix-blend-mode: multiply;
-      z-index: 4;
     }
 
     .from-left {
       bottom: 0;
       left: 0;
+      width: auto;
     }
 
     .from-right {
       bottom: 0;
       right: 0;
+      width: auto;
     }
 
     .from-bottom {
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-    }
-
-    .character {
-      position: relative;
-      opacity: 0;
-      transform: scale(1);
-      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-      max-width: none;
-      max-height: none;
+      width: auto;
     }
 
     @keyframes fadeOut {
