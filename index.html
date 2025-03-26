@@ -64,7 +64,8 @@
       height: 100%;
       background: radial-gradient(ellipse at center, #ffffffee 10%, transparent 80%);
       opacity: 0;
-      animation: smokeFade 0.2s ease-out forwards;
+      animation: smokeFade 0.3s ease-out forwards;
+      animation-play-state: paused;
       z-index: 2;
     }
 
@@ -195,7 +196,7 @@
       nav a { font-size: 1em; margin: 5px; }
       footer { font-size: 0.9em; padding: 10px; }
       #char-left {
-        transform: scale(0.9);
+        transform: scale(0.8);
       }
     }
   </style>
@@ -208,7 +209,7 @@
 
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
-    <div class="smoke-layer"></div>
+    <div class="smoke-layer" id="smoke"></div>
 
     <div class="character-wrapper from-left">
       <img src="left.png" alt="Character Left" class="character" id="char-left">
@@ -250,31 +251,32 @@
 <script>
   window.addEventListener('load', () => {
     const apng = document.getElementById('apng-animation');
-    const animationDuration = 400;
+    const smoke = document.getElementById('smoke');
+    const duration = 400;
 
     setTimeout(() => {
       apng.style.animation = 'fadeOut 1s forwards';
-      apng.src = apng.src; // 強制重載 APNG 以防止 loop
-      document.querySelector('.smoke-layer').style.animationPlayState = 'running';
-    }, animationDuration);
+      smoke.style.animationPlayState = 'running';
+      apng.src = apng.src; // 強制 reload，一次性顯示
+    }, duration);
 
     setTimeout(() => {
       const left = document.getElementById('char-left');
       left.style.opacity = 1;
       left.style.animation = 'bounceInPlace 0.8s ease-out forwards';
-    }, animationDuration + 600);
+    }, duration + 300);
 
     setTimeout(() => {
       const right = document.getElementById('char-right');
       right.style.opacity = 1;
       right.style.animation = 'bounceInPlace 0.8s ease-out forwards';
-    }, animationDuration + 800);
+    }, duration + 500);
 
     setTimeout(() => {
       const mid = document.getElementById('char-bottom');
       mid.style.opacity = 1;
       mid.style.animation = 'bounceInPlace 0.8s ease-out forwards';
-    }, animationDuration + 1000);
+    }, duration + 700);
   });
 </script>
 </body>
