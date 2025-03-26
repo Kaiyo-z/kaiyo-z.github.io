@@ -74,6 +74,27 @@
       100% { opacity: 0; }
     }
 
+    @keyframes bounceInLeft {
+      0% { transform: translateX(-100px); opacity: 0; }
+      60% { transform: translateX(20px); opacity: 1; }
+      80% { transform: translateX(-10px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes bounceInRight {
+      0% { transform: translateX(100px); opacity: 0; }
+      60% { transform: translateX(-20px); opacity: 1; }
+      80% { transform: translateX(10px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes bounceInBottom {
+      0% { transform: translateY(100px); opacity: 0; }
+      60% { transform: translateY(-20px); opacity: 1; }
+      80% { transform: translateY(10px); }
+      100% { transform: translateY(0); }
+    }
+
     .character-wrapper {
       position: absolute;
       z-index: 3;
@@ -87,7 +108,6 @@
     .character-wrapper img {
       display: block;
       opacity: 0;
-      transition: opacity 0.8s ease-out;
       mix-blend-mode: multiply;
     }
 
@@ -106,11 +126,6 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
-    }
-
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      100% { opacity: 0; }
     }
 
     nav {
@@ -190,7 +205,7 @@
 
     @media (max-width: 768px) {
       .name img { width: 60px; height: 60px; }
-      nav { top: 20px; right: 15px; padding: 5px; }
+      nav { top: 10px; right: 15px; padding: 5px; }
       nav a { font-size: 1em; margin: 5px; }
       footer { font-size: 0.9em; padding: 10px; }
       .character-wrapper img {
@@ -257,15 +272,21 @@
     }, animationDuration);
 
     setTimeout(() => {
-      document.getElementById('char-left').style.opacity = 1;
+      const left = document.getElementById('char-left');
+      left.style.opacity = 1;
+      left.style.animation = 'bounceInLeft 0.8s ease-out forwards';
     }, animationDuration + 600);
 
     setTimeout(() => {
-      document.getElementById('char-right').style.opacity = 1;
+      const right = document.getElementById('char-right');
+      right.style.opacity = 1;
+      right.style.animation = 'bounceInRight 0.8s ease-out forwards';
     }, animationDuration + 800);
 
     setTimeout(() => {
-      document.getElementById('char-bottom').style.opacity = 1;
+      const mid = document.getElementById('char-bottom');
+      mid.style.opacity = 1;
+      mid.style.animation = 'bounceInBottom 0.8s ease-out forwards';
     }, animationDuration + 1000);
   });
 </script>
