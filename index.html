@@ -119,7 +119,7 @@
 
     .intro-text {
       position: absolute;
-      bottom: 30px;
+      top: 20%;
       left: 50%;
       transform: translateX(-50%);
       font-size: 1.6em;
@@ -211,7 +211,6 @@
       nav a { font-size: 1em; margin: 5px; }
       footer { font-size: 0.9em; padding: 10px; }
       .from-left img { transform: scale(0.8); }
-      .from-bottom { display: none; }
     }
   </style>
 </head>
@@ -266,9 +265,6 @@
 
 <script>
   window.addEventListener('load', () => {
-    const apng = document.getElementById('apng-animation');
-    apng.src = apng.src + '?v=' + Date.now();
-
     setTimeout(() => {
       document.getElementById('smoke').style.animationPlayState = 'running';
     }, 400);
