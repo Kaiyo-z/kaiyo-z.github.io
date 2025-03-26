@@ -136,22 +136,13 @@
       max-height: none;
     }
 
-    .from-left,
-    .from-right,
-    .from-bottom {
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      display: block;
-    }
-
     .from-left {
-      bottom: 10%;
+      bottom: 0;
       left: 0;
     }
 
     .from-right {
-      bottom: 15%;
+      bottom: 0;
       right: 0;
     }
 
@@ -215,7 +206,7 @@
 
 <script>
   window.addEventListener('load', () => {
-    const animationDuration = 4800; // 動畫長度 (ms)
+    const animationDuration = 4000; // 動畫長度 (ms)
 
     setTimeout(() => {
       const apng = document.getElementById('apng-animation');
