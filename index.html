@@ -130,7 +130,8 @@
     .character {
       position: absolute;
       opacity: 0;
-      transition: transform 1s ease-out, opacity 1s ease-out;
+      transform: scale(0.8);
+      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
       z-index: 4;
       max-width: none;
       max-height: none;
@@ -149,7 +150,7 @@
     .from-bottom {
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) scale(0.8);
     }
 
     @keyframes fadeOut {
@@ -206,20 +207,25 @@
 
 <script>
   window.addEventListener('load', () => {
-    const animationDuration = 400; // 動畫長度 (ms)
+    const animationDuration = 400; // APNG 實際長度 (ms)
 
     setTimeout(() => {
       const apng = document.getElementById('apng-animation');
       apng.style.animation = 'fadeOut 1s forwards';
 
-      document.getElementById('char-left').style.transform = 'translateX(0)';
-      document.getElementById('char-left').style.opacity = 1;
+      const left = document.getElementById('char-left');
+      const right = document.getElementById('char-right');
+      const bottom = document.getElementById('char-bottom');
 
-      document.getElementById('char-right').style.transform = 'translateX(0)';
-      document.getElementById('char-right').style.opacity = 1;
+      left.style.opacity = 1;
+      left.style.transform = 'scale(1)';
 
-      document.getElementById('char-bottom').style.transform = 'translateY(0) translateX(-50%)';
-      document.getElementById('char-bottom').style.opacity = 1;
+      right.style.opacity = 1;
+      right.style.transform = 'scale(1)';
+
+      bottom.style.opacity = 1;
+      bottom.style.transform = 'translateX(-50%) scale(1)';
+
     }, animationDuration);
   });
 </script>
