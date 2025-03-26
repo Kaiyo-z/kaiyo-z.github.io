@@ -50,6 +50,26 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .smoke-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #ffffffee 10%, transparent 80%);
+      opacity: 0;
+      animation: smokeFade 2.2s ease-out forwards;
+      z-index: 3;
+    }
+
+    @keyframes smokeFade {
+      0% { opacity: 0; }
+      20% { opacity: 0.9; }
+      70% { opacity: 0.8; }
+      100% { opacity: 0; }
     }
 
     nav {
@@ -130,8 +150,8 @@
     .character {
       position: absolute;
       opacity: 0;
-      transform: scale(0.8);
-      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+      transform: scale(0.7);
+      transition: transform 1s cubic-bezier(0.22, 1.61, 0.36, 1), opacity 1s ease-out;
       z-index: 4;
       max-width: none;
       max-height: none;
@@ -150,7 +170,7 @@
     .from-bottom {
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%) scale(0.8);
+      transform: translateX(-50%) scale(0.7);
     }
 
     @keyframes fadeOut {
@@ -174,6 +194,7 @@
 
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
+    <div class="smoke-layer"></div>
     <img src="left.png" alt="Character Left" class="character from-left" id="char-left">
     <img src="right.png" alt="Character Right" class="character from-right" id="char-right">
     <img src="mid.png" alt="Character Bottom" class="character from-bottom" id="char-bottom">
@@ -210,9 +231,11 @@
     const animationDuration = 400; // APNG 實際長度 (ms)
 
     setTimeout(() => {
-      const apng = document.getElementById('apng-animation');
-      apng.style.animation = 'fadeOut 1s forwards';
+      document.getElementById('apng-animation').style.animation = 'fadeOut 1s forwards';
+      document.querySelector('.smoke-layer').style.animationPlayState = 'running';
+    }, animationDuration);
 
+    setTimeout(() => {
       const left = document.getElementById('char-left');
       const right = document.getElementById('char-right');
       const bottom = document.getElementById('char-bottom');
@@ -225,8 +248,7 @@
 
       bottom.style.opacity = 1;
       bottom.style.transform = 'translateX(-50%) scale(1)';
-
-    }, animationDuration);
+    }, animationDuration + 1800); // 400ms APNG + 1400ms 煙霧中段演出
   });
 </script>
 </body>
