@@ -65,14 +65,12 @@
       height: 100%;
       background: radial-gradient(ellipse at center, #ffffffee 10%, transparent 80%);
       opacity: 0;
-      animation: smokeFade 0.3s ease-out forwards;
-      animation-play-state: paused;
       z-index: 2;
     }
 
     @keyframes smokeFade {
       0% { opacity: 0; }
-      20% { opacity: 0.9; }
+      20% { opacity: 0.6; }
       100% { opacity: 0; }
     }
 
@@ -268,13 +266,13 @@
   window.addEventListener('load', () => {
     const animationDuration = 400;
     const apng = document.getElementById('apng-animation');
-
-    // 強制刷新圖片避免 APNG 快取
     apng.src = `p-plane.png?${Date.now()}`;
 
     setTimeout(() => {
       apng.style.opacity = 0;
-      document.getElementById('smoke').style.animationPlayState = 'running';
+      const smoke = document.getElementById('smoke');
+      smoke.style.animation = 'smokeFade 0.3s ease-out forwards';
+      smoke.style.animationDelay = '0.05s';
     }, animationDuration);
 
     setTimeout(() => {
