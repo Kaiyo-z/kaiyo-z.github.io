@@ -77,14 +77,16 @@
     .character-wrapper {
       position: absolute;
       z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      mix-blend-mode: normal;
     }
 
     .character {
       display: block;
       width: auto;
       height: auto;
-      max-width: 100%;
-      max-height: 80vh;
       opacity: 0;
       transition: opacity 0.8s ease-out;
       mix-blend-mode: multiply;
@@ -93,17 +95,21 @@
     .from-left {
       bottom: 0;
       left: 0;
+      width: auto;
     }
 
     .from-right {
       bottom: 0;
       right: 0;
+      width: auto;
     }
 
     .from-bottom {
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+      width: auto;
+      z-index: 2;
     }
 
     @keyframes fadeOut {
@@ -193,7 +199,7 @@
       footer { font-size: 0.9em; padding: 10px; }
       .character {
         max-width: 100vw;
-        max-height: 40vh;
+        max-height: 60vh;
       }
     }
   </style>
