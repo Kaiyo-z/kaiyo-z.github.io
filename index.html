@@ -96,6 +96,8 @@
       display: block;
       opacity: 0;
       mix-blend-mode: multiply;
+      height: auto;
+      max-width: none;
     }
 
     .from-left {
@@ -208,9 +210,8 @@
       nav { top: 20px; right: 15px; padding: 5px; }
       nav a { font-size: 1em; margin: 5px; }
       footer { font-size: 0.9em; padding: 10px; }
-      .from-left img {
-        transform: scale(0.8);
-      }
+      .from-left img { transform: scale(0.8); }
+      .from-bottom { display: none; }
     }
   </style>
 </head>
@@ -266,14 +267,10 @@
 <script>
   window.addEventListener('load', () => {
     const apng = document.getElementById('apng-animation');
-    const smoke = document.getElementById('smoke');
-
-    const newApng = apng.cloneNode(true);
-    newApng.src = `${apng.src}?v=${Date.now()}`;
-    apng.parentNode.replaceChild(newApng, apng);
+    apng.src = apng.src + '?v=' + Date.now();
 
     setTimeout(() => {
-      smoke.style.animationPlayState = 'running';
+      document.getElementById('smoke').style.animationPlayState = 'running';
     }, 400);
 
     setTimeout(() => {
