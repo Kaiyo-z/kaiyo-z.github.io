@@ -166,10 +166,10 @@
   </div>
 
   <div class="hero">
-    <img src="p-plane.png" alt="Intro Animation" class="animation-bg">
-    <img src="char-left.png" alt="Character Left" class="character from-left">
-    <img src="char-right.png" alt="Character Right" class="character from-right">
-    <img src="char-bottom.png" alt="Character Bottom" class="character from-bottom">
+    <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
+    <img src="char-left.png" alt="Character Left" class="character from-left" id="char-left">
+    <img src="char-right.png" alt="Character Right" class="character from-right" id="char-right">
+    <img src="char-bottom.png" alt="Character Bottom" class="character from-bottom" id="char-bottom">
   </div>
 
   <nav>
@@ -200,16 +200,17 @@
 
 <script>
   window.addEventListener('load', () => {
+    const animationDuration = 4000; // 動畫長度 (ms)
     setTimeout(() => {
-      document.querySelector('.from-left').style.transform = 'translateX(180px)';
-      document.querySelector('.from-left').style.opacity = 1;
+      document.getElementById('char-left').style.transform = 'translateX(180px)';
+      document.getElementById('char-left').style.opacity = 1;
 
-      document.querySelector('.from-right').style.transform = 'translateX(-180px)';
-      document.querySelector('.from-right').style.opacity = 1;
+      document.getElementById('char-right').style.transform = 'translateX(-180px)';
+      document.getElementById('char-right').style.opacity = 1;
 
-      document.querySelector('.from-bottom').style.transform = 'translateY(-180px) translateX(-50%)';
-      document.querySelector('.from-bottom').style.opacity = 1;
-    }, 4000);
+      document.getElementById('char-bottom').style.transform = 'translateY(-180px) translateX(-50%)';
+      document.getElementById('char-bottom').style.opacity = 1;
+    }, animationDuration);
   });
 </script>
 </body>
