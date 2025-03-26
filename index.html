@@ -151,6 +151,11 @@
       transform: translateX(-50%);
     }
 
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
     @media (max-width: 768px) {
       .name img { width: 60px; height: 60px; }
       nav { top: 20px; right: 15px; padding: 5px; }
@@ -201,7 +206,11 @@
 <script>
   window.addEventListener('load', () => {
     const animationDuration = 4000; // 動畫長度 (ms)
+
     setTimeout(() => {
+      const apng = document.getElementById('apng-animation');
+      apng.style.animation = 'fadeOut 1s forwards';
+
       document.getElementById('char-left').style.transform = 'translateX(180px)';
       document.getElementById('char-left').style.opacity = 1;
 
