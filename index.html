@@ -132,8 +132,17 @@
       opacity: 0;
       transition: transform 1s ease-out, opacity 1s ease-out;
       z-index: 4;
-       max-width: none;
-  max-height: none;
+      max-width: none;
+      max-height: none;
+    }
+
+    .from-left,
+    .from-right,
+    .from-bottom {
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      display: block;
     }
 
     .from-left {
@@ -147,7 +156,7 @@
     }
 
     .from-bottom {
-      bottom: -150px;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -206,19 +215,19 @@
 
 <script>
   window.addEventListener('load', () => {
-    const animationDuration = 480; // 動畫長度 (ms)
+    const animationDuration = 4800; // 動畫長度 (ms)
 
     setTimeout(() => {
       const apng = document.getElementById('apng-animation');
       apng.style.animation = 'fadeOut 1s forwards';
 
-      document.getElementById('char-left').style.transform = 'translateX(180px)';
+      document.getElementById('char-left').style.transform = 'translateX(0)';
       document.getElementById('char-left').style.opacity = 1;
 
-      document.getElementById('char-right').style.transform = 'translateX(-180px)';
+      document.getElementById('char-right').style.transform = 'translateX(0)';
       document.getElementById('char-right').style.opacity = 1;
 
-      document.getElementById('char-bottom').style.transform = 'translateY(-180px) translateX(-50%)';
+      document.getElementById('char-bottom').style.transform = 'translateY(0) translateX(-50%)';
       document.getElementById('char-bottom').style.opacity = 1;
     }, animationDuration);
   });
