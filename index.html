@@ -45,6 +45,9 @@
       height: 100vh;
       position: relative;
       overflow: hidden;
+      padding-top: 5vh;
+      padding-bottom: 3vh;
+      box-sizing: border-box;
     }
 
     .hero img.animation-bg {
@@ -74,9 +77,21 @@
       100% { opacity: 0; }
     }
 
-    .character-wrapper {
+    .character-group {
       position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      padding-bottom: 5vh;
       z-index: 3;
+    }
+
+    .character-wrapper {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -86,28 +101,25 @@
 
     .character-wrapper img {
       display: block;
-      max-width: none;
       height: auto;
       opacity: 0;
       transition: opacity 0.8s ease-out;
       mix-blend-mode: multiply;
     }
 
-    .from-left {
-      bottom: 0;
-      left: 0;
+    .from-left img {
+      max-width: 30vw;
+      max-height: 45vh;
     }
 
-    .from-right {
-      bottom: 0;
-      right: 0;
+    .from-right img {
+      max-width: 30vw;
+      max-height: 45vh;
     }
 
-    .from-bottom {
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
+    .from-bottom img {
+      max-width: 60vw;
+      max-height: 70vh;
     }
 
     @keyframes fadeOut {
@@ -195,19 +207,9 @@
       nav { top: 20px; right: 15px; padding: 5px; }
       nav a { font-size: 1em; margin: 5px; }
       footer { font-size: 0.9em; padding: 10px; }
-      .character-wrapper img {
-        max-width: none;
-        max-height: none;
-        #char-bottom{
-          max-width:85vw;
-          max-height:90vh;
-        }
-        #char-left,
-        #char-right{
-          max-width:40vw;
-          max-height:50vh;
-      }
-      }
+      .from-left img, .from-right img { max-width: 30vw; max-height: 35vh; }
+      .from-bottom img { max-width: 75vw; max-height: 55vh; }
+    }
   </style>
 </head>
 <body>
@@ -220,14 +222,16 @@
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
     <div class="smoke-layer"></div>
 
-    <div class="character-wrapper from-left">
-      <img src="left.png" alt="Character Left" class="character" id="char-left">
-    </div>
-    <div class="character-wrapper from-right">
-      <img src="right.png" alt="Character Right" class="character" id="char-right">
-    </div>
-    <div class="character-wrapper from-bottom">
-      <img src="mid.png" alt="Character Bottom" class="character" id="char-bottom">
+    <div class="character-group">
+      <div class="character-wrapper from-left">
+        <img src="left.png" alt="Character Left" class="character" id="char-left">
+      </div>
+      <div class="character-wrapper from-bottom">
+        <img src="mid.png" alt="Character Bottom" class="character" id="char-bottom">
+      </div>
+      <div class="character-wrapper from-right">
+        <img src="right.png" alt="Character Right" class="character" id="char-right">
+      </div>
     </div>
   </div>
 
