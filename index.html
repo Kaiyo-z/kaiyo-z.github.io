@@ -82,6 +82,15 @@
       height: auto;
       max-width: none;
     }
+    
+    .character.clickable {
+  cursor: pointer;
+}
+
+.character.clickable:hover {
+  animation: bounceInPlace 0.8s ease-out;
+}
+
 
     .from-left {
       bottom: 0;
@@ -207,7 +216,9 @@
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
     <div class="character-wrapper from-left">
-      <img src="left.png" alt="Character Left" class="character" id="char-left">
+      <img src="left.png" alt="Character Left" class="character clickable" id="char-left"
+     title="About" onclick="location.href='about.html'">
+
     </div>
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
