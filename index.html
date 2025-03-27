@@ -65,14 +65,6 @@
       100% { transform: scale(1); }
     }
 
-    @keyframes waveHandVertical {
-      0% { transform: translateY(0); }
-      25% { transform: translateY(-10px); }
-      50% { transform: translateY(4px); }
-      75% { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
-    }
-
     .character-wrapper {
       position: absolute;
       z-index: 3;
@@ -121,29 +113,34 @@
       font-family: 'Arial', sans-serif;
     }
 
-    .left-combo {
+    .left-apng {
       position: absolute;
       bottom: 0;
       left: 0;
       z-index: 3;
       cursor: pointer;
-      opacity: 0;
+      display: none;
     }
 
-    .left-combo .body {
-      display: block;
-    }
-
-    .left-combo .hand {
+    .left-apng img {
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
-      transform-origin: top center;
+      display: block;
+      max-width: none;
+    }
+
+    .left-apng .wave {
+      opacity: 0;
       pointer-events: none;
     }
 
-    .left-combo:hover .hand {
-      animation: waveHandVertical 0.6s ease-in-out;
+    .left-apng:hover .idle {
+      opacity: 0;
+    }
+
+    .left-apng:hover .wave {
+      opacity: 1;
     }
 
     nav {
@@ -239,9 +236,9 @@
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
-    <div class="left-combo" onclick="location.href='about.html';" id="left-combo">
-      <img src="body.png" class="body" alt="Body">
-      <img src="hand.png" class="hand" alt="Hand">
+    <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
+      <img src="wave-idle.png" class="idle" alt="Idle">
+      <img src="wave-apng.png" class="wave" alt="Wave Animation">
     </div>
 
     <div class="character-wrapper from-right">
@@ -283,12 +280,12 @@
 <script>
   window.addEventListener('load', () => {
     const animationDuration = 400;
-
     const apng = document.getElementById('apng-animation');
     apng.src = `p-plane.png?${Date.now()}`;
 
     setTimeout(() => {
-      const left = document.getElementById('left-combo');
+      const left = document.getElementById('left-apng');
+      left.style.display = 'block';
       left.style.opacity = 1;
       left.style.animation = 'bounceInPlace 1.2s ease-out forwards';
     }, animationDuration + 800);
