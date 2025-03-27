@@ -67,9 +67,9 @@
 
     @keyframes waveHand {
       0% { transform: rotate(0deg); }
-      25% { transform: rotate(-10deg); }
-      50% { transform: rotate(10deg); }
-      75% { transform: rotate(-10deg); }
+      25% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+      75% { transform: rotate(-6deg); }
       100% { transform: rotate(0deg); }
     }
 
@@ -127,6 +127,7 @@
       left: 0;
       z-index: 3;
       cursor: pointer;
+      opacity: 0;
     }
 
     .left-combo .body {
@@ -137,12 +138,12 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform-origin: top left;
+      transform-origin: top center;
       pointer-events: none;
     }
 
     .left-combo:hover .hand {
-      animation: waveHand 1s ease-in-out;
+      animation: waveHand 0.8s ease-in-out;
     }
 
     nav {
@@ -238,7 +239,7 @@
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
-    <div class="left-combo" onclick="location.href='about.html';">
+    <div class="left-combo" onclick="location.href='about.html';" id="left-combo">
       <img src="body.png" class="body" alt="Body">
       <img src="hand.png" class="hand" alt="Hand">
     </div>
@@ -285,6 +286,12 @@
 
     const apng = document.getElementById('apng-animation');
     apng.src = `p-plane.png?${Date.now()}`;
+
+    setTimeout(() => {
+      const left = document.getElementById('left-combo');
+      left.style.opacity = 1;
+      left.style.animation = 'bounceInPlace 1.2s ease-out forwards';
+    }, animationDuration + 800);
 
     setTimeout(() => {
       const right = document.getElementById('char-right');
