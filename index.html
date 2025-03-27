@@ -65,6 +65,14 @@
       100% { transform: scale(1); }
     }
 
+    @keyframes waveHand {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+      75% { transform: rotate(-10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
     .character-wrapper {
       position: absolute;
       z-index: 3;
@@ -82,15 +90,6 @@
       height: auto;
       max-width: none;
     }
-    
-    .character.clickable {
-  cursor: pointer;
-}
-
-.character.clickable:hover {
-  animation: bounceInPlace 0.8s ease-out;
-}
-
 
     .from-left {
       bottom: 0;
@@ -120,6 +119,30 @@
       z-index: 5;
       transition: opacity 1s ease;
       font-family: 'Arial', sans-serif;
+    }
+
+    .left-combo {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .left-combo .body {
+      display: block;
+    }
+
+    .left-combo .hand {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .left-combo:hover .hand {
+      animation: waveHand 1s ease-in-out;
     }
 
     nav {
@@ -215,11 +238,11 @@
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
-    <div class="character-wrapper from-left">
-      <img src="left.png" alt="Character Left" class="character clickable" id="char-left"
-     title="About" onclick="location.href='about.html'">
-
+    <div class="left-combo" onclick="location.href='about.html';">
+      <img src="body.png" class="body" alt="Body">
+      <img src="hand.png" class="hand" alt="Hand">
     </div>
+
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
     </div>
@@ -257,24 +280,11 @@
 </footer>
 
 <script>
-  function triggerBounce(el) {
-    el.style.animation = 'none';
-    el.offsetHeight;
-    el.style.animation = 'bounceInPlace 0.8s ease-out';
-  }
-
   window.addEventListener('load', () => {
-    // 原本的登場動畫...
     const animationDuration = 400;
 
     const apng = document.getElementById('apng-animation');
     apng.src = `p-plane.png?${Date.now()}`;
-
-    setTimeout(() => {
-      const left = document.getElementById('char-left');
-      left.style.opacity = 1;
-      left.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-    }, animationDuration + 800);
 
     setTimeout(() => {
       const right = document.getElementById('char-right');
@@ -291,16 +301,7 @@
     setTimeout(() => {
       document.getElementById('intro-text').style.opacity = 1;
     }, animationDuration + 2200);
-
-    // ⭐ 新增 hover 互動 bounce 效果
-    document.querySelectorAll('.character.clickable').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        triggerBounce(el);
-      });
-    });
   });
 </script>
-
-
 </body>
 </html>
