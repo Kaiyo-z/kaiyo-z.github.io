@@ -248,34 +248,38 @@
 <script>
   window.addEventListener('load', () => {
     const animationDuration = 400;
-
-    // 防止快取，讓 APNG 每次重新播放
     const apng = document.getElementById('apng-animation');
-    apng.src = `p-plane.png?${Date.now()}`;
 
-    // 延遲角色動畫登場，加長間隔讓節奏更舒適
-    setTimeout(() => {
-      const left = document.getElementById('char-left');
-      left.style.opacity = 1;
-      left.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-    }, animationDuration + 800);
+    // 強制防快取並重新載入圖片
+    const newSrc = `p-plane.png?${Date.now()}`;
+    apng.src = newSrc;
 
-    setTimeout(() => {
-      const right = document.getElementById('char-right');
-      right.style.opacity = 1;
-      right.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-    }, animationDuration + 1200);
+    // 等圖片載入完再開始角色動畫
+    apng.onload = () => {
+      setTimeout(() => {
+        const left = document.getElementById('char-left');
+        left.style.opacity = 1;
+        left.style.animation = 'bounceInPlace 1.2s ease-out forwards';
+      }, animationDuration + 800);
 
-    setTimeout(() => {
-      const bottom = document.getElementById('char-bottom');
-      bottom.style.opacity = 1;
-      bottom.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-    }, animationDuration + 1600);
+      setTimeout(() => {
+        const right = document.getElementById('char-right');
+        right.style.opacity = 1;
+        right.style.animation = 'bounceInPlace 1.2s ease-out forwards';
+      }, animationDuration + 1200);
 
-    setTimeout(() => {
-      document.getElementById('intro-text').style.opacity = 1;
-    }, animationDuration + 2200);
+      setTimeout(() => {
+        const bottom = document.getElementById('char-bottom');
+        bottom.style.opacity = 1;
+        bottom.style.animation = 'bounceInPlace 1.2s ease-out forwards';
+      }, animationDuration + 1600);
+
+      setTimeout(() => {
+        document.getElementById('intro-text').style.opacity = 1;
+      }, animationDuration + 2200);
+    };
   });
 </script>
+
 </body>
 </html>
