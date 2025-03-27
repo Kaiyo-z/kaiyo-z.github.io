@@ -83,11 +83,6 @@
       max-width: none;
     }
 
-    .from-left {
-      bottom: 0;
-      left: 0;
-    }
-
     .from-right {
       bottom: 0;
       right: 0;
@@ -120,6 +115,7 @@
       z-index: 3;
       cursor: pointer;
       display: none;
+      animation: bounceInPlace 1.2s ease-out forwards;
     }
 
     .left-apng img {
@@ -287,7 +283,6 @@
       const left = document.getElementById('left-apng');
       left.style.display = 'block';
       left.style.opacity = 1;
-      left.style.animation = 'bounceInPlace 1.2s ease-out forwards';
     }, animationDuration + 800);
 
     setTimeout(() => {
