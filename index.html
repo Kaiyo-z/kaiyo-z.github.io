@@ -139,6 +139,26 @@
       opacity: 1;
     }
 
+    .speech-bubble {
+      position: absolute;
+      bottom: 300px;
+      left: 120px;
+      background-color: white;
+      border: 2px solid #555;
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-size: 1em;
+      color: #333;
+      z-index: 4;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .left-apng:hover + .speech-bubble {
+      opacity: 1;
+    }
+
     nav {
       position: fixed;
       top: 20px;
@@ -236,6 +256,7 @@
       <img src="left-idle.png" class="idle" alt="Idle">
       <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
+    <div class="speech-bubble">About</div>
 
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
