@@ -238,7 +238,7 @@
 
     <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
       <img src="left-idle.png" class="idle" alt="Idle">
-      <img src="left-idle.png" class="wave" alt="Wave Animation">
+      <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
 
     <div class="character-wrapper from-right">
@@ -284,7 +284,7 @@
     apng.src = `p-plane.png?${Date.now()}`;
 
     setTimeout(() => {
-      const left = document.getElementById('left-idle');
+      const left = document.getElementById('left-apng');
       left.style.display = 'block';
       left.style.opacity = 1;
       left.style.animation = 'bounceInPlace 1.2s ease-out forwards';
