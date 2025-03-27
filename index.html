@@ -315,8 +315,14 @@
     }, animationDuration + 1600);
 
     setTimeout(() => {
-      document.getElementById('intro-text').style.opacity = 1;
+      const intro = document.getElementById('intro-text');
+      intro.style.opacity = 1;
     }, animationDuration + 2200);
+
+    setTimeout(() => {
+      const intro = document.getElementById('intro-text');
+      intro.style.opacity = 0;
+    }, animationDuration + 4600);
   });
 </script>
 </body>
