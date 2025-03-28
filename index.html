@@ -121,19 +121,13 @@
       pointer-events: none;
     }
 
-    .hover-text.news {
-      content: "News";
-    }
-
-    .hover-text.about {
-      content: "About";
-    }
-
-    .left-middle-apng:hover ~ #hover-text-news {
+    .left-apng:hover ~ #hover-text-about,
+    .left-apng.touch-active ~ #hover-text-about {
       opacity: 1;
     }
 
-    .left-apng:hover ~ #hover-text-about {
+    .left-middle-apng:hover ~ #hover-text-news,
+    .left-middle-apng.touch-active ~ #hover-text-news {
       opacity: 1;
     }
 
@@ -145,18 +139,18 @@
       animation: bounceInPlace 1.2s ease-out forwards;
     }
 
-    .left-middle-apng {
-      bottom: 30px;
-      left: 0;
-      width: 120px;
-      height: 200px;
-    }
-
     .left-apng {
       bottom: 0;
       left: 0;
       width: 150px;
       height: 250px;
+    }
+
+    .left-middle-apng {
+      bottom: 30px;
+      left: 0;
+      width: 120px;
+      height: 200px;
     }
 
     .left-apng img,
@@ -174,12 +168,16 @@
     }
 
     .left-apng:hover .idle,
-    .left-middle-apng:hover .idle {
+    .left-middle-apng:hover .idle,
+    .left-apng.touch-active .idle,
+    .left-middle-apng.touch-active .idle {
       opacity: 0;
     }
 
     .left-apng:hover .wave,
-    .left-middle-apng:hover .wave {
+    .left-middle-apng:hover .wave,
+    .left-apng.touch-active .wave,
+    .left-middle-apng.touch-active .wave {
       opacity: 1;
     }
 
@@ -276,17 +274,17 @@
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
-    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
-      <img src="left2-idle.png" class="idle" alt="Idle">
-      <img src="left2-wave.png" class="wave" alt="Wave Animation">
-    </div>
     <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
       <img src="left-idle.png" class="idle" alt="Idle">
       <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
+    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
+      <img src="left2-idle.png" class="idle" alt="Idle">
+      <img src="left2-wave.png" class="wave" alt="Wave Animation">
+    </div>
 
-    <div class="hover-text" id="hover-text-news">News</div>
     <div class="hover-text" id="hover-text-about">About</div>
+    <div class="hover-text" id="hover-text-news">News</div>
 
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
@@ -331,13 +329,13 @@
     apng.src = `p-plane.png?${Date.now()}`;
 
     setTimeout(() => {
-      document.getElementById('left-middle-apng').style.display = 'block';
-      document.getElementById('left-middle-apng').style.opacity = 1;
+      document.getElementById('left-apng').style.display = 'block';
+      document.getElementById('left-apng').style.opacity = 1;
     }, animationDuration + 800);
 
     setTimeout(() => {
-      document.getElementById('left-apng').style.display = 'block';
-      document.getElementById('left-apng').style.opacity = 1;
+      document.getElementById('left-middle-apng').style.display = 'block';
+      document.getElementById('left-middle-apng').style.opacity = 1;
     }, animationDuration + 1000);
 
     setTimeout(() => {
@@ -361,6 +359,24 @@
       const intro = document.getElementById('intro-text');
       intro.style.opacity = 0;
     }, animationDuration + 5400);
+
+    // ✅ 手機觸控 hover 效果
+    const touchElements = [
+      { id: 'left-apng', text: 'hover-text-about' },
+      { id: 'left-middle-apng', text: 'hover-text-news' },
+    ];
+
+    touchElements.forEach(({ id, text }) => {
+      const el = document.getElementById(id);
+      el.addEventListener('touchstart', () => {
+        el.classList.add('touch-active');
+        document.getElementById(text).style.opacity = 1;
+      });
+      el.addEventListener('touchend', () => {
+        el.classList.remove('touch-active');
+        document.getElementById(text).style.opacity = 0;
+      });
+    });
   });
 </script>
 </body>
