@@ -262,121 +262,17 @@
       nav a { font-size: 1em; margin: 5px; }
       footer { font-size: 0.9em; padding: 10px; }
       .from-left img { transform: scale(0.8); }
+
+      .left-apng,
+      .left-middle-apng {
+        max-width: 40vw;
+      }
+
+      .left-apng img,
+      .left-middle-apng img {
+        max-width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
-<body>
-<div class="content-wrapper">
-  <div class="name">
-    <a href="index.html"><img src="KAIYO.png" alt="Kaiyo Icon"></a>
-  </div>
-
-  <div class="hero">
-    <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
-
-    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
-      <img src="left2-idle.png" class="idle" alt="Idle">
-      <img src="left2-wave.png" class="wave" alt="Wave Animation">
-    </div>
-    <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
-      <img src="left-idle.png" class="idle" alt="Idle">
-      <img src="left-wave.png" class="wave" alt="Wave Animation">
-    </div>
-
-    <div class="hover-text" id="hover-text-about">About</div>
-    <div class="hover-text" id="hover-text-news">News</div>
-
-    <div class="character-wrapper from-right">
-      <img src="right.png" alt="Character Right" class="character" id="char-right">
-    </div>
-    <div class="character-wrapper from-bottom">
-      <img src="mid.png" alt="Character Bottom" class="character" id="char-bottom">
-    </div>
-
-    <p class="intro-text" id="intro-text">Hello.</p>
-  </div>
-
-  <nav>
-    <a href="news.html">News</a>
-    <a href="about.html">About</a>
-    <div class="dropdown">
-      <a href="works.html">Works</a>
-      <div class="dropdown-content">
-        <a href="illustration.html">Illustration</a>
-        <a href="pet-portraits.html">Pet Portraits</a>
-        <a href="animation.html">Animation</a>
-        <a href="product-design.html">Product Design</a>
-        <a href="cloisonne.html">Cloisonné Objects & Accessories</a>
-      </div>
-    </div>
-    <a href="contact.html#contact">Contact</a>
-  </nav>
-</div>
-
-<footer>
-  &copy; 2025 Kaiyo
-  <div class="social-icons">
-    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
-  </div>
-</footer>
-
-<script>
-  window.addEventListener('load', () => {
-    const animationDuration = 400;
-    const apng = document.getElementById('apng-animation');
-    apng.src = `p-plane.png?${Date.now()}`;
-
-    setTimeout(() => {
-      document.getElementById('left-apng').style.display = 'block';
-      document.getElementById('left-apng').style.opacity = 1;
-    }, animationDuration + 800);
-
-    setTimeout(() => {
-      document.getElementById('left-middle-apng').style.display = 'block';
-      document.getElementById('left-middle-apng').style.opacity = 1;
-    }, animationDuration + 1000);
-
-    setTimeout(() => {
-      const right = document.getElementById('char-right');
-      right.style.opacity = 1;
-      right.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-    }, animationDuration + 1400);
-
-    setTimeout(() => {
-      const bottom = document.getElementById('char-bottom');
-      bottom.style.opacity = 1;
-      bottom.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-    }, animationDuration + 1800);
-
-    setTimeout(() => {
-      const intro = document.getElementById('intro-text');
-      intro.style.opacity = 1;
-    }, animationDuration + 2400);
-
-    setTimeout(() => {
-      const intro = document.getElementById('intro-text');
-      intro.style.opacity = 0;
-    }, animationDuration + 5400);
-
-    const touchElements = [
-      { id: 'left-apng', text: 'hover-text-about' },
-      { id: 'left-middle-apng', text: 'hover-text-news' },
-    ];
-
-    touchElements.forEach(({ id, text }) => {
-      const el = document.getElementById(id);
-      el.addEventListener('touchstart', () => {
-        el.classList.add('touch-active');
-        document.getElementById(text).style.opacity = 1;
-      });
-      el.addEventListener('touchend', () => {
-        el.classList.remove('touch-active');
-        document.getElementById(text).style.opacity = 0;
-      });
-    });
-  });
-</script>
-</body>
-</html>
