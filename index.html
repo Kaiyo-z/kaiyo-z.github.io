@@ -121,12 +121,11 @@
       pointer-events: none;
     }
 
-    .left-apng:hover ~ .hover-text {
-      opacity: 1;
-    }
     .left-middle-apng:hover ~ .hover-text {
       opacity: 1;
-      content: 'News';
+    }
+    .left-apng:hover ~ .hover-text {
+      opacity: 1;
     }
 
     .left-apng, .left-middle-apng {
@@ -137,18 +136,18 @@
       animation: bounceInPlace 1.2s ease-out forwards;
     }
 
-    .left-apng {
-      bottom: 0;
-      left: 0;
-      width: 150px;
-      height: 250px;
-    }
-
     .left-middle-apng {
       bottom: 30px;
       left: 0;
       width: 120px;
       height: 200px;
+    }
+
+    .left-apng {
+      bottom: 0;
+      left: 0;
+      width: 150px;
+      height: 250px;
     }
 
     .left-apng img,
@@ -268,13 +267,13 @@
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
-    <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
-      <img src="left-idle.png" class="idle" alt="Idle">
-      <img src="left-wave.png" class="wave" alt="Wave Animation">
-    </div>
     <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
       <img src="left2-idle.png" class="idle" alt="Idle">
       <img src="left2-wave.png" class="wave" alt="Wave Animation">
+    </div>
+    <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
+      <img src="left-idle.png" class="idle" alt="Idle">
+      <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
 
     <div class="hover-text" id="hover-text">News</div>
@@ -322,13 +321,13 @@
     apng.src = `p-plane.png?${Date.now()}`;
 
     setTimeout(() => {
-      document.getElementById('left-apng').style.display = 'block';
-      document.getElementById('left-apng').style.opacity = 1;
+      document.getElementById('left-middle-apng').style.display = 'block';
+      document.getElementById('left-middle-apng').style.opacity = 1;
     }, animationDuration + 800);
 
     setTimeout(() => {
-      document.getElementById('left-middle-apng').style.display = 'block';
-      document.getElementById('left-middle-apng').style.opacity = 1;
+      document.getElementById('left-apng').style.display = 'block';
+      document.getElementById('left-apng').style.opacity = 1;
     }, animationDuration + 1000);
 
     setTimeout(() => {
