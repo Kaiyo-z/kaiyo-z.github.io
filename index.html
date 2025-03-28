@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kaiyo's Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     html, body {
       margin: 0;
@@ -18,10 +19,12 @@
       background: url("wpaper.jpg") no-repeat center center fixed;
       background-size: cover;
     }
+
     .content-wrapper {
       flex: 1;
       position: relative;
     }
+
     .name {
       position: fixed;
       top: 20px;
@@ -30,17 +33,20 @@
       display: flex;
       align-items: center;
     }
+
     .name img {
       width: 80px;
       height: 80px;
       margin-right: 10px;
       cursor: pointer;
     }
+
     .hero {
       height: 100vh;
       position: relative;
       overflow: hidden;
     }
+
     .hero img.animation-bg {
       width: 100%;
       height: 100%;
@@ -51,12 +57,14 @@
       left: 0;
       z-index: 1;
     }
+
     @keyframes bounceInPlace {
       0% { transform: scale(0.9); opacity: 0; }
       60% { transform: scale(1.05); opacity: 1; }
       80% { transform: scale(0.97); }
       100% { transform: scale(1); }
     }
+
     .character-wrapper {
       position: absolute;
       z-index: 3;
@@ -66,6 +74,7 @@
       width: auto;
       height: auto;
     }
+
     .character-wrapper img {
       display: block;
       opacity: 0;
@@ -73,16 +82,19 @@
       height: auto;
       max-width: none;
     }
+
     .from-right {
       bottom: 0;
       right: 0;
     }
+
     .from-bottom {
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
     }
+
     .intro-text {
       position: absolute;
       top: 20%;
@@ -95,6 +107,7 @@
       transition: opacity 1s ease;
       font-family: 'Arial', sans-serif;
     }
+
     .hover-text {
       position: absolute;
       top: 20%;
@@ -107,14 +120,23 @@
       transition: opacity 0.5s ease;
       pointer-events: none;
     }
-    .left-apng:hover ~ #hover-text-about,
-    .left-apng.touch-active ~ #hover-text-about {
+
+    .hover-text.news {
+      content: "News";
+    }
+
+    .hover-text.about {
+      content: "About";
+    }
+
+    .left-middle-apng:hover ~ #hover-text-news {
       opacity: 1;
     }
-    .left-middle-apng:hover ~ #hover-text-news,
-    .left-middle-apng.touch-active ~ #hover-text-news {
+
+    .left-apng:hover ~ #hover-text-about {
       opacity: 1;
     }
+
     .left-apng, .left-middle-apng {
       position: absolute;
       z-index: 3;
@@ -122,36 +144,45 @@
       display: none;
       animation: bounceInPlace 1.2s ease-out forwards;
     }
+
     .left-middle-apng {
       bottom: 30px;
       left: 0;
+      width: 120px;
+      height: 200px;
     }
+
     .left-apng {
       bottom: 0;
       left: 0;
+      width: 150px;
+      height: 250px;
     }
+
     .left-apng img,
     .left-middle-apng img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
       display: block;
-      width: 100%;
-      height: auto;
+      max-width: none;
     }
+
     .wave {
       opacity: 0;
       pointer-events: none;
     }
+
     .left-apng:hover .idle,
-    .left-middle-apng:hover .idle,
-    .left-apng.touch-active .idle,
-    .left-middle-apng.touch-active .idle {
+    .left-middle-apng:hover .idle {
       opacity: 0;
     }
+
     .left-apng:hover .wave,
-    .left-middle-apng:hover .wave,
-    .left-apng.touch-active .wave,
-    .left-middle-apng.touch-active .wave {
+    .left-middle-apng:hover .wave {
       opacity: 1;
     }
+
     nav {
       position: fixed;
       top: 20px;
@@ -161,19 +192,23 @@
       padding: 10px;
       border-radius: 5px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       margin: 10px;
       font-size: 1.2em;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .dropdown {
       position: relative;
       display: inline-block;
     }
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -181,19 +216,23 @@
       min-width: 160px;
       z-index: 1;
     }
+
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
     .dropdown-content a {
       color: white;
       padding: 10px;
       text-decoration: none;
       display: block;
     }
+
     .dropdown-content a:hover {
       background-color: #ddd;
       color: black;
     }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -201,9 +240,11 @@
       background-color: #333;
       color: white;
     }
+
     .social-icons {
       margin-top: 10px;
     }
+
     .social-icons a {
       color: white;
       margin: 0 10px;
@@ -211,126 +252,116 @@
       text-decoration: none;
       transition: 0.3s;
     }
+
     .social-icons a:hover {
       opacity: 0.7;
       transform: scale(1.2);
     }
+
     @media (max-width: 768px) {
       .name img { width: 60px; height: 60px; }
       nav { top: 20px; right: 15px; padding: 5px; }
       nav a { font-size: 1em; margin: 5px; }
       footer { font-size: 0.9em; padding: 10px; }
       .from-left img { transform: scale(0.8); }
-      .left-apng, .left-middle-apng {
-        width: 35vw;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="content-wrapper">
-    <div class="name">
-      <a href="index.html"><img src="KAIYO.png" alt="Kaiyo Icon"></a>
-    </div>
-    <div class="hero">
-      <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
-      <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
-        <img src="left2-idle.png" class="idle" alt="Idle">
-        <img src="left2-wave.png" class="wave" alt="Wave Animation">
-      </div>
-      <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
-        <img src="left-idle.png" class="idle" alt="Idle">
-        <img src="left-wave.png" class="wave" alt="Wave Animation">
-      </div>
-      <div class="hover-text" id="hover-text-about">About</div>
-      <div class="hover-text" id="hover-text-news">News</div>
-      <div class="character-wrapper from-right">
-        <img src="right.png" alt="Character Right" class="character" id="char-right">
-      </div>
-      <div class="character-wrapper from-bottom">
-        <img src="mid.png" alt="Character Bottom" class="character" id="char-bottom">
-      </div>
-      <p class="intro-text" id="intro-text">Hello.</p>
-    </div>
-    <nav>
-      <a href="news.html">News</a>
-      <a href="about.html">About</a>
-      <div class="dropdown">
-        <a href="works.html">Works</a>
-        <div class="dropdown-content">
-          <a href="illustration.html">Illustration</a>
-          <a href="pet-portraits.html">Pet Portraits</a>
-          <a href="animation.html">Animation</a>
-          <a href="product-design.html">Product Design</a>
-          <a href="cloisonne.html">Cloisonné Objects & Accessories</a>
-        </div>
-      </div>
-      <a href="contact.html#contact">Contact</a>
-    </nav>
+<div class="content-wrapper">
+  <div class="name">
+    <a href="index.html"><img src="KAIYO.png" alt="Kaiyo Icon"></a>
   </div>
-  <footer>
-    &copy; 2025 Kaiyo
-    <div class="social-icons">
-      <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-      <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+
+  <div class="hero">
+    <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
+
+    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
+      <img src="left2-idle.png" class="idle" alt="Idle">
+      <img src="left2-wave.png" class="wave" alt="Wave Animation">
     </div>
-  </footer>
-  <script>
-    window.addEventListener('load', () => {
-      const animationDuration = 400;
-      const apng = document.getElementById('apng-animation');
-      apng.src = `p-plane.png?${Date.now()}`;
+    <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
+      <img src="left-idle.png" class="idle" alt="Idle">
+      <img src="left-wave.png" class="wave" alt="Wave Animation">
+    </div>
 
-      setTimeout(() => {
-        document.getElementById('left-apng').style.display = 'block';
-        document.getElementById('left-apng').style.opacity = 1;
-      }, animationDuration + 800);
+    <div class="hover-text" id="hover-text-news">News</div>
+    <div class="hover-text" id="hover-text-about">About</div>
 
-      setTimeout(() => {
-        document.getElementById('left-middle-apng').style.display = 'block';
-        document.getElementById('left-middle-apng').style.opacity = 1;
-      }, animationDuration + 1000);
+    <div class="character-wrapper from-right">
+      <img src="right.png" alt="Character Right" class="character" id="char-right">
+    </div>
+    <div class="character-wrapper from-bottom">
+      <img src="mid.png" alt="Character Bottom" class="character" id="char-bottom">
+    </div>
 
-      setTimeout(() => {
-        const right = document.getElementById('char-right');
-        right.style.opacity = 1;
-        right.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-      }, animationDuration + 1400);
+    <p class="intro-text" id="intro-text">Hello.</p>
+  </div>
 
-      setTimeout(() => {
-        const bottom = document.getElementById('char-bottom');
-        bottom.style.opacity = 1;
-        bottom.style.animation = 'bounceInPlace 1.2s ease-out forwards';
-      }, animationDuration + 1800);
+  <nav>
+    <a href="news.html">News</a>
+    <a href="about.html">About</a>
+    <div class="dropdown">
+      <a href="works.html">Works</a>
+      <div class="dropdown-content">
+        <a href="illustration.html">Illustration</a>
+        <a href="pet-portraits.html">Pet Portraits</a>
+        <a href="animation.html">Animation</a>
+        <a href="product-design.html">Product Design</a>
+        <a href="cloisonne.html">Cloisonné Objects & Accessories</a>
+      </div>
+    </div>
+    <a href="contact.html#contact">Contact</a>
+  </nav>
+</div>
 
-      setTimeout(() => {
-        const intro = document.getElementById('intro-text');
-        intro.style.opacity = 1;
-      }, animationDuration + 2400);
+<footer>
+  &copy; 2025 Kaiyo
+  <div class="social-icons">
+    <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
+    <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+  </div>
+</footer>
 
-      setTimeout(() => {
-        const intro = document.getElementById('intro-text');
-        intro.style.opacity = 0;
-      }, animationDuration + 5400);
+<script>
+  window.addEventListener('load', () => {
+    const animationDuration = 400;
+    const apng = document.getElementById('apng-animation');
+    apng.src = `p-plane.png?${Date.now()}`;
 
-      const touchElements = [
-        { id: 'left-apng', text: 'hover-text-about' },
-        { id: 'left-middle-apng', text: 'hover-text-news' },
-      ];
+    setTimeout(() => {
+      document.getElementById('left-middle-apng').style.display = 'block';
+      document.getElementById('left-middle-apng').style.opacity = 1;
+    }, animationDuration + 800);
 
-      touchElements.forEach(({ id, text }) => {
-        const el = document.getElementById(id);
-        el.addEventListener('touchstart', () => {
-          el.classList.add('touch-active');
-          document.getElementById(text).style.opacity = 1;
-        });
-        el.addEventListener('touchend', () => {
-          el.classList.remove('touch-active');
-          document.getElementById(text).style.opacity = 0;
-        });
-      });
-    });
-  </script>
+    setTimeout(() => {
+      document.getElementById('left-apng').style.display = 'block';
+      document.getElementById('left-apng').style.opacity = 1;
+    }, animationDuration + 1000);
+
+    setTimeout(() => {
+      const right = document.getElementById('char-right');
+      right.style.opacity = 1;
+      right.style.animation = 'bounceInPlace 1.2s ease-out forwards';
+    }, animationDuration + 1400);
+
+    setTimeout(() => {
+      const bottom = document.getElementById('char-bottom');
+      bottom.style.opacity = 1;
+      bottom.style.animation = 'bounceInPlace 1.2s ease-out forwards';
+    }, animationDuration + 1800);
+
+    setTimeout(() => {
+      const intro = document.getElementById('intro-text');
+      intro.style.opacity = 1;
+    }, animationDuration + 2400);
+
+    setTimeout(() => {
+      const intro = document.getElementById('intro-text');
+      intro.style.opacity = 0;
+    }, animationDuration + 5400);
+  });
+</script>
 </body>
 </html>
