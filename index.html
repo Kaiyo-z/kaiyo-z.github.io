@@ -121,10 +121,19 @@
       pointer-events: none;
     }
 
-    .left-middle-apng:hover ~ .hover-text {
+    .hover-text.news {
+      content: "News";
+    }
+
+    .hover-text.about {
+      content: "About";
+    }
+
+    .left-middle-apng:hover ~ #hover-text-news {
       opacity: 1;
     }
-    .left-apng:hover ~ .hover-text {
+
+    .left-apng:hover ~ #hover-text-about {
       opacity: 1;
     }
 
@@ -276,7 +285,8 @@
       <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
 
-    <div class="hover-text" id="hover-text">News</div>
+    <div class="hover-text" id="hover-text-news">News</div>
+    <div class="hover-text" id="hover-text-about">About</div>
 
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
