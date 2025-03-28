@@ -108,10 +108,11 @@
       font-family: 'Arial', sans-serif;
     }
 
-    .hover-text, .hover-text-middle {
+    .hover-text {
       position: absolute;
-      top: 15%;
-      left: 20%;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 1.4em;
       color: #333;
       opacity: 0;
@@ -120,12 +121,8 @@
       pointer-events: none;
     }
 
-    .hover-text-middle {
-      top: 25%;
-    }
-
     .left-apng:hover ~ .hover-text,
-    .left-middle-apng:hover ~ .hover-text-middle {
+    .left-middle-apng:hover ~ .hover-text {
       opacity: 1;
     }
 
@@ -140,11 +137,15 @@
     .left-apng {
       bottom: 0;
       left: 0;
+      width: 150px;
+      height: 250px;
     }
 
     .left-middle-apng {
-      bottom: 0;
-      left: 0px;
+      bottom: 30px;
+      left: 80px;
+      width: 120px;
+      height: 200px;
     }
 
     .left-apng img,
@@ -264,17 +265,16 @@
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
+    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
+      <img src="left2-idle.png" class="idle" alt="Idle">
+      <img src="left2-wave.png" class="wave" alt="Wave Animation">
+    </div>
     <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
       <img src="left-idle.png" class="idle" alt="Idle">
       <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
-    <div class="left-middle-apng" onclick="location.href='News.html';" id="left-middle-apng">
-      <img src="left2-idle.png" class="idle" alt="Idle">
-      <img src="left2-wave.png" class="wave" alt="Wave Animation">
-    </div>
 
-    <div class="hover-text">About</div>
-    <div class="hover-text hover-text-middle">Newst</div>
+    <div class="hover-text" id="hover-text">About</div>
 
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
