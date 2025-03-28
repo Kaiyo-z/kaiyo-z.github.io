@@ -110,14 +110,18 @@
 
     .hover-text, .hover-text-middle {
       position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 15%;
+      left: 20%;
       font-size: 1.4em;
       color: #333;
       opacity: 0;
       z-index: 5;
       transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .hover-text-middle {
+      top: 25%;
     }
 
     .left-apng:hover ~ .hover-text,
@@ -139,8 +143,8 @@
     }
 
     .left-middle-apng {
-      bottom: 0%;
-      left: 0%;
+      bottom: 0;
+      left: 80px;
     }
 
     .left-apng img,
@@ -264,19 +268,13 @@
       <img src="left-idle.png" class="idle" alt="Idle">
       <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
-    <div class="hover-text">About</div>
-
-    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
+    <div class="left-middle-apng" onclick="location.href='pet-portraits.html';" id="left-middle-apng">
       <img src="left2-idle.png" class="idle" alt="Idle">
       <img src="left2-wave.png" class="wave" alt="Wave Animation">
     </div>
-    <div class="hover-text hover-text-middle">News</div>
 
-    <!-- <div class="left-upper-apng" onclick="location.href='news.html';" id="left-upper-apng">
-      <img src="left3-idle.png" class="idle" alt="Idle">
-      <img src="left3-wave.png" class="wave" alt="Wave Animation">
-    </div>
-    <div class="hover-text hover-text-news">New</div> -->
+    <div class="hover-text">About</div>
+    <div class="hover-text hover-text-middle">Pet Portrait</div>
 
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
@@ -329,11 +327,6 @@
       document.getElementById('left-middle-apng').style.display = 'block';
       document.getElementById('left-middle-apng').style.opacity = 1;
     }, animationDuration + 1000);
-
-    // setTimeout(() => {
-    //   document.getElementById('left-upper-apng').style.display = 'block';
-    //   document.getElementById('left-upper-apng').style.opacity = 1;
-    // }, animationDuration + 1200);
 
     setTimeout(() => {
       const right = document.getElementById('char-right');
