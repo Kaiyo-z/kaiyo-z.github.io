@@ -121,9 +121,12 @@
       pointer-events: none;
     }
 
-    .left-apng:hover ~ .hover-text,
+    .left-apng:hover ~ .hover-text {
+      opacity: 1;
+    }
     .left-middle-apng:hover ~ .hover-text {
       opacity: 1;
+      content: 'News';
     }
 
     .left-apng, .left-middle-apng {
@@ -143,7 +146,7 @@
 
     .left-middle-apng {
       bottom: 30px;
-      left: 80px;
+      left: 0;
       width: 120px;
       height: 200px;
     }
@@ -265,16 +268,16 @@
   <div class="hero">
     <img src="p-plane.png" alt="Intro Animation" class="animation-bg" id="apng-animation">
 
-    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
-      <img src="left2-idle.png" class="idle" alt="Idle">
-      <img src="left2-wave.png" class="wave" alt="Wave Animation">
-    </div>
     <div class="left-apng" onclick="location.href='about.html';" id="left-apng">
       <img src="left-idle.png" class="idle" alt="Idle">
       <img src="left-wave.png" class="wave" alt="Wave Animation">
     </div>
+    <div class="left-middle-apng" onclick="location.href='news.html';" id="left-middle-apng">
+      <img src="left2-idle.png" class="idle" alt="Idle">
+      <img src="left2-wave.png" class="wave" alt="Wave Animation">
+    </div>
 
-    <div class="hover-text" id="hover-text">About</div>
+    <div class="hover-text" id="hover-text">News</div>
 
     <div class="character-wrapper from-right">
       <img src="right.png" alt="Character Right" class="character" id="char-right">
