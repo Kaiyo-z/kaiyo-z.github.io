@@ -24,6 +24,12 @@
       color: #333;
     }
 
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .name {
       position: fixed;
       top: 20px;
@@ -106,14 +112,11 @@
       margin-top: 10px;
     }
 
-    .main-content {
-      flex: 1;
-    }
-
     .container {
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
+      flex: 1;
     }
 
     .about-section {
@@ -226,7 +229,7 @@
     <a href="/contact.html#contact">Contact</a>
   </nav>
 
-  <div class="main-content">
+  <div class="main-wrapper">
     <header>
       <h1 id="about-title"
           data-en="About"
