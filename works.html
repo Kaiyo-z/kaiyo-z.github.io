@@ -114,8 +114,10 @@
     }
 
     .carousel {
-      width: 90%;
-      max-width: 1000px;
+      width: 100vw;
+      height:100vh;
+      max-width: 100vw;
+      max-height 100vh;
       margin: 0 auto;
       position: relative;
       overflow: hidden;
@@ -128,7 +130,9 @@
     }
 
     .carousel-slide {
-      min-width: 100%;
+      min-width: 100vw;
+      height: 100vh
+      poosition: relative;
       text-align: center;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
@@ -140,13 +144,22 @@
 
     .carousel-slide img {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
     }
 
     
     .caption {
-  opacity: 0;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      background-color: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 80%;
+      opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
