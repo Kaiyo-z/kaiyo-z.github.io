@@ -13,50 +13,51 @@
       height: 100%;
     }
 
-    /* Kaiyo logo */
-    .name {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 25;
-    }
-
-    .name img {
-      width: 60px;
-      height: 60px;
-    }
-
-    /* nav 導覽列與語言切換 */
-    nav {
+    /* 上方區域：語言 + nav 並排 */
+    .top-bar {
       position: absolute;
       top: 20px;
       right: 20px;
       z-index: 20;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 15px;
-      border-radius: 5px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
+    }
+
+    /* 語言切換 */
+    .lang-switch {
+      font-size: 0.9em;
+      color: #aaa;
     }
 
     .lang-switch button {
       background: none;
       border: none;
-      color: #ccc;
+      color: #aaa;
       font-size: 0.9em;
       padding: 4px 6px;
+      margin-right: 4px;
       cursor: pointer;
     }
 
     .lang-switch button:hover {
-      color: white;
+      color: #666;
       text-decoration: underline;
+    }
+
+    /* 導覽列 nav */
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 15px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
+      margin: 10px;
       font-size: 1.2em;
     }
 
@@ -93,6 +94,20 @@
       color: white;
     }
 
+    /* Kaiyo logo 左上角 */
+    .name {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 25;
+    }
+
+    .name img {
+      width: 60px;
+      height: 60px;
+    }
+
+    /* Header */
     header {
       text-align: center;
       margin-top: 100px;
@@ -105,6 +120,7 @@
       color: #333;
     }
 
+    /* 全畫面 Carousel */
     .carousel {
       width: 100vw;
       height: 100vh;
@@ -141,7 +157,6 @@
       object-fit: cover;
       border-radius: 0;
     }
-
     .caption {
       position: absolute;
       bottom: 20px;
@@ -231,122 +246,134 @@
       opacity: 0.7;
       transform: scale(1.2);
     }
-
-    @media (max-width: 768px) {
-      nav {
-        top: 20px;
-        right: 15px;
-        padding: 5px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      nav a {
-        font-size: 1em;
-        margin-left: 5px;
-      }
-
-      .carousel-button {
-        padding: 6px 12px;
-      }
-
-      .name img {
-        width: 50px;
-        height: 50px;
-      }
-    }
   </style>
 </head>
 
 <body>
-
-  <!-- Kaiyo logo -->
   <div class="name">
     <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
   </div>
 
-  <!-- Nav + 語言切換按鈕 -->
-  <nav>
+  <!-- 語言 + nav 並排 -->
+  <div class="top-bar">
     <div class="lang-switch">
       <button onclick="changeLang('en')">EN</button>
       <button onclick="changeLang('ja')">日本語</button>
       <button onclick="changeLang('zh')">中文</button>
     </div>
-    <a href="/news.html">News</a>
-    <a href="/about.html">About</a>
-    <div class="dropdown">
-      <a href="/works.html">Works</a>
-      <div class="dropdown-content">
-        <a href="/illustration.html">Illustration</a>
-        <a href="/pet-portraits.html">Pet Portraits</a>
-        <a href="/animation.html">Animation</a>
-        <a href="/product-design.html">Product Design</a>
-        <a href="/cloisonne.html">Cloisonné</a>
+    <nav>
+      <a href="/news.html">News</a>
+      <a href="/about.html">About</a>
+      <div class="dropdown">
+        <a href="/works.html">Works</a>
+        <div class="dropdown-content">
+          <a href="/illustration.html">Illustration</a>
+          <a href="/pet-portraits.html">Pet Portraits</a>
+          <a href="/animation.html">Animation</a>
+          <a href="/product-design.html">Product Design</a>
+          <a href="/cloisonne.html">Cloisonné</a>
+        </div>
       </div>
-    </div>
-    <a href="/contact.html">Contact</a>
-  </nav>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
 
-  <!-- 標題 -->
   <header>
     <h1 id="works-title" data-en="Works" data-ja="作品" data-zh="作品集">Works</h1>
   </header>
 
-  <!-- 幻燈片 dot -->
   <div class="carousel-dots">
     <span class="dot active" onclick="goToSlide(0)"></span>
     <span class="dot" onclick="goToSlide(1)"></span>
     <span class="dot" onclick="goToSlide(2)"></span>
+    <span class="dot" onclick="goToSlide(3)"></span>
+    <span class="dot" onclick="goToSlide(4)"></span>
   </div>
 
-  <!-- 幻燈片主體 -->
   <div class="carousel">
     <div class="carousel-track">
+      <!-- Slide 1 -->
       <div class="carousel-slide active">
         <img src="https://via.placeholder.com/1200x800?text=Illustration" alt="Illustration">
         <div class="caption"
-          data-en-title="Illustration" data-ja-title="イラスト" data-zh-title="插畫"
-          data-en-desc="Healing and playful illustrations full of personality."
-          data-ja-desc="個性豊かで癒される遊び心あるイラスト。"
-          data-zh-desc="充滿療癒與個性的可愛插畫。">
+             data-en-title="Illustration"
+             data-ja-title="イラスト"
+             data-zh-title="插畫"
+             data-en-desc="Healing and playful illustrations full of personality."
+             data-ja-desc="個性豊かで癒される遊び心あるイラスト。"
+             data-zh-desc="充滿療癒與個性的可愛插畫。">
           <h2 class="caption-title">Illustration</h2>
           <p class="caption-desc">Healing and playful illustrations full of personality.</p>
         </div>
       </div>
 
+      <!-- Slide 2 -->
       <div class="carousel-slide">
         <img src="https://via.placeholder.com/1200x800?text=Pet+Portraits" alt="Pet Portraits">
         <div class="caption"
-          data-en-title="Pet Portraits" data-ja-title="ペットポートレート" data-zh-title="寵物肖像"
-          data-en-desc="A one-of-a-kind portrait that captures your pet’s soul."
-          data-ja-desc="あなたのペットの魂を映し出す唯一無二の肖像。"
-          data-zh-desc="捕捉寵物靈魂的獨一無二肖像。">
+             data-en-title="Pet Portraits"
+             data-ja-title="ペットポートレート"
+             data-zh-title="寵物肖像"
+             data-en-desc="A one-of-a-kind portrait that captures your pet’s soul."
+             data-ja-desc="あなたのペットの魂を映し出す唯一無二の肖像。"
+             data-zh-desc="捕捉寵物靈魂的獨一無二肖像。">
           <h2 class="caption-title">Pet Portraits</h2>
           <p class="caption-desc">A one-of-a-kind portrait that captures your pet’s soul.</p>
         </div>
       </div>
 
+      <!-- Slide 3 -->
       <div class="carousel-slide">
         <img src="https://via.placeholder.com/1200x800?text=Animation" alt="Animation">
         <div class="caption"
-          data-en-title="Animation" data-ja-title="アニメーション" data-zh-title="動畫"
-          data-en-desc="Emotional stories told through expressive animation."
-          data-ja-desc="感情豊かに物語を描くアニメーション作品。"
-          data-zh-desc="用動畫講述情感滿溢的故事。">
+             data-en-title="Animation"
+             data-ja-title="アニメーション"
+             data-zh-title="動畫"
+             data-en-desc="Emotional stories told through expressive animation."
+             data-ja-desc="感情豊かに物語を描くアニメーション作品。"
+             data-zh-desc="用動畫講述情感滿溢的故事。">
           <h2 class="caption-title">Animation</h2>
           <p class="caption-desc">Emotional stories told through expressive animation.</p>
         </div>
       </div>
+
+      <!-- Slide 4 -->
+      <div class="carousel-slide">
+        <img src="https://via.placeholder.com/1200x800?text=Product+Design" alt="Product Design">
+        <div class="caption"
+             data-en-title="Product Design"
+             data-ja-title="プロダクトデザイン"
+             data-zh-title="產品設計"
+             data-en-desc="Playful everyday items with artistic twists."
+             data-ja-desc="遊び心のある日常プロダクト。"
+             data-zh-desc="日常中充滿趣味與美感的設計。">
+          <h2 class="caption-title">Product Design</h2>
+          <p class="caption-desc">Playful everyday items with artistic twists.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5 - Cloisonné -->
+      <div class="carousel-slide">
+        <img src="cloisonne.png" alt="Cloisonné">
+        <div class="caption"
+             data-en-title="Cloisonné Objects & Accessories"
+             data-ja-title="七宝焼作品＆アクセサリー"
+             data-zh-title="琺瑯物件與飾品"
+             data-en-desc="Unique enamel creations inspired by memories and nature."
+             data-ja-desc="思い出や自然をもとにした七宝焼の表現。"
+             data-zh-desc="從回憶與自然中誕生的琺瑯創作。">
+          <h2 class="caption-title">Cloisonné Objects & Accessories</h2>
+          <p class="caption-desc">Unique enamel creations inspired by memories and nature.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- 左右按鈕 -->
     <div class="carousel-nav">
       <button class="carousel-button prev">‹</button>
       <button class="carousel-button next">›</button>
     </div>
   </div>
 
-  <!-- footer -->
   <footer>
     &copy; 2025 Kaiyo
     <div class="social-icons">
@@ -355,101 +382,101 @@
       <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
     </div>
   </footer>
+<script>
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+  const dots = document.querySelectorAll('.dot');
+  const titleEl = document.getElementById('works-title');
+  const carousel = document.querySelector('.carousel');
 
-  <!-- script -->
-  <script>
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
-    const dots = document.querySelectorAll('.dot');
-    const titleEl = document.getElementById('works-title');
-    const carousel = document.querySelector('.carousel');
+  let currentIndex = 0;
+  let currentLang = 'en';
 
-    let currentIndex = 0;
-    let currentLang = 'en';
+  function updateSlide() {
+    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+    updateCaptions();
+  }
 
-    function updateSlide() {
-      track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentIndex);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
-      });
-      updateCaptions();
+  function goToSlide(index) {
+    currentIndex = index;
+    updateSlide();
+  }
+
+  function updateCaptions() {
+    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
+    slides.forEach((slide, i) => {
+      const caption = slide.querySelector('.caption');
+      const title = caption.querySelector('.caption-title');
+      const desc = caption.querySelector('.caption-desc');
+
+      title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+      desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+
+      caption.style.display = (i === currentIndex) ? 'block' : 'none';
+    });
+  }
+
+  function changeLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('preferredLang', lang);
+    updateCaptions();
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlide();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlide();
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToSlide(i));
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLang');
+    if (savedLang) {
+      currentLang = savedLang;
+    } else {
+      const browserLang = navigator.language.toLowerCase();
+      if (browserLang.startsWith('ja')) currentLang = 'ja';
+      else if (browserLang.startsWith('zh')) currentLang = 'zh';
     }
+    updateSlide();
+  });
 
-    function goToSlide(index) {
-      currentIndex = index;
-      updateSlide();
-    }
+  // 手機滑動支援
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const threshold = 50;
 
-    function updateCaptions() {
-      titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
-      slides.forEach((slide, i) => {
-        const caption = slide.querySelector('.caption');
-        const title = caption.querySelector('.caption-title');
-        const desc = caption.querySelector('.caption-desc');
-        title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-        desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-        caption.style.display = (i === currentIndex) ? 'block' : 'none';
-      });
-    }
+  carousel.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
 
-    function changeLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('preferredLang', lang);
-      updateCaptions();
-    }
+  carousel.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchEndX - touchStartX;
 
-    prevButton.addEventListener('click', () => {
+    if (deltaX > threshold) {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateSlide();
-    });
-
-    nextButton.addEventListener('click', () => {
+    } else if (deltaX < -threshold) {
       currentIndex = (currentIndex + 1) % slides.length;
       updateSlide();
-    });
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => goToSlide(i));
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('preferredLang');
-      if (savedLang) {
-        currentLang = savedLang;
-      } else {
-        const browserLang = navigator.language.toLowerCase();
-        if (browserLang.startsWith('ja')) currentLang = 'ja';
-        else if (browserLang.startsWith('zh')) currentLang = 'zh';
-      }
-      updateSlide();
-    });
-
-    // touch support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const threshold = 50;
-
-    carousel.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    carousel.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].screenX;
-      const deltaX = touchEndX - touchStartX;
-      if (deltaX > threshold) {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlide();
-      } else if (deltaX < -threshold) {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlide();
-      }
-    });
-  </script>
-
+    }
+  });
+</script>
 </body>
 </html>
