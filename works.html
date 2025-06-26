@@ -127,7 +127,8 @@
       height: 100vh;
       max-width: 100vw;
       max-height: 100vh;
-      margin: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
       position: relative;
       overflow: hidden;
       touch-action: pan-y;
@@ -137,6 +138,8 @@
       display: flex;
       transition: transform 0.5s ease-in-out;
       height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     .carousel-slide {
@@ -422,7 +425,6 @@
       title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
       desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
 
-      caption.style.display = (i === currentIndex) ? 'block' : 'none';
     });
   }
 
