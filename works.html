@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Works</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous"/>
-
+  <button class="carousel-botton prev">&#10094;</button>
+  <button class="carousel-botton next">&#10095;</button>
+  
+  
   <style>
     html, body {
       margin: 0;
@@ -162,7 +165,7 @@
       border-radius: 0;
     }
     .caption {
-      z-inbox: 15;
+      z-index: 15;
       position: absolute;
       bottom: 20px;
       left: 20px;
@@ -458,6 +461,12 @@
       else if (browserLang.startsWith('zh')) currentLang = 'zh';
     }
     updateSlide();
+
+  //自動輪播機能
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlide();
+    }, 5000) //5秒切り替え
   });
 
   // 手機滑動支援
