@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Works</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous"/>
-  
-  
   <style>
     html, body {
       margin: 0;
@@ -14,8 +12,6 @@
       height: 100%;
       overflow-x: hidden;
     }
-
-    /* 上方區域：語言 + nav 並排 */
     .top-bar {
       position: absolute;
       top: 20px;
@@ -25,13 +21,10 @@
       align-items: center;
       gap: 20px;
     }
-
-    /* 語言切換 */
     .lang-switch {
       font-size: 0.9em;
       color: #aaa;
     }
-
     .lang-switch button {
       background: none;
       border: none;
@@ -41,13 +34,10 @@
       margin-right: 4px;
       cursor: pointer;
     }
-
     .lang-switch button:hover {
       color: #666;
       text-decoration: underline;
     }
-
-    /* 導覽列 nav */
     nav {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 10px 15px;
@@ -55,23 +45,19 @@
       display: flex;
       align-items: center;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       margin: 10px;
       font-size: 1.2em;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     .dropdown {
       position: relative;
       display: inline-block;
     }
-
     .dropdown-content {
       display: none;
       position: absolute;
@@ -79,50 +65,39 @@
       min-width: 160px;
       z-index: 1;
     }
-
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .dropdown-content a {
       color: white;
       padding: 10px;
       text-decoration: none;
       display: block;
     }
-
     .dropdown-content a:hover {
       background-color: #555;
       color: white;
     }
-
-    /* Kaiyo logo 左上角 */
     .name {
       position: absolute;
       top: 20px;
       left: 20px;
       z-index: 25;
     }
-
     .name img {
       width: 60px;
       height: 60px;
     }
-
-    /* Header */
     header {
       text-align: center;
       margin-top: 100px;
       z-index: 5;
       position: relative;
     }
-
     header h1 {
       font-size: 2.5em;
       color: #333;
     }
-
-    /* 全畫面 Carousel */
     .carousel {
       width: 100vw;
       height:600px;
@@ -133,7 +108,6 @@
       overflow: hidden;
       touch-action: pan-y;
     }
-
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease-in-out;
@@ -141,7 +115,6 @@
       margin: 0;
       padding: 0;
     }
-
     .carousel-slide {
       width: 100vw;
       height: 600px;
@@ -153,16 +126,11 @@
       z-index: 0;
       transition: opacity 0.5s ease-in-out;
     }
-     .carousel-slide .caption{
-       z-index: 10;
-     }
-
     .carousel-slide.active {
       opacity: 1;
       pointer-events: auto;
       z-index: 1;
     }
-
     .carousel-slide img {
       width: 100%;
       height: 100%;
@@ -183,16 +151,13 @@
       transition: opacity 0.3s ease;
       pointer-events: none;
     }
-
     .carousel-slide.active .caption {
       opacity: 1;
       pointer-events: auto;
     }
-
     .caption h2, .caption p {
       margin: 5px;
     }
-
     .carousel-nav {
       position: absolute;
       top: 50%;
@@ -202,7 +167,6 @@
       transform: translateY(-50%);
       z-index: 10;
     }
-
     .carousel-button {
       background-color: rgba(0, 0, 0, 0.5);
       border: none;
@@ -211,7 +175,6 @@
       font-size: 2em;
       cursor: pointer;
     }
-
     .carousel-dots {
       position: absolute;
       bottom: 20px;
@@ -219,7 +182,6 @@
       text-align: center;
       z-index: 10;
     }
-
     .carousel-dots .dot {
       display: inline-block;
       height: 12px;
@@ -230,11 +192,9 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-
     .carousel-dots .dot.active {
       background-color: white;
     }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -242,11 +202,9 @@
       background-color: #333;
       color: white;
     }
-
     .social-icons {
       margin-top: 10px;
     }
-
     .social-icons a {
       color: white;
       margin: 0 10px;
@@ -254,7 +212,6 @@
       text-decoration: none;
       transition: 0.3s;
     }
-
     .social-icons a:hover {
       opacity: 0.7;
       transform: scale(1.2);
@@ -334,7 +291,6 @@
           <p class="caption-desc">A one-of-a-kind portrait that captures your pet’s soul.</p>
         </div>
       </div>
-
       <!-- Slide 3 -->
       <div class="carousel-slide">
         <img src="https://via.placeholder.com/1200x800?text=Animation" alt="Animation">
@@ -365,7 +321,7 @@
         </div>
       </div>
 
-      <!-- Slide 5 - Cloisonné -->
+      <!-- Slide 5 -->
       <div class="carousel-slide">
         <img src="cloisonne.png" alt="Cloisonné">
         <div class="caption"
@@ -395,106 +351,102 @@
       <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
     </div>
   </footer>
-<script>
-  const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  const prevButton = document.querySelector('.carousel-button.prev');
-  const nextButton = document.querySelector('.carousel-button.next');
-  const dots = document.querySelectorAll('.dot');
-  const titleEl = document.getElementById('works-title');
-  const carousel = document.querySelector('.carousel');
 
-  let currentIndex = 0;
-  let currentLang = 'en';
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const dots = document.querySelectorAll('.dot');
+    const titleEl = document.getElementById('works-title');
+    const carousel = document.querySelector('.carousel');
 
-  function updateSlide() {
-    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === currentIndex);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
-    updateCaptions();
-  }
+    let currentIndex = 0;
+    let currentLang = 'en';
 
-  function goToSlide(index) {
-    currentIndex = index;
-    updateSlide();
-  }
-
-  function updateCaptions() {
-    titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
-    slides.forEach((slide, i) => {
-      const caption = slide.querySelector('.caption');
-      const title = caption.querySelector('.caption-title');
-      const desc = caption.querySelector('.caption-desc');
-
-      title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-      desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-
-    });
-  }
-
-  function changeLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('preferredLang', lang);
-    updateCaptions();
-  }
-
-  prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlide();
-  });
-
-  nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlide();
-  });
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLang');
-    if (savedLang) {
-      currentLang = savedLang;
-    } else {
-      const browserLang = navigator.language.toLowerCase();
-      if (browserLang.startsWith('ja')) currentLang = 'ja';
-      else if (browserLang.startsWith('zh')) currentLang = 'zh';
+    function updateSlide() {
+      track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+      updateCaptions();
     }
-    updateSlide();
 
-  //自動輪播機能
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % slides.length;
+    function goToSlide(index) {
+      currentIndex = index;
       updateSlide();
-    }, 5000) //5秒切り替え
-  });
+    }
 
-  // 手機滑動支援
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const threshold = 50;
+    function updateCaptions() {
+      titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
+      slides.forEach((slide) => {
+        const caption = slide.querySelector('.caption');
+        const title = caption.querySelector('.caption-title');
+        const desc = caption.querySelector('.caption-desc');
+        title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+        desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+      });
+    }
 
-  carousel.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
+    function changeLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('preferredLang', lang);
+      updateCaptions();
+    }
 
-  carousel.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    const deltaX = touchEndX - touchStartX;
-
-    if (deltaX > threshold) {
+    prevButton.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateSlide();
-    } else if (deltaX < -threshold) {
+    });
+
+    nextButton.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % slides.length;
       updateSlide();
-    }
-  });
-</script>
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLang');
+      if (savedLang) {
+        currentLang = savedLang;
+      } else {
+        const browserLang = navigator.language.toLowerCase();
+        if (browserLang.startsWith('ja')) currentLang = 'ja';
+        else if (browserLang.startsWith('zh')) currentLang = 'zh';
+      }
+      updateSlide();
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide();
+      }, 5000);
+    });
+
+    // Touch support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const threshold = 50;
+
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      const deltaX = touchEndX - touchStartX;
+      if (deltaX > threshold) {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide();
+      } else if (deltaX < -threshold) {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide();
+      }
+    });
+  </script>
 </body>
 </html>
