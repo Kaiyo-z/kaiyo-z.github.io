@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      overflow-x: hidden;
     }
 
     /* 上方區域：語言 + nav 並排 */
@@ -139,8 +140,9 @@
     }
 
     .carousel-slide {
-      min-width: 100vw;
-      height: 100vh;
+      width: 100vw;
+      height: 600px;
+      flex-shrink: 0;
       position: relative;
       text-align: center;
       opacity: 0;
