@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,9 +11,9 @@
       padding: 0;
       height: 100%;
       overflow-x: hidden;
+      font-family: sans-serif;
     }
     .top-bar {
-      z-index: 9999;
       position: absolute;
       top: 20px;
       right: 20px;
@@ -31,74 +31,11 @@
       border: none;
       color: #aaa;
       font-size: 0.9em;
-      padding: 4px 6px;
-      margin-right: 4px;
       cursor: pointer;
     }
     .lang-switch button:hover {
       color: #666;
       text-decoration: underline;
-    }
-    nav {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 15px;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px;
-      font-size: 1.2em;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #333;
-      min-width: 160px;
-      z-index: 1;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .dropdown-content a {
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown-content a:hover {
-      background-color: #555;
-      color: white;
-    }
-    .name {
-      z-index: 9999;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 25;
-    }
-    .name img {
-      width: 60px;
-      height: 60px;
-    }
-    header {
-      text-align: center;
-      margin-top: 100px;
-      z-index: 5;
-      position: relative;
-    }
-    header h1 {
-      font-size: 2.5em;
-      color: #333;
     }
     .carousel {
       width: 100vw;
@@ -115,16 +52,13 @@
       height: 600px;
       flex-shrink: 0;
       position: relative;
-      text-align: center;
       opacity: 0;
       pointer-events: none;
-      z-index: 0;
       transition: opacity 0.5s ease-in-out;
     }
     .carousel-slide.active {
       opacity: 1;
       pointer-events: auto;
-      z-index: 1;
     }
     .carousel-slide img {
       width: 100%;
@@ -140,14 +74,6 @@
       padding: 12px 16px;
       border-radius: 8px;
       max-width: 70%;
-      opacity: 0;
-      z-index: 30;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-    }
-    .carousel-slide.active .caption {
-      opacity: 1;
-      pointer-events: auto;
     }
     .carousel-nav {
       position: absolute;
@@ -156,7 +82,6 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
-      z-index: 10;
     }
     .carousel-button {
       background-color: rgba(0, 0, 0, 0.5);
@@ -171,7 +96,6 @@
       bottom: 20px;
       width: 100%;
       text-align: center;
-      z-index: 10;
     }
     .carousel-dots .dot {
       display: inline-block;
@@ -181,47 +105,36 @@
       background-color: rgba(255, 255, 255, 0.6);
       border-radius: 50%;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
     .carousel-dots .dot.active {
       background-color: white;
     }
-     .container {
+    .about-section {
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
-      flex: 1;
-    }
-
-    .about-section {
       display: flex;
-      align-items: flex-start;
-      gap: 40px;
       flex-wrap: wrap;
+      gap: 30px;
     }
-
     .about-img {
       flex: 1;
       text-align: center;
     }
-
     .about-img img {
-      width: 100%;
       max-width: 300px;
+      width: 100%;
       border-radius: 10px;
     }
-
     .about-text {
       flex: 2;
       font-size: 1.1em;
       line-height: 1.8;
       text-align: justify;
     }
-    
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 1em;
       background-color: #333;
       color: white;
     }
@@ -233,250 +146,131 @@
       margin: 0 10px;
       font-size: 1.5em;
       text-decoration: none;
-      transition: 0.3s;
     }
-    .social-icons a:hover {
-      opacity: 0.7;
-      transform: scale(1.2);
-    }
- </style>
+  </style>
 </head>
 <body>
-  <div class="name">
-    <a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a>
-  </div>
   <div class="top-bar">
     <div class="lang-switch">
       <button onclick="changeLang('en')">EN</button>
       <button onclick="changeLang('ja')">日本語</button>
       <button onclick="changeLang('zh')">中文</button>
     </div>
-    <nav>
-      <a href="/news.html">News</a>
-      <a href="/about.html">About</a>
-      <div class="dropdown">
-        <a href="/works.html">Works</a>
-        <div class="dropdown-content">
-          <a href="/illustration.html">Illustration</a>
-          <a href="/pet-portraits.html">Pet Portraits</a>
-          <a href="/animation.html">Animation</a>
-          <a href="/product-design.html">Product Design</a>
-          <a href="/cloisonne.html">Cloisonné</a>
-        </div>
-      </div>
-      <a href="/contact.html">Contact</a>
-    </nav>
   </div>
-  <header>
-    <h1 id="works-title">Works</h1>
-  </header>
-  <div class="carousel-dots">
-    <span class="dot active" onclick="goToSlide(0)"></span>
-    <span class="dot" onclick="goToSlide(1)"></span>
-    <span class="dot" onclick="goToSlide(2)"></span>
-    <span class="dot" onclick="goToSlide(3)"></span>
-    <span class="dot" onclick="goToSlide(4)"></span>
-  </div>
+
   <div class="carousel">
     <div class="carousel-track">
-
-<div class="carousel-slide active">
-  <img src="https://via.placeholder.com/1200x800?text=Illustration" alt="Illustration">
-  <div class="caption"
-       data-en-title="Illustration"
-       data-ja-title="イラスト"
-       data-zh-title="插畫"
-       data-en-desc="Healing and playful illustrations full of personality."
-       data-ja-desc="個性豊かで癒される遊び心あるイラスト。"
-       data-zh-desc="充滿療癒與個性的可愛插畫。">
-    <h2 class="caption-title">Illustration</h2>
-    <p class="caption-desc">Healing and playful illustrations full of personality.</p>
-  </div>
-</div>
-<div class="carousel-slide">
-  <img src="https://via.placeholder.com/1200x800?text=Pet+Portraits" alt="Pet Portraits">
-  <div class="caption"
-       data-en-title="Pet Portraits"
-       data-ja-title="ペットポートレート"
-       data-zh-title="寵物肖像"
-       data-en-desc="A one-of-a-kind portrait that captures your pet’s soul."
-       data-ja-desc="あなたのペットの魂を映し出す唯一無二の肖像。"
-       data-zh-desc="捕捉寵物靈魂的獨一無二肖像。">
-    <h2 class="caption-title">Pet Portraits</h2>
-    <p class="caption-desc">A one-of-a-kind portrait that captures your pet’s soul.</p>
-  </div>
-</div>
-<div class="carousel-slide">
-  <img src="https://via.placeholder.com/1200x800?text=Animation" alt="Animation">
-  <div class="caption"
-       data-en-title="Animation"
-       data-ja-title="アニメーション"
-       data-zh-title="動畫"
-       data-en-desc="Emotional stories told through expressive animation."
-       data-ja-desc="感情豊かに物語を描くアニメーション作品。"
-       data-zh-desc="用動畫講述情感滿溢的故事。">
-    <h2 class="caption-title">Animation</h2>
-    <p class="caption-desc">Emotional stories told through expressive animation.</p>
-  </div>
-</div>
-<div class="carousel-slide">
-  <img src="https://via.placeholder.com/1200x800?text=Product+Design" alt="Product Design">
-  <div class="caption"
-       data-en-title="Product Design"
-       data-ja-title="プロダクトデザイン"
-       data-zh-title="產品設計"
-       data-en-desc="Playful everyday items with artistic twists."
-       data-ja-desc="遊び心のある日常プロダクト。"
-       data-zh-desc="日常中充滿趣味與美感的設計。">
-    <h2 class="caption-title">Product Design</h2>
-    <p class="caption-desc">Playful everyday items with artistic twists.</p>
-  </div>
-</div>
-<div class="carousel-slide">
-  <img src="cloisonne.png" alt="Cloisonné">
-  <div class="caption"
-       data-en-title="Cloisonné Objects & Accessories"
-       data-ja-title="七宝焼作品＆アクセサリー"
-       data-zh-title="琺瑯物件與飾品"
-       data-en-desc="Unique enamel creations inspired by memories and nature."
-       data-ja-desc="思い出や自然をもとにした七宝焼の表現。"
-       data-zh-desc="從回憶與自然中誕生的琺瑯創作。">
-    <h2 class="caption-title">Cloisonné Objects & Accessories</h2>
-    <p class="caption-desc">Unique enamel creations inspired by memories and nature.</p>
-  </div>
-</div>
-
+      <div class="carousel-slide active">
+        <img src="https://via.placeholder.com/1200x600?text=Slide+1" alt="Slide 1">
+        <div class="caption" data-en-title="Title 1" data-en-desc="English description" data-ja-title="タイトル1" data-ja-desc="日本語説明" data-zh-title="標題1" data-zh-desc="中文說明">
+          <h2 class="caption-title">Title 1</h2>
+          <p class="caption-desc">English description</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="https://via.placeholder.com/1200x600?text=Slide+2" alt="Slide 2">
+        <div class="caption" data-en-title="Title 2" data-en-desc="English description" data-ja-title="タイトル2" data-ja-desc="日本語説明" data-zh-title="標題2" data-zh-desc="中文說明">
+          <h2 class="caption-title">Title 2</h2>
+          <p class="caption-desc">English description</p>
+        </div>
+      </div>
     </div>
     <div class="carousel-nav">
       <button class="carousel-button prev">‹</button>
       <button class="carousel-button next">›</button>
     </div>
-<div class="container">
-      <div class="about-section">
-        <div class="about-img">
-          <img src="/your-photo.jpg" alt="Kaiyo Photo">
-        </div>
-        <div class="about-text" id="about-text"
-          data-en="Hello, I’m Kaiyo.Originally from Taichung, Taiwan, I studied Jewelry & Metal Design at Bunka Gakuen University in Japan and completed my graduate studies in Formative Design.
-I create illustrations as well as handcrafted pieces that combine cloisonné enamel with metalwork techniques.
-My works are inspired by fleeting memories, gentle moments with animals, and small discoveries in everyday life.
-With a hand-drawn warmth and a touch of dreamlike air, I hope my creations quietly resonate with the hearts of others — like a small light tucked into memory."
-          data-ja="こんにちは、Kaiyoと申します。台湾の台中出身で、日本の文化学園大学にてジュエリーメタルデザインを学び、大学院ではデザイン造形を専攻しました。現在は、イラストのほか、七宝焼と金工技法を組み合わせたを作品を制作しています。心に残る景色や、動物たちとのかけがえのない時間、日々の中で、そっと光る小さな気づきを形にしています。手描きの温もりと、どこか夢のような空気を大切にしながら、誰かの記憶にやさしく寄り添うような作品を目指しています。"
-          data-zh="你好，我是 Kaiyo，來自台灣台中。曾於日本文化學園大學主修珠寶金屬設計，研究所則專攻設計造形。我從事插畫創作，也製作融合七寶（琺瑯）與金工技法的作品。創作靈感多來自於記憶片段、與動物共度的溫柔時光，以及日常中悄悄閃現的小發現。希望我的作品能成為一束溫柔的光，靜靜照亮他人心中的某處記憶。">
-        </div>
-      </div>
+    <div class="carousel-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
     </div>
   </div>
+
+  <div class="about-section">
+    <div class="about-img">
+      <img src="https://via.placeholder.com/300" alt="Kaiyo Photo">
+    </div>
+    <div class="about-text" id="about-text"
+         data-en="Hello, I'm Kaiyo. This is my English introduction."
+         data-ja="こんにちは、Kaiyoです。これは日本語の紹介文です。"
+         data-zh="你好，我是Kaiyo。這是我的中文介紹。">
+    </div>
+  </div>
+
   <footer>
     &copy; 2025 Kaiyo
     <div class="social-icons">
-      <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-      <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-etsy"></i></a>
+      <a href="#"><i class="fas fa-store"></i></a>
     </div>
   </footer>
-<script>
-  const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const prevButton = document.querySelector('.carousel-button.prev');
-const nextButton = document.querySelector('.carousel-button.next');
-const titleEl = document.getElementById('works-title');
-const dots = document.querySelectorAll('.dot');
-const carousel = document.querySelector('.carousel');
 
-let currentIndex = 0;
-let currentLang = 'en';
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const dots = document.querySelectorAll('.dot');
+    const aboutText = document.getElementById('about-text');
+    const titleEls = document.querySelectorAll('.caption-title');
+    const descEls = document.querySelectorAll('.caption-desc');
+    const captions = document.querySelectorAll('.caption');
+    let currentIndex = 0;
+    let currentLang = 'en';
 
-function updateSlide() {
-  track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === currentIndex);
-  });
-  dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentIndex);
-  });
-  updateCaptions();
-  applyLang(currentLang);  // 修正這裡的 lang → currentLang
-}
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlide();
+    }
 
-function updateCaptions() {
-  titleEl.textContent = titleEl.dataset[currentLang] || titleEl.dataset['en'];
-  slides.forEach(slide => {
-    const caption = slide.querySelector('.caption');
-    const title = caption.querySelector('.caption-title');
-    const desc = caption.querySelector('.caption-desc');
-    title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-    desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
-  });
-}
+    function updateSlide() {
+      track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+      updateCaptions();
+    }
 
-function applyLang(lang) {
-  const text = document.getElementById('about-text'); // 修正拼錯
-  if (text && text.dataset[lang]) {
-    text.textContent = text.dataset[lang]; // 修正拼錯
-  }
-}
+    function updateCaptions() {
+      captions.forEach(caption => {
+        const title = caption.querySelector('.caption-title');
+        const desc = caption.querySelector('.caption-desc');
+        title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
+        desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+      });
+      if (aboutText && aboutText.dataset[currentLang]) {
+        aboutText.textContent = aboutText.dataset[currentLang];
+      }
+    }
 
-function changeLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('preferredLang', lang);
-  updateCaptions();
-  applyLang(lang);
-}
+    function changeLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('preferredLang', lang);
+      updateCaptions();
+    }
 
-prevButton.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateSlide();
-});
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlide();
+    });
 
-nextButton.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateSlide();
-});
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlide();
+    });
 
-dots.forEach((dot, i) => {
-  dot.addEventListener('click', () => goToSlide(i));
-});
-
-function goToSlide(index) {
-  currentIndex = index;
-  updateSlide();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('preferredLang');
-  if (savedLang) {
-    currentLang = savedLang;
-  } else {
-    const browserLang = navigator.language.toLowerCase();
-    if (browserLang.startsWith('ja')) currentLang = 'ja';
-    else if (browserLang.startsWith('zh')) currentLang = 'zh';
-  }
-
-  updateSlide();
-  applyLang(currentLang);
-
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlide();
-  }, 5000);
-});
-
-// swipe
-let touchStartX = 0;
-let touchEndX = 0;
-const threshold = 50;
-carousel.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-carousel.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
-  const deltaX = touchEndX - touchStartX;
-  if (deltaX > threshold) {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlide();
-  } else if (deltaX < -threshold) {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlide();
-  }
-});
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLang');
+      if (savedLang) currentLang = savedLang;
+      updateSlide();
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide();
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
