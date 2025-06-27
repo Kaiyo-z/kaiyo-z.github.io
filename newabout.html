@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Works</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous"/>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Works</title>
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet"/>
+<style>
     html, body {
       margin: 0;
       padding: 0;
@@ -149,63 +150,70 @@
     }
   </style>
 </head>
-<body>
-  <div class="top-bar">
-    <div class="lang-switch">
-      <button onclick="changeLang('en')">EN</button>
-      <button onclick="changeLang('ja')">日本語</button>
-      <button onclick="changeLang('zh')">中文</button>
-    </div>
-  </div>
+<body><div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a></div><div class="top-bar"><div class="lang-switch">
+<button onclick="changeLang('en')">EN</button>
+<button onclick="changeLang('ja')">日本語</button>
+<button onclick="changeLang('zh')">中文</button>
+</div><nav>
+<a href="/news.html">News</a>
+<a href="/about.html">About</a>
+<div class="dropdown">
+<a href="/works.html">Works</a>
+<div class="dropdown-content">
+<a href="/illustration.html">Illustration</a>
+<a href="/pet-portraits.html">Pet Portraits</a>
+<a href="/animation.html">Animation</a>
+<a href="/product-design.html">Product Design</a>
+<a href="/cloisonne.html">Cloisonné</a>
+</div>
+</div>
+<a href="/contact.html">Contact</a>
+</nav></div>
+<div class="top-bar">
 
-  <div class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-slide active">
-        <img src="https://via.placeholder.com/1200x600?text=Slide+1" alt="Slide 1">
-        <div class="caption" data-en-title="Title 1" data-en-desc="English description" data-ja-title="タイトル1" data-ja-desc="日本語説明" data-zh-title="標題1" data-zh-desc="中文說明">
-          <h2 class="caption-title">Title 1</h2>
-          <p class="caption-desc">English description</p>
-        </div>
-      </div>
-      <div class="carousel-slide">
-        <img src="https://via.placeholder.com/1200x600?text=Slide+2" alt="Slide 2">
-        <div class="caption" data-en-title="Title 2" data-en-desc="English description" data-ja-title="タイトル2" data-ja-desc="日本語説明" data-zh-title="標題2" data-zh-desc="中文說明">
-          <h2 class="caption-title">Title 2</h2>
-          <p class="caption-desc">English description</p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-nav">
-      <button class="carousel-button prev">‹</button>
-      <button class="carousel-button next">›</button>
-    </div>
-    <div class="carousel-dots">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-    </div>
-  </div>
-
-  <div class="about-section">
-    <div class="about-img">
-      <img src="https://via.placeholder.com/300" alt="Kaiyo Photo">
-    </div>
-    <div class="about-text" id="about-text"
-         data-en="Hello, I'm Kaiyo. This is my English introduction."
-         data-ja="こんにちは、Kaiyoです。これは日本語の紹介文です。"
-         data-zh="你好，我是Kaiyo。這是我的中文介紹。">
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Kaiyo
+</div>
+<div class="carousel">
+<div class="carousel-track">
+<div class="carousel-slide active">
+<img alt="Slide 1" src="https://via.placeholder.com/1200x600?text=Slide+1"/>
+<div class="caption" data-en-desc="English description" data-en-title="Title 1" data-ja-desc="日本語説明" data-ja-title="タイトル1" data-zh-desc="中文說明" data-zh-title="標題1">
+<h2 class="caption-title">Title 1</h2>
+<p class="caption-desc">English description</p>
+</div>
+</div>
+<div class="carousel-slide">
+<img alt="Slide 2" src="https://via.placeholder.com/1200x600?text=Slide+2"/>
+<div class="caption" data-en-desc="English description" data-en-title="Title 2" data-ja-desc="日本語説明" data-ja-title="タイトル2" data-zh-desc="中文說明" data-zh-title="標題2">
+<h2 class="caption-title">Title 2</h2>
+<p class="caption-desc">English description</p>
+</div>
+</div>
+</div>
+<div class="carousel-nav">
+<button class="carousel-button prev">‹</button>
+<button class="carousel-button next">›</button>
+</div>
+<div class="carousel-dots">
+<span class="dot active" onclick="goToSlide(0)"></span>
+<span class="dot" onclick="goToSlide(1)"></span>
+</div>
+</div>
+<div class="about-section">
+<div class="about-img">
+<img alt="Kaiyo Photo" src="https://via.placeholder.com/300"/>
+</div>
+<div class="about-text" data-en="Hello, I'm Kaiyo. This is my English introduction." data-ja="こんにちは、Kaiyoです。これは日本語の紹介文です。" data-zh="你好，我是Kaiyo。這是我的中文介紹。" id="about-text">
+</div>
+</div>
+<footer>
+    © 2025 Kaiyo
     <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-etsy"></i></a>
-      <a href="#"><i class="fas fa-store"></i></a>
-    </div>
-  </footer>
-
-  <script>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-etsy"></i></a>
+<a href="#"><i class="fas fa-store"></i></a>
+</div>
+</footer>
+<script>
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const prevButton = document.querySelector('.carousel-button.prev');
