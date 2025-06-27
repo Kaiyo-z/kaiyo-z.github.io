@@ -12,15 +12,16 @@
       height: 100%;
       overflow-x: hidden;
     }
+
     .top-bar {
       position: absolute;
       top: 20px;
       right: 20px;
-      z-index: 9999;
       display: flex;
-      align-items: center;
-      gap: 20px;
+      gap: 10px;
+      z-index: 9999;
     }
+
     .lang-switch button {
       background: none;
       border: none;
@@ -28,53 +29,43 @@
       font-size: 1em;
       cursor: pointer;
     }
+
     .name {
       position: absolute;
       top: 20px;
       left: 20px;
       z-index: 9999;
     }
+
     .name img {
       width: 60px;
-      height: 60px;
     }
-    nav {
-      background: rgba(0,0,0,0.5);
-      padding: 10px 15px;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px;
-      font-size: 1.1em;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
+
     .carousel {
       width: 100vw;
       height: 600px;
       overflow: hidden;
       position: relative;
     }
+
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+
     .carousel-slide {
       width: 100vw;
       height: 600px;
       flex-shrink: 0;
       position: relative;
     }
+
     .carousel-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .caption {
       z-index: 9999;
       position: absolute;
@@ -87,10 +78,60 @@
       max-width: 80%;
       opacity: 0;
       transition: opacity 0.5s ease;
+      pointer-events: none;
     }
+
     .carousel-slide.active .caption {
       opacity: 1;
+      pointer-events: auto;
     }
+
+    .caption h2, .caption p {
+      margin: 0;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 20;
+    }
+
+    .carousel-button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      padding: 16px;
+      font-size: 2em;
+      cursor: pointer;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 20;
+    }
+
+    .carousel-dots .dot {
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-dots .dot.active {
+      background-color: white;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -98,9 +139,11 @@
       background-color: #333;
       color: white;
     }
+
     .social-icons {
       margin-top: 10px;
     }
+
     .social-icons a {
       color: white;
       margin: 0 10px;
@@ -108,6 +151,7 @@
       text-decoration: none;
       transition: 0.3s;
     }
+
     .social-icons a:hover {
       opacity: 0.7;
       transform: scale(1.2);
@@ -115,129 +159,183 @@
   </style>
 </head>
 <body>
-  <div class="name"><a href="/index.html"><img src="/KAIYO.png" alt="Kaiyo Icon"></a></div>
+  <div class="name"><img src="KAIYO.png" alt="Logo"></div>
   <div class="top-bar">
     <div class="lang-switch">
       <button onclick="changeLang('en')">EN</button>
       <button onclick="changeLang('ja')">日本語</button>
       <button onclick="changeLang('zh')">中文</button>
     </div>
-    <nav>
-      <a href="/news.html">News</a>
-      <a href="/about.html">About</a>
-      <a href="/works.html">Works</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
   </div>
+
   <div class="carousel">
     <div class="carousel-track">
+
       <div class="carousel-slide active">
-        <img src="https://via.placeholder.com/1200x800?text=Illustration" alt="Illustration">
+        <img src="https://via.placeholder.com/1200x800?text=Slide1" alt="Slide1">
         <div class="caption"
-             data-en-title="Illustration"
-             data-ja-title="イラスト"
-             data-zh-title="插畫"
-             data-en-desc="Healing and playful illustrations full of personality."
-             data-ja-desc="個性豊かで癒される遊び心あるイラスト。"
-             data-zh-desc="充滿療癒與個性的可愛插畫。">
-          <h2 class="caption-title"></h2>
-          <p class="caption-desc"></p>
+             data-en-title="Title 1" data-ja-title="タイトル1" data-zh-title="標題1"
+             data-en-desc="English description 1" data-ja-desc="日本語説明1" data-zh-desc="中文說明1">
+          <h2 class="caption-title">Title 1</h2>
+          <p class="caption-desc">English description 1</p>
         </div>
       </div>
+    
       <div class="carousel-slide">
-        <img src="https://via.placeholder.com/1200x800?text=Pet+Portraits" alt="Pet Portraits">
+        <img src="https://via.placeholder.com/1200x800?text=Slide2" alt="Slide2">
         <div class="caption"
-             data-en-title="Pet Portraits"
-             data-ja-title="ペットポートレート"
-             data-zh-title="寵物肖像"
-             data-en-desc="A one-of-a-kind portrait that captures your pet’s soul."
-             data-ja-desc="あなたのペットの魂を映し出す唯一無二の肖像。"
-             data-zh-desc="捕捉寵物靈魂的獨一無二肖像。">
-          <h2 class="caption-title"></h2>
-          <p class="caption-desc"></p>
+             data-en-title="Title 2" data-ja-title="タイトル2" data-zh-title="標題2"
+             data-en-desc="English description 2" data-ja-desc="日本語説明2" data-zh-desc="中文說明2">
+          <h2 class="caption-title">Title 2</h2>
+          <p class="caption-desc">English description 2</p>
         </div>
       </div>
+    
       <div class="carousel-slide">
-        <img src="https://via.placeholder.com/1200x800?text=Animation" alt="Animation">
+        <img src="https://via.placeholder.com/1200x800?text=Slide3" alt="Slide3">
         <div class="caption"
-             data-en-title="Animation"
-             data-ja-title="アニメーション"
-             data-zh-title="動畫"
-             data-en-desc="Emotional stories told through expressive animation."
-             data-ja-desc="感情豊かに物語を描くアニメーション作品。"
-             data-zh-desc="用動畫講述情感滿溢的故事。">
-          <h2 class="caption-title"></h2>
-          <p class="caption-desc"></p>
+             data-en-title="Title 3" data-ja-title="タイトル3" data-zh-title="標題3"
+             data-en-desc="English description 3" data-ja-desc="日本語説明3" data-zh-desc="中文說明3">
+          <h2 class="caption-title">Title 3</h2>
+          <p class="caption-desc">English description 3</p>
         </div>
       </div>
+    
       <div class="carousel-slide">
-        <img src="https://via.placeholder.com/1200x800?text=Product+Design" alt="Product Design">
+        <img src="https://via.placeholder.com/1200x800?text=Slide4" alt="Slide4">
         <div class="caption"
-             data-en-title="Product Design"
-             data-ja-title="プロダクトデザイン"
-             data-zh-title="產品設計"
-             data-en-desc="Playful everyday items with artistic twists."
-             data-ja-desc="遊び心のある日常プロダクト。"
-             data-zh-desc="日常中充滿趣味與美感的設計。">
-          <h2 class="caption-title"></h2>
-          <p class="caption-desc"></p>
+             data-en-title="Title 4" data-ja-title="タイトル4" data-zh-title="標題4"
+             data-en-desc="English description 4" data-ja-desc="日本語説明4" data-zh-desc="中文說明4">
+          <h2 class="caption-title">Title 4</h2>
+          <p class="caption-desc">English description 4</p>
         </div>
       </div>
+    
       <div class="carousel-slide">
-        <img src="cloisonne.png" alt="Cloisonné">
+        <img src="https://via.placeholder.com/1200x800?text=Slide5" alt="Slide5">
         <div class="caption"
-             data-en-title="Cloisonné Objects & Accessories"
-             data-ja-title="七宝焼作品＆アクセサリー"
-             data-zh-title="琺瑯物件與飾品"
-             data-en-desc="Unique enamel creations inspired by memories and nature."
-             data-ja-desc="思い出や自然をもとにした七宝焼の表現。"
-             data-zh-desc="從回憶與自然中誕生的琺瑯創作。">
-          <h2 class="caption-title"></h2>
-          <p class="caption-desc"></p>
+             data-en-title="Title 5" data-ja-title="タイトル5" data-zh-title="標題5"
+             data-en-desc="English description 5" data-ja-desc="日本語説明5" data-zh-desc="中文說明5">
+          <h2 class="caption-title">Title 5</h2>
+          <p class="caption-desc">English description 5</p>
         </div>
       </div>
+    
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-button prev">‹</button>
+      <button class="carousel-button next">›</button>
+    </div>
+    <div class="carousel-dots">
+<span class="dot active" onclick="goToSlide(0)"></span>
+<span class="dot" onclick="goToSlide(1)"></span>
+<span class="dot" onclick="goToSlide(2)"></span>
+<span class="dot" onclick="goToSlide(3)"></span>
+<span class="dot" onclick="goToSlide(4)"></span>
     </div>
   </div>
+
   <footer>
     &copy; 2025 Kaiyo
     <div class="social-icons">
-      <a href="https://www.instagram.com/kaiyo.z" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://pudomade.etsy.com" target="_blank"><i class="fab fa-etsy"></i></a>
-      <a href="https://www.creema.jp/c/Pudomade" target="_blank"><i class="fas fa-store"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-etsy"></i></a>
+      <a href="#"><i class="fas fa-store"></i></a>
     </div>
   </footer>
+
   <script>
-    const slides = document.querySelectorAll('.carousel-slide');
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const dots = document.querySelectorAll('.dot');
     let currentIndex = 0;
     let currentLang = 'en';
+
+    function updateSlide() {
+      track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+      updateCaptions();
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlide();
+    }
+
     function updateCaptions() {
       slides.forEach(slide => {
         const caption = slide.querySelector('.caption');
-        if (!caption) return;
         const title = caption.querySelector('.caption-title');
         const desc = caption.querySelector('.caption-desc');
-        title.textContent = caption.dataset[`${currentLang}-title`] || '';
-        desc.textContent = caption.dataset[`${currentLang}-desc`] || '';
+        title.textContent = caption.dataset[currentLang + '-title'] || caption.dataset['en-title'];
+        desc.textContent = caption.dataset[currentLang + '-desc'] || caption.dataset['en-desc'];
       });
     }
+
     function changeLang(lang) {
       currentLang = lang;
+      localStorage.setItem('preferredLang', lang);
       updateCaptions();
     }
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlide();
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlide();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
-      const lang = localStorage.getItem('preferredLang');
-      if (lang) currentLang = lang;
-      updateCaptions();
-      showSlide(currentIndex);
+      const savedLang = localStorage.getItem('preferredLang');
+      if (savedLang) {
+        currentLang = savedLang;
+      } else {
+        const browserLang = navigator.language.toLowerCase();
+        if (browserLang.startsWith('ja')) currentLang = 'ja';
+        else if (browserLang.startsWith('zh')) currentLang = 'zh';
+      }
+      updateSlide();
       setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
+        updateSlide();
       }, 5000);
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const threshold = 50;
+      const carousel = document.querySelector('.carousel');
+
+      carousel.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      carousel.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const deltaX = touchEndX - touchStartX;
+
+        if (deltaX > threshold) {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+          updateSlide();
+        } else if (deltaX < -threshold) {
+          currentIndex = (currentIndex + 1) % slides.length;
+          updateSlide();
+        }
+      });
     });
   </script>
 </body>
