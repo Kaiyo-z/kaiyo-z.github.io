@@ -135,6 +135,7 @@
     .carousel-slide.active {
       opacity: 1;
       pointer-events: auto;
+    　z-index: 1;
     }
     .carousel-slide img {
       width: 100%;
@@ -150,6 +151,10 @@
       padding: 12px 16px;
       border-radius: 8px;
       max-width: 70%;
+      opacity: 0;
+      z-index: 30;
+      transition: opacity 0.5s ease;
+      pointer-event: none;
     }
     .carousel-nav {
       position: absolute;
@@ -158,6 +163,7 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
+      z-index: 10;
     }
     .carousel-button {
       background-color: rgba(0, 0, 0, 0.5);
@@ -172,6 +178,7 @@
       bottom: 20px;
       width: 100%;
       text-align: center;
+      z-index: 10;
     }
     .carousel-dots .dot {
       display: inline-block;
@@ -181,6 +188,7 @@
       background-color: rgba(255, 255, 255, 0.6);
       border-radius: 50%;
       cursor: pointer;
+      transistion: background-color 0.3s eses;
     }
     .carousel-dots .dot.active {
       background-color: white;
