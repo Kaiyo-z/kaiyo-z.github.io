@@ -15,14 +15,14 @@
       font-family: sans-serif;
     }
     .top-bar {
+      position: relative;
       z-index: 20;
       display: flex;
       align-items: center;
-      justify-content : flex-end;
-      gap: 20px;
-      padding: 20px 20px 20px 100px;
+      justify-content : space-between;
+      padding: 20px ;
       background-color: white;
-      position: relative;
+      
     }
     .lang-switch {
       font-size: 0.9em;
@@ -236,6 +236,7 @@
 </head>
 <body><div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a>
 <div>
+<div class="top-bar">
     <div class="lang-switch">
 <button onclick="changeLang('en')">EN</button>
 <button onclick="changeLang('ja')">日本語</button>
