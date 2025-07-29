@@ -16,18 +16,20 @@
     }
     .top-bar {
       position: relative;
-      z-index: 20;
+      z-index: 99;
       display: flex;
       align-items: center;
-      justify-content : space-between;
+      justify-content : flex-end;
       gap: 20px
-      padding: 20px 40px;
-      background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(4px);
+      padding: 20px 40px 0 40 px;
+      background: transparent;
     }
     .lang-switch {
       font-size: 0.9em;
       color: #aaa;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
     }
     .lang-switch button {
       background: none;
@@ -35,7 +37,7 @@
       color: #aaa;
       font-size: 0.9em;
       padding: 4px 6px;
-      margin-right: 4px;
+      margin: 2px 0;
       cursor: pointer;
     }
     .lang-switch button:hover {
@@ -46,7 +48,7 @@
         position: fixed;
         top: 20px;
         left: 20px;
-        z-index: 10;
+        z-index: 100;
         display: flex;
         align-items: center;
     }
@@ -116,9 +118,9 @@
     }
     
     .carousel {
-      margin-top: 120px
+      margin-top: 100px
       width: 100vw;
-      height: 60vh;
+      height: 600px;
       position: relative;
       overflow: hidden;
     }
@@ -128,7 +130,7 @@
     }
     .carousel-slide {
       width: 100vw;
-      height: 60vh;
+      height: 600px;
       flex-shrink: 0;
       position: relative;
       opacity: 0;
@@ -236,28 +238,34 @@
     }
   </style>
 </head>
-<body><div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a>
-<div>
-<div class="top-bar">
-    <div class="lang-switch">
-<button onclick="changeLang('en')">EN</button>
-<button onclick="changeLang('ja')">日本語</button>
-<button onclick="changeLang('zh')">中文</button>
-</div><nav>
-<a href="/news.html">News</a>
-<a href="/newabout.html">About</a>
-<div class="dropdown">
-<a href="">Works</a>
-<div class="dropdown-content">
-<a href="/illustration.html">Illustration</a>
-<a href="/pet-portraits.html">Pet Portraits</a>
-<a href="/animation.html">Animation</a>
-<a href="/product-design.html">Product Design</a>
-<a href="/cloisonne.html">Cloisonné</a>
-</div>
-</div>
-<a href="/contact.html">Contact</a>
-</nav></div>
+<body>
+    <div class="name">
+        <a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a>
+    <div>
+
+    <div class="top-bar">
+        <div class="lang-switch">
+            <button onclick="changeLang('en')">EN</button>
+            <button onclick="changeLang('ja')">日本語</button>
+            <button onclick="changeLang('zh')">中文</button>
+        </div>
+        <nav>
+            <a href="/news.html">News</a>
+            <a href="/newabout.html">About</a>
+            <div class="dropdown">
+                <a href="">Works</a>
+                <div class="dropdown-content">
+                    <a href="/illustration.html">Illustration</a>
+                    <a href="/pet-portraits.html">Pet Portraits</a>
+                    <a href="/animation.html">Animation</a>
+                    <a href="/product-design.html">Product Design</a>
+                    <a href="/cloisonne.html">Cloisonné</a>
+                </div>
+            </div>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </div>
+<body>
 </header>
 </div>
 <div class="carousel">
