@@ -15,14 +15,14 @@
       font-family: sans-serif;
     }
     .top-bar {
-      z-index: 9999;
-      position: absolute;
-      top: 20px;
-      right: 20px;
       z-index: 20;
       display: flex;
       align-items: center;
+      justify-content : flex-end;
       gap: 20px;
+      padding: 20px 20px 20px 100px;
+      background-color: white;
+      position: relative;
     }
     .lang-switch {
       font-size: 0.9em;
@@ -116,7 +116,7 @@
     
     .carousel {
       width: 100vw;
-      height: 600px;
+      height: 60vh;
       position: relative;
       overflow: hidden;
     }
@@ -126,7 +126,7 @@
     }
     .carousel-slide {
       width: 100vw;
-      height: 600px;
+      height: 60vh;
       flex-shrink: 0;
       position: relative;
       opacity: 0;
@@ -234,7 +234,9 @@
     }
   </style>
 </head>
-<body><div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a></div><div class="top-bar"><div class="lang-switch">
+<body><div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a>
+<div>
+    <div class="lang-switch">
 <button onclick="changeLang('en')">EN</button>
 <button onclick="changeLang('ja')">日本語</button>
 <button onclick="changeLang('zh')">中文</button>
@@ -253,7 +255,6 @@
 </div>
 <a href="/contact.html">Contact</a>
 </nav></div>
-<div class="top-bar">
 </header>
 </div>
 <div class="carousel">
