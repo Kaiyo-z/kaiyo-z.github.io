@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Works</title>
-<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Works</title>
+  <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" crossorigin="anonymous" />
+  <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow-x: hidden;
       font-family: sans-serif;
+      background-color: #f0f0f0;
     }
+
     .top-bar {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 999;
-        display: flex;
-        align-items: center;
-        gap: 20px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
-    .lang-switch {
-      font-size: 0.9em;
-      color: #aaa;
+
+    .name {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
     }
+
+    .name img {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
     .lang-switch button {
       background: none;
       border: none;
@@ -36,25 +50,13 @@
       margin-right: 4px;
       cursor: pointer;
     }
+
     .lang-switch button:hover {
       color: #666;
       text-decoration: underline;
     }
-    .name {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-    }
-    .name img {
-      width: 80px;
-      height: 80px;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-     nav {
+
+    nav {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 10px 15px;
       border-radius: 5px;
@@ -101,38 +103,19 @@
       background-color: #ddd;
       color: black;
     }
-    
-    header {
-        background-color: white
-        text-align: center;
-        margin-top: 120px;
-        z-index: 5;
-        position: relative;
-    }
-    header h1 {
-        font-size: 2.5em;
-        color: #333;
-    }
-    .main-wrapper {
-        background-color: rgba(255, 255, 255, 0.85);
-        max-width: 1000px;
-        margin: 120px auto 40px;
-        padding: 30px;
-        border-radius: 21px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    
+
     .carousel {
       width: 100vw;
       height: 600px;
       position: relative;
       overflow: hidden;
     }
-    
+
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+
     .carousel-slide {
       width: 100vw;
       height: 600px;
@@ -142,16 +125,19 @@
       pointer-events: none;
       transition: opacity 0.5s ease-in-out;
     }
+
     .carousel-slide.active {
       opacity: 1;
       pointer-events: auto;
-    　z-index: 1;
+      z-index: 1;
     }
+
     .carousel-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .caption {
       position: absolute;
       bottom: 30px;
@@ -161,11 +147,11 @@
       padding: 12px 16px;
       border-radius: 8px;
       max-width: 70%;
-      opacity: 0;
+      opacity: 1;
       z-index: 30;
       transition: opacity 0.5s ease;
-      pointer-event: none;
     }
+
     .carousel-nav {
       position: absolute;
       top: 50%;
@@ -175,6 +161,7 @@
       transform: translateY(-50%);
       z-index: 10;
     }
+
     .carousel-button {
       background-color: rgba(0, 0, 0, 0.5);
       border: none;
@@ -183,6 +170,7 @@
       font-size: 2em;
       cursor: pointer;
     }
+
     .carousel-dots {
       position: absolute;
       bottom: 20px;
@@ -190,6 +178,7 @@
       text-align: center;
       z-index: 10;
     }
+
     .carousel-dots .dot {
       display: inline-block;
       height: 12px;
@@ -198,43 +187,56 @@
       background-color: rgba(255, 255, 255, 0.6);
       border-radius: 50%;
       cursor: pointer;
-      transistion: background-color 0.3s eses;
     }
+
     .carousel-dots .dot.active {
       background-color: white;
     }
-    .about-section {
+
+    .main-wrapper {
+      background-color: rgba(255, 255, 255, 0.85);
       max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 60px auto 40px;
+      padding: 30px;
+      border-radius: 21px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .about-section {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
     }
+
     .about-img {
       flex: 1;
       text-align: center;
     }
+
     .about-img img {
       max-width: 300px;
       width: 100%;
       border-radius: 10px;
     }
+
     .about-text {
       flex: 2;
       font-size: 1.1em;
       line-height: 1.8;
       text-align: justify;
     }
+
     footer {
       text-align: center;
       padding: 20px;
       background-color: #333;
       color: white;
     }
+
     .social-icons {
       margin-top: 10px;
     }
+
     .social-icons a {
       color: white;
       margin: 0 10px;
@@ -244,105 +246,101 @@
   </style>
 </head>
 <body>
-    <div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a>
+  <div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a></div>
+  <div class="top-bar">
+    <div class="lang-switch">
+      <button onclick="changeLang('en')">EN</button>
+      <button onclick="changeLang('ja')">日本語</button>
+      <button onclick="changeLang('zh')">中文</button>
     </div>
-    <div class="top-bar">
-        <div class="lang-switch">
-            <button onclick="changeLang('en')">EN</button>
-            <button onclick="changeLang('ja')">日本語</button>
-            <button onclick="changeLang('zh')">中文</button>
+    <nav>
+      <a href="/news.html">News</a>
+      <a href="/newabout.html">About</a>
+      <div class="dropdown">
+        <a href="">Works</a>
+        <div class="dropdown-content">
+          <a href="/illustration.html">Illustration</a>
+          <a href="/pet-portraits.html">Pet Portraits</a>
+          <a href="/animation.html">Animation</a>
+          <a href="/product-design.html">Product Design</a>
+          <a href="/cloisonne.html">Cloisonné</a>
         </div>
-        <nav>
-            <a href="/news.html">News</a>
-            <a href="/newabout.html">About</a>
-            <div class="dropdown">
-                <a href="">Works</a>
-                <div class="dropdown-content">
-                    <a href="/illustration.html">Illustration</a>
-                    <a href="/pet-portraits.html">Pet Portraits</a>
-                    <a href="/animation.html">Animation</a>
-                    <a href="/product-design.html">Product Design</a>
-                    <a href="/cloisonne.html">Cloisonné</a>
-                </div>
-            </div>
-            <a href="/contact.html">Contact</a>
-        </nav>
-    </div>
-    <div class="box">
-        </div>
-       <span class="dot active" onclick="goToSlide(0)"></span>
-       <span class="dot" onclick="goToSlide(1)"></span>
-       <span class="dot" onclick="goToSlide(2)"></span>
-     </div>
-    <div class="main-wrapper">
-     <div class="carousel">
-         <div class="carousel-track">
+      </div>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
 
-<div class="carousel-slide active">
-    <img src="cloisonne.png"alt="Cloisonne" />
-<div class="caption" 
-    data-ja-title="タイトル1" 
-    data-zh-desc="中文說明" 
-    data-zh-title="標題1"
-    data-en-desc="Unique Enamel Creations inspired by memories and animal" 
-    data-en-title="Cloisonne Objects & Acessories" 
-    data-ja-desc="思い出や動物をもとにした七宝焼の表現">
-    <h2 class="caption-title">cloisonne</h2>
-    <p class="caption-desc">English description</p>
-  </div>
-</div>
-<div class="carousel-slide">
-    <img alt="Slide 2" src="https://via.placeholder.com/1200x600?text=Slide+2"/>
-    <div class="caption"
-        data-en-desc="English description"
-        data-en-title="Title 2"
-        data-ja-desc="日本語説明"
-        data-ja-title="タイトル2"
-        data-zh-desc="中文說明"
-        data-zh-title="標題2">
-    <h2 class="caption-title">Title 2</h2>
-    <p class="caption-desc">English description</p>
-  </div>
-</div>
-</div>
-<div class="carousel-nav">
-    <button class="carousel-button prev">‹</button>
-    <button class="carousel-button next">›</button>
-  </div>
-<div class="carousel-dots">
-    <span class="dot active" onclick="goToSlide(0)"></span>
-    <span class="dot" onclick="goToSlide(1)"></span>
-  </div>
-</div>
-<div class="about-section">
-    <div class="about-img">
-        <img alt="Kaiyo Photo" src="KAIYO.png"/>
+  <!-- 滿版 Carousel -->
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active">
+        <img src="cloisonne.png" alt="Cloisonne" />
+        <div class="caption" 
+          data-ja-title="タイトル1" 
+          data-zh-desc="中文說明" 
+          data-zh-title="標題1"
+          data-en-desc="Unique Enamel Creations inspired by memories and animal" 
+          data-en-title="Cloisonne Objects & Acessories" 
+          data-ja-desc="思い出や動物をもとにした七宝焼の表現">
+          <h2 class="caption-title">cloisonne</h2>
+          <p class="caption-desc">English description</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img alt="Slide 2" src="https://via.placeholder.com/1200x600?text=Slide+2"/>
+        <div class="caption"
+          data-en-desc="English description"
+          data-en-title="Title 2"
+          data-ja-desc="日本語説明"
+          data-ja-title="タイトル2"
+          data-zh-desc="中文說明"
+          data-zh-title="標題2">
+          <h2 class="caption-title">Title 2</h2>
+          <p class="caption-desc">English description</p>
+        </div>
+      </div>
     </div>
-</div>
-    <div class="about-text" 
+    <div class="carousel-nav">
+      <button class="carousel-button prev">‹</button>
+      <button class="carousel-button next">›</button>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+    </div>
+  </div>
+
+  <!-- 自我介紹白底卡片 -->
+  <div class="main-wrapper">
+    <div class="about-section">
+      <div class="about-img">
+        <img alt="Kaiyo Photo" src="KAIYO.png"/>
+      </div>
+      <div class="about-text" 
         data-en="Hello, I'm Kaiyo. This is my English introduction." 
         data-ja="こんにちは、Kaiyoです。これは日本語の紹介文です。" 
-        data-zh="你好，我是Kaiyo。這是我的中文介紹。" id="about-text">
+        data-zh="你好，我是Kaiyo。這是我的中文介紹。" 
+        id="about-text">
+      </div>
     </div>
-</div>
-    
-<footer>
+  </div>
+
+  <footer>
     © 2025 Kaiyo
     <div class="social-icons">
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-etsy"></i></a>
-<a href="#"><i class="fas fa-store"></i></a>
-</div>
-</footer>
-<script>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-etsy"></i></a>
+      <a href="#"><i class="fas fa-store"></i></a>
+    </div>
+  </footer>
+
+  <script>
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
     const dots = document.querySelectorAll('.dot');
     const aboutText = document.getElementById('about-text');
-    const titleEls = document.querySelectorAll('.caption-title');
-    const descEls = document.querySelectorAll('.caption-desc');
     const captions = document.querySelectorAll('.caption');
     let currentIndex = 0;
     let currentLang = 'en';
