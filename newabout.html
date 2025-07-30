@@ -15,14 +15,13 @@
       font-family: sans-serif;
     }
     .top-bar {
-      z-index: 9999;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
     .lang-switch {
       font-size: 0.9em;
@@ -114,10 +113,13 @@
         font-size: 2.5em;
         color: #333;
     }
-    .box{
-      width: 50px;
-      height: auto;
-      color: white;
+    .maim-wrapper {
+        background-color: rgba(255, 255, 255, 0.85);
+        max-wedth: 1000px;
+        margin: 120px auto 40px;
+        padding: 30px;
+        border-radius: 21px;
+        box-shadow: 0 0 10px rgba(0,0,0,0,1);
     }
     
     .carousel {
@@ -268,11 +270,11 @@
     </div>
     <div class="box">
         </div>
-    </div class="carousel-dot">
        <span class="dot active" onclick="goToSlide(0)"></span>
        <span class="dot" onclick="goToSlide(1)"></span>
        <span class="dot" onclick="goToSlide(2)"></span>
      </div>
+    <div class="main-wrapper">
      <div class="carousel">
          <div class="carousel-track">
 
@@ -312,20 +314,20 @@
     <span class="dot" onclick="goToSlide(1)"></span>
   </div>
 </div>
-    </header>
-        <h1 id="newabout-title">about</h1>
-    </header>
-</div>
 <div class="about-section">
     <div class="about-img">
-        <img alt="Kaiyo Photo" src="https://via.placeholder.com/300"/>
+        <img alt="Kaiyo Photo" src="KAIYO.png"/>
     </div>
+</div>
+    </div>
+    
     <div class="about-text" 
         data-en="Hello, I'm Kaiyo. This is my English introduction." 
         data-ja="こんにちは、Kaiyoです。これは日本語の紹介文です。" 
         data-zh="你好，我是Kaiyo。這是我的中文介紹。" id="about-text">
-         </div>
+    </div>
 </div>
+    
 <footer>
     © 2025 Kaiyo
     <div class="social-icons">
