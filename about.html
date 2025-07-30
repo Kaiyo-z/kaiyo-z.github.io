@@ -242,13 +242,23 @@
       font-size: 1.5em;
       text-decoration: none;
     }
-    .carousel-slide .caption {
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .carousel-slide.active .caption {
-      opacity: 1;
-    }
+   .carousel-slide .caption {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.7); /* 測試用紅色背景，等等可以改 */
+  padding: 16px 20px;
+  border-radius: 8px;
+  max-width: 60%;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-slide.active .caption {
+  opacity: 1;
+}
   </style>
 </head>
 <body>
