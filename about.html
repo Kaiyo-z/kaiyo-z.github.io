@@ -308,7 +308,7 @@
           data-zh-desc="中文說明" 
           data-zh-title="標題1"
           data-en-desc="Unique Enamel Creations inspired by memories and animal" 
-          data-en-title="Cloisonne Objects & Acessories" 
+          data-en-title="Cloisonne Objects & Accessories" 
           data-ja-desc="思い出や動物をもとにした七宝焼の表現">
           <h2 class="caption-title">cloisonne</h2>
           <p class="caption-desc">English description</p>
@@ -396,8 +396,8 @@ With a hand-drawn warmth and a touch of dreamlike air, I hope my creations quiet
       captions.forEach(caption => {
         const title = caption.querySelector('.caption-title');
         const desc = caption.querySelector('.caption-desc');
-        title.textContent = caption.dataset[`${currentLang}-title`] || caption.dataset['en-title'];
-        desc.textContent = caption.dataset[`${currentLang}-desc`] || caption.dataset['en-desc'];
+        title.textContent = caption.getAttribute(`data-${currentLang}-title`) || caption.getAttribute('data-en-title');
+        desc.textContent = caption.getAttribute(`data-${currentLang}-desc`) || caption.getAttribute('data-en-desc');
       });
       if (aboutText && aboutText.dataset[currentLang]) {
         aboutText.textContent = aboutText.dataset[currentLang];
