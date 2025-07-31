@@ -271,6 +271,15 @@
       gap: 20px;
       z-index: 999;
     }
+
+    .top-bar {
+      z-index: 9999;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     
   </style>
 </head>
@@ -279,13 +288,13 @@
       <div class="name">
         <a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a>
     </div>
-  <div 
+  <div class="top-bar">
     <div class="lang-switch">
       <button onclick="changeLang('en')">EN</button>
       <button onclick="changeLang('ja')">日本語</button>
       <button onclick="changeLang('zh')">中文</button>
     </div>
-    <nav>
+    <nav class="nav">
       <a href="/news.html">News</a>
       <a href="/about.html">About</a>
       <div class="dropdown">
