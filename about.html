@@ -282,11 +282,13 @@
       position: fixed;
       top: 20px;
       right: 20px;
+      left: auto;
       display: flex;
       align-items: center;
       gap: 20px;
       z-index: 9999;
-      max-width: calc(100% -40px);
+      width: max-content;
+      max-width: calc(100% - 40px); /* 留左右 20px 空隙 */
       box-sizing: border-box;
     }
     
