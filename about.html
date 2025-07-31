@@ -17,6 +17,7 @@
       position: relative;
       background: url("wpaper.jpg") no-repeat center center fixed;
       background-size: cover;
+      width: 100%;
     }
 
     .name {
@@ -107,12 +108,12 @@
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      border: 2px dashed red;
+      width: 100%;
     }
 
     .carousel-slide {
       width: 100vw;
-      height: 600px;
+      height: 100vh;
       flex-shrink: 0;
       position: relative;
       opacity: 0;
@@ -130,7 +131,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border: 2px solid blue;
+      display: block
     }
 
     .caption {
@@ -290,6 +291,7 @@
       z-index: 9999;
       width: max-content;
       box-sizing: border-box;
+      background-color: rgba(0,255,0,0.2);
     }
     
   </style>
