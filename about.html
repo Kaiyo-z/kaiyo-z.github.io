@@ -19,9 +19,6 @@
     }
 
     .top-bar {
-      position: fixed;
-      top: 20px;
-      right: 20px;
       z-index: 999;
       display: flex;
       align-items: center;
@@ -30,9 +27,6 @@
     }
 
     .name {
-      position: fixed;
-      top: 20px;
-      left: 20px;
       z-index: 10;
       display: flex;
       align-items: center;
@@ -240,7 +234,7 @@
       text-align: justify;
     }
 
-    footer {
+    .footer {
       text-align: center;
       padding: 20px;
       background-color: #333;
@@ -274,10 +268,21 @@
 .carousel-slide.active .caption {
   opacity: 1;
 }
+.content-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  z-index: 999;
+}
   </style>
 </head>
 <body>
-  <div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a></div>
+  <div class="content-wrapper">
+    <div class="name"><a href="/index.html"><img alt="Kaiyo Icon" src="/KAIYO.png"/></a></div>
   <div class="top-bar">
     <div class="lang-switch">
       <button onclick="changeLang('en')">EN</button>
